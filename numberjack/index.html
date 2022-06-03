@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Jack</title>
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+<body>
+  <!-- header section start -->
+  <header>
+    <div id="logo">
+      number<span>jack</span>
+    </div>
+    <div id="theme">
+      <div id="theme-change"></div>
+    </div>
+  </header>
+  <!-- header section end -->
+
+  <!-- user entries area start -->
+  <div class="user-div-wrapper">
+    <div class="user-div">
+      <h1>lOvE tO cOdE</h1>
+      <p class="message">add persons/computers and a max number<br> to StartGame</p>
+      <!-- inputs area start -->
+      <div class="inputs">
+        <div id="input-el-wrapper">
+          <!-- person input section start -->
+          <input type="number" placeholder="Players" required min="0" max="12" id="input-el-players">
+           <!-- person svg icon -->
+           <svg id="pick-players-icon" class="person-icon" version="1.1" viewBox="0 0 767.77302 800.00001" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+             <mask id="a" maskUnits="userSpaceOnUse">
+              <circle cx="400" cy="400" r="400" color="#000000" color-rendering="auto" fill="#fff" fill-rule="evenodd" image-rendering="auto" shape-rendering="auto" solid-color="#000000" stroke-width="0" style="isolation:auto;mix-blend-mode:normal"/>
+             </mask>
+            </defs>
+            <path transform="matrix(2.4113 0 0 2.4113 -580.63 -564.52)" d="m399.99 234.11c-51.824 2.4e-4 -93.835 42.012-93.835 93.835-6.5e-4 51.824 42.011 93.837 93.835 93.837 51.824-2.3e-4 93.836-42.013 93.835-93.837-2.4e-4 -51.824-42.012-93.835-93.835-93.835zm84.258 185.78c-22.985 21.114-53.047 32.853-84.258 32.901-31.166-0.0566-61.183-11.769-84.151-32.835-46.6 30.851-74.96 85.053-75.04 143.42 0.0313 0.83786 0.0686 1.6754 0.11151 2.5127h318.18c0.0436-0.83725 0.0813-1.6748 0.11311-2.5127-0.0349-58.365-28.354-112.59-74.931-143.48z" color="#000000" color-rendering="auto" image-rendering="auto" mask="url(#a)" shape-rendering="auto" solid-color="#000000" stroke-width="0" style="isolation:auto;mix-blend-mode:normal"/>
+           </svg>
+           <!-- person input section end -->
+           <!-- computers input section start-->
+          <input type="number" placeholder="Computers" required min="0" max="12" id="input-el-computers">
+            <!-- computer svg icon -->
+          <svg id="pick-computers-icon" class="computer-icon" version="1.1" viewBox="0 0 500.00001 500.00001"  xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(0 -552.36)">
+            <path d="m88.033 661.66c-7.0653 0-12.752 5.6886-12.752 12.754v207.45c0 7.0653 5.6867 12.752 12.752 12.752h122.43v39.17h-13.889c-2.5684 0-4.6367 2.0684-4.6367 4.6367 0 2.5684 2.0684 4.6367 4.6367 4.6367h106.85c2.5684 0 4.6367-2.0684 4.6367-4.6367 0-2.5684-2.0684-4.6367-4.6367-4.6367h-13.889v-39.17h122.43c7.0653-1e-5 12.752-5.6867 12.752-12.752v-207.45c0-7.0653-5.6866-12.754-12.752-12.754zm3.4863 15.789h316.96v200.05h-316.96z"/>
+            </g>
+          </svg>
+          <!-- computers input section end -->
+        </div>
+        <input type="number" placeholder="Max Number" required min="21" max="100" id="max-value-el">
+      </div>
+      <!-- inputs area end -->
+      <button class="start-btn">StartGame</button>
+    </div>
+  </div>
+  <!-- user entries area end-->
+
+  <!-- game round counter -->
+  <span class="game-round-el" id="main-game-round-el"></span>
+
+  <!-- about popup start -->
+  <section id="about-wrapper">
+    <div id="about">
+      <div id="about-header">About</div>
+      <div id="about-content">
+        <div class="about-content-item">
+          <h3 class="about-content-item-header">Game play</h3>
+          <p class="about-content-item-text">
+            Enter the number of persons that will play NumberJack in the input box and click/tap on the person icon to select computers too, a max only 12 players are allowed in NumberJack. <br><br>Type in a maximum number between 21 and 100 for 'Max Num' and the click/tap 'start Game' to start.
+          </p>
+        </div>
+        <div class="about-content-item">
+          <p class="about-content-item-text">
+            The Goal of the each player is to try to get the highest score on the score board after an agreed number of rounds.<br><br> A round ends when a player wins. To start a new round, when a player wins tap 'Next Round'.
+          </p>
+        </div>
+        <div class="about-content-item">
+          <h3 class="about-content-item-header">Story</h3>
+          <p class="about-content-item-text">
+              I wanted to learn javascript as my first programming language, so is went on to our trusty YouTube and found a tutorial from the CEO of Scrimba.com. <br><br>
+              In the video he built a simple web 'game' that generated randam numbers when a button is clicked and summed the numbers with each click. <br>
+              It was easy, too easy!, so i challenged myself to build a full funtcioning playable game that could actually be enjoyed. <br><br>
+              So here we are...
+              <br><br>
+             I'm still improving the game and open to suggestions.
+          </p>
+        </div>
+        <div class="about-content-item">
+          <h3 class="about-content-item-header">Soure Code</h3>
+          <a href="https://github.com/nwaohaprecious" id="github">Link to github</a>
+        </div>
+        <div class="about-content-item">
+          <h3 class="about-content-item-header">Developer</h3>
+          <p class="about-content-item-text">
+            I'm Precious Nwaoha,<br>
+            I love to code and i'm trying to learn more and expand my stack.
+            <br><br>
+            Connect:
+            <br>
+            <a href="http://linkedin.com/in/precious04">Linkedin</a>
+            <br>
+            <a href="http://twitter.com/preciousnwaoha">twitter</a>
+          </p>
+        </div>
+      </div>
+      <div id="about-footer">inspired by <span id="scrimba">Scrimba.com</span>
+      </div>
+    </div>
+    <div id="about-btn-wrapper">
+      <div id="about-btn">
+        ?
+      </div>
+    </div>
+  </section>
+  <!-- about popup end -->
+
+  <!-- game area start-->
+  <div class="wrapper" id="wrapper">
+  </div>
+  <!-- game area end -->
+
+  <!-- scoreboard popup start -->
+  <div id="scoreboard-wrapper">
+    <div id="scoreboard-exit">X</div>
+    <div id="scoreboard">
+      <h1 id="scoreboard-header">Scoreboard</h1>
+      <div id="scoreboard-list">
+      </div>
+    </div>
+  </div>
+  <!-- scoreboard popup end -->
+
+  <!-- win animation js file link -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.13/lottie.min.js" integrity="sha512-srGxQe2w7s50+5/nNgEVKYtBm15zRylJwdjxYnGEZr3mmHFJKFjA/ImA2OKizVzoIDX8XISMHDI1+az9pnumbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- main js -->
+  <script src="app/js/script.js"></script>
+</body>
+</html>
