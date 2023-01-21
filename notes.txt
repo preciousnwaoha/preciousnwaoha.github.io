@@ -1,0 +1,23 @@
+* Responsible for creating account dashboards with 9 functions that allows users to view/edit info themselves to cutdown admin work on our part by 60%
+
+
+* Designed and developed the official personal brand website for a celebrity client with over 2 millionfollowers for the agency where fans can connect and stay up to date with their idol.
+
+* Integrated a fully-fledged e-commerce store into the IAMKAFFY website with user authentication and over 50 products listed;
+
+* Installed automated mailing for both the users and admins to increase purchases by 50%.
+
+
+
+* Built a specialized chat application for organizations used to enable efficient communication acrossdifferent levels and between employees increasing decision-making latency by up to 50%.
+
+* Deployed a food order website for FIVAFOODS with card payments featured that produced N25000 in revenue improved by 15%
+
+* Lead fellow interns in a 40-day code challenge where I wrote an open-source encryption algorithm utilizing infinite encrypt sequences to increase message security by 1000x current standards.
+
+
+
+* Contributed a perfect frontend clone of Google's crowdsource app with 4 task types and all 18+ pages to the Dapp project.
+
+
+* Budget tool that allows users to keep track of cash flow in 100+ currencies and cut impulsive spendings by 50%.
