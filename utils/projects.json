@@ -7,7 +7,7 @@
             "categories": ["web-application"],
             "description": "This is the official personal brand website of kaffy the dance Queen. I designed & built this fullstack brand website using React JS, Next.js and FireStore with Cloud Firestore DB, so fun!",
             "date": "2022",
-            "github": "https://github.com/preciousnwaoha/kaffy-brand-site",
+            "github": "https://github.com/preciousnwaoha/iamkaffy-brand-website",
             "link": "https://iamkaffy.com",
             "tools": ["Next.js", "Node.js", "Firebase", "Javascript", "CSS", "SendinBlue API"],
             "client": "Blueportal"
@@ -19,7 +19,7 @@
             "categories": ["blockchain"],
             "description": "This a a Payment service and crypto wallet that allows users to make non-anonymous crypto transactions over the blockchain using a token i created called HUcoin. Businesses can also created payment pages to recieve payments from customers.",
             "date": "2022",
-            "github": "https://github.com/preciousnwaoha/huypay",
+            "github": "https://github.com/preciousnwaoha/hupay",
             "link": "https://hupay.netlify.app",
             "tools": ["React.js", "Redux", "Node.js", "Javascript", "Express", "MongoDB", "Bunzz", "CSS"],
             "client": "Blockchain Hub Africa"
@@ -31,7 +31,7 @@
             "categories": ["web-application"],
             "description": "It's E-commerce web application, an online store with feature like Transactional emails, reviews, Accounts and more. This project ha gone to production!",
             "date": "2022",
-            "github": "https://github.com/preciousnwaoha/kaffy-brand-site",
+            "github": "https://github.com/preciousnwaoha/iamkaffy-brand-website",
             "link": "https://iamkaffy.com/store",
             "tools": ["Next.js", "SendinBlue API", "Firebase", "Node.js"],
             "client": "Blueportal"
@@ -67,7 +67,7 @@
             "categories": ["blockchain"],
             "description": "Team project built during the Polygon Africa Bootcamp. I handled the frontend Web3 aspects. This app allows users to create a will of which their crypto assets (Tokens and NFTs)  would be disbursed to specified beneficiaries upon inactivity",
             "date": "2022",
-            "github": "https://github.com/grewshaustrustee",
+            "github": "https://github.com/greyshaws/project-trustee",
             "link": "https://trustee.vercel.app",
             "tools": ["Next.js", "Solidity", "Ethers.js", "Hardhat", "Material UI"],
             "client": "Polygon Africa"
@@ -81,7 +81,7 @@
             "description": "Site for Storing and Viewing Meal Recipes",
             "date": "2022",
             "github": "https://github.com/preciousnwaoha/simply-recipes",
-            "link": "https://simply-recipees.netlify.app",
+            "link": "https://simplyrecipees.netlify.app",
             "tools": ["Gatsby JS", "Graph QL", "Contentful CMS", "Javascript", "CSS"],
             "client": "Personal Learning"
         },
@@ -105,7 +105,7 @@
             "description": "The goal of this game is to be the last man standing after all players hit the set max number, after an agreed number of rounds.<br> I was inspired to build this game when i saw Pearl Harnald CEO of Scrimba.com in a javascript tutorial, he made a simple blackjack game that has 2 buttons (drawcard and skipturn). <br> So i decided to upgrade the game, <b>adding computers, multiplayer, randomization, rounds, scoreboards etc</b> it has been really fun and is still in work.<br>I used HTML, SCSS, and Vanilla Javascript",
             "date": "2021",
             "github": "https://github.com/preciousnwaoha/numberjack",
-            "link": "https://number-jack.netlify.app",
+            "link": "https://numberjack.netlify.app",
             "tools": ["Javascript", "HTML5", "CSS3"],
             "client": "Opensource"
         },
@@ -117,7 +117,7 @@
             "description": "This is a fun 2d ball shooting game I built as an opensource enthusiast to learn HTML Canvas development. bet you can't score above 15,000",
             "date": "2021",
             "github": "https://github.com/preciousnwaoha/ball-shooter",
-            "link": "https://ball-shooter.netlify.app",
+            "link": "https://ball-shooter-v1.netlify.app",
             "tools": ["HTML Canvas", "Javascript", "CSS"],
             "client": "Opensource"
         },
@@ -132,7 +132,7 @@
             "github": "https://github.com/preciousnwaoha/food-order-app",
             "link": "https://fivafood.netlify.app",
             "tools": ["React.js", "CSS", "JSON", "HTML"],
-            "client": "Blueportal"
+            "client": "Personal"
         },
         {
             "name": "University Website",
@@ -141,7 +141,7 @@
             "categories": ["design"],
             "description": "Static Site Build",
             "date": "2021",
-            "github": "https://github.com/preciousnwaoha/leads-tracker",
+            "github": "https://github.com/preciousnwaoha/university-website",
             "link": "https://university-v1.netlify.app",
             "tools": ["HTML", "SCSS", "JS"],
             "client": "Personal"
@@ -153,7 +153,7 @@
             "categories": ["design"],
             "description": "Static Site Build",
             "date": "2021",
-            "github": "https://github.com/preciousnwaoha/leads-tracker",
+            "github": "https://github.com/preciousnwaoha/ps4-landing-page",
             "link": "https://ps4-v1.netlify.app",
             "tools": ["HTML", "SCSS", "JS"],
             "client": "Personal"

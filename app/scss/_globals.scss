@@ -24,12 +24,14 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*::after,
-*::before {
-  box-sizing: inherit;
+*, *::before, *::after {
+  box-sizing: border-box;
   outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
+
 
 /* override custom css variables for dark theme  */
 body.dark {

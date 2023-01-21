@@ -48,6 +48,9 @@
     max-width: 450px;
     margin: auto;
   }
+  .about-section .scroll-down {
+    display: none;
+  }
   .about-section .skills.tab-content.active {
     flex-direction: column;
     justify-content: center;
@@ -55,21 +58,9 @@
     padding: 15px;
     height: 900px;
   }
-  .about-section .skills {
-    border: 1px solid red ;
-    display: block;
-  }
   .about-section .skills .skills-item {
-    /* width: 100%; */
-    position: relative;
-    min-height: 300px;
-    margin: 40px auto;
-    border: 1px solid green;
-  }
-
-  .about-section .skills-item-box {
-    border: 1px solid blue;
-    margin: 200px;
+    width: 100%;
+    height: 50%;
   }
   .about-section .skills .skills-item:nth-child(1) {
     border-bottom: 2px solid var(--bg-black-100);
