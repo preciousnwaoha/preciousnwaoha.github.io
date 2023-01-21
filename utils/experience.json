@@ -1,0 +1,55 @@
+{
+    "experiences": [
+        {
+            "role": "Frontend Developer",
+            "company": "Shoppleverse",
+            "date": "Jun 2022 - present (8 mos)",
+            "location": "remote",
+            "details": [
+                "Developed",
+                "Developed"
+            ]
+        },
+        {
+            "role": "Blockchain Developer Intern",
+            "company": "Blockchain Hub Africa",
+            "date": "Apr 2022 - Jun 2022 (3 mos)",
+            "location": "remote",
+            "details": [
+                "Developed",
+                "Developed"
+            ]
+        },
+        {
+            "role": "Website Developer - Next.js (Contract)",
+            "company": "Blueportal",
+            "date": "Apr 2022 - Jun 2022 (3 mos)",
+            "location": "remote",
+            "details": [
+                "Developed",
+                "Developed"
+            ]
+        },
+        {
+            "role": "Frontend Web & AI Intern",
+            "company": "Roar Nigeria",
+            "date": "Nov 2021 - May 2022 (7 mos)",
+            "location": "Enugu Nigeria",
+            "details": [
+                "Developed",
+                "Developed"
+            ]
+        },
+        {
+            "role": "Freelance Web/C++ Coder",
+            "company": "Self-Employed",
+            "date": "Sept 2020 - Oct 2021 (1 yr 1 mos)",
+            "location": "Enugu Nigeria",
+            "details": [
+                "Developed",
+                "Developed"
+            ]
+        }
+    ]
+    
+}

@@ -1,0 +1,35 @@
+{
+    "services": [
+        {
+            "name": "Website Developement",
+            "text": "Build awesome user experiencing while maintaining a beautiful UI",
+            "icon": "<i class=\"fas fa-laptop-code\"></i>"
+        },
+        {
+            "name": "Web3 Developemnt",
+            "text": "I can build you Token ICO, NFT Marketplace, or Dapps in no time",
+            "icon": "<i class=\"fas fa-laptop-code\"></i>"
+        },
+        {
+            "name": "Smart Contract Developemnt/Audits",
+            "text": "I write and audit smart contracts in Solidty, Ethers.js etc.",
+            "icon": "<i class=\"fas fa-bullhorn\"></i>"
+        },
+        {
+            "name": "Clean Code",
+            "text": "With my knowledge of DSA, SEO and Software Enginneering i will structure your code to fit its purpose",
+            "icon": "<i class=\"fas fa-code\"></i>"
+        },
+        {
+            "name": "Graphic/Logo Designer",
+            "text": "Having built a lot of projects i've had to make a lot of logos.",
+            "icon": "<i class=\"fas fa-palette\"></i>"
+        },
+        {
+            "name": "SEO - Digital Marketing",
+            "text": "What are the best ways to gain your prescence online?",
+            "icon": "<i class=\"fas fa-search\"></i>"
+        }
+    ]
+
+}

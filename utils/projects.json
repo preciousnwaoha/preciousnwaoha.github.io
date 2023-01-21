@@ -1,0 +1,162 @@
+{
+    "projects": [
+        {
+            "name": "Kaffy Inc",
+            "thumbnail": "/img/portfolio/thumb/kaffy.png",
+            "imgs": "/img/portfolio/large/kaffy/1.png, portfolio/img/portfolio/large/kaffy/2.png, portfolio/img/portfolio/large/kaffy/3.png, portfolio/img/portfolio/large/kaffy/4.png, portfolio/img/portfolio/large/kaffy/5.png, portfolio/img/portfolio/large/kaffy/6.png",
+            "categories": ["web-application"],
+            "description": "This is the official personal brand website of kaffy the dance Queen. I designed & built this fullstack brand website using React JS, Next.js and FireStore with Cloud Firestore DB, so fun!",
+            "date": "2022",
+            "github": "https://github.com/preciousnwaoha/kaffy-brand-site",
+            "link": "https://iamkaffy.com",
+            "tools": ["Next.js", "Node.js", "Firebase", "Javascript", "CSS", "SendinBlue API"],
+            "client": "Blueportal"
+        },
+        {
+            "name": "Huypay",
+            "thumbnail": "/img/portfolio/thumb/hupay.png",
+            "imgs": "/img/portfolio/large/hupay/1.png, /img/portfolio/large/hupay/2.png,/img/portfolio/large/hupay/3.png, /img/portfolio/large/hupay/4.png, /img/portfolio/large/hupay/5.png, /img/portfolio/large/hupay/6.png",
+            "categories": ["blockchain"],
+            "description": "This a a Payment service and crypto wallet that allows users to make non-anonymous crypto transactions over the blockchain using a token i created called HUcoin. Businesses can also created payment pages to recieve payments from customers.",
+            "date": "2022",
+            "github": "https://github.com/preciousnwaoha/huypay",
+            "link": "https://hupay.netlify.app",
+            "tools": ["React.js", "Redux", "Node.js", "Javascript", "Express", "MongoDB", "Bunzz", "CSS"],
+            "client": "Blockchain Hub Africa"
+        },
+        {
+            "name": "Kaffy Store",
+            "thumbnail": "/img/portfolio/thumb/kaffy-store.png",
+            "imgs": "/img/portfolio/large/kaffy-store/1.png, portfolio/img/portfolio/large/kaffy-store/2.png, portfolio/img/portfolio/large/kaffy-store/3.png, portfolio/img/portfolio/large/kaffy-store/4.png, portfolio/img/portfolio/large/kaffy-store/5.png, portfolio/img/portfolio/large/kaffy-store/6.png",
+            "categories": ["web-application"],
+            "description": "It's E-commerce web application, an online store with feature like Transactional emails, reviews, Accounts and more. This project ha gone to production!",
+            "date": "2022",
+            "github": "https://github.com/preciousnwaoha/kaffy-brand-site",
+            "link": "https://iamkaffy.com/store",
+            "tools": ["Next.js", "SendinBlue API", "Firebase", "Node.js"],
+            "client": "Blueportal"
+        },
+        {
+            "name": "Flog",
+            "thumbnail": "/img/portfolio/thumb/flog.png",
+            "imgs": "/img/portfolio/large/flog/1.png, portfolio/img/portfolio/large/flog/2.png, portfolio/img/portfolio/large/flog/3.png, portfolio/img/portfolio/large/flog/4.png",
+            "categories": ["web-application"],
+            "description": "Flog is a Finance logger app, It helps keep track of cach ins and outs in your life!",
+            "date": "2023",
+            "github": "https://github.com/preciousnwaoha/flog",
+            "link": "https://floger.netlify.app",
+            "tools": ["HTML5", "Typescript", "Currency API", "CSS"],
+            "client": "Opensource"
+        },
+        {
+            "name": "Crowdsource NSK.AI",
+            "thumbnail": "/img/portfolio/thumb/crowdsource.png",
+            "imgs": "/img/portfolio/large/crowdsource/1.png, portfolio/img/portfolio/large/crowdsource/2.png",
+            "categories": ["web-application"],
+            "description": "Perfect clone of google crowdsource app frontend.",
+            "date": "2022",
+            "github": "https://github.com/preciousnwaoha/crowdsource_by_nsk-ai",
+            "link": "https://crowdsource-nsk.netlify.app",
+            "tools": ["React.js", "Typescript", "Javascript", "Material UI"],
+            "client": "Blueportal"
+        },
+        {
+            "name": "Trustee",
+            "thumbnail": "/img/portfolio/thumb/trustee.png",
+            "imgs": "/img/portfolio/large/trustee/1.png",
+            "categories": ["blockchain"],
+            "description": "Team project built during the Polygon Africa Bootcamp. I handled the frontend Web3 aspects. This app allows users to create a will of which their crypto assets (Tokens and NFTs)  would be disbursed to specified beneficiaries upon inactivity",
+            "date": "2022",
+            "github": "https://github.com/grewshaustrustee",
+            "link": "https://trustee.vercel.app",
+            "tools": ["Next.js", "Solidity", "Ethers.js", "Hardhat", "Material UI"],
+            "client": "Polygon Africa"
+        },
+        
+        {
+            "name": "Simply Recipes",
+            "thumbnail": "/img/portfolio/thumb/simply-recipes.png",
+            "imgs": "/img/portfolio/large/simply-recipes/1.png, portfolio/img/portfolio/large/simply-recipes/2.png, portfolio/img/portfolio/large/simply-recipes/3.png, portfolio/img/portfolio/large/simply-recipes/4.png, portfolio/img/portfolio/large/simply-recipes/5.png",
+            "categories": ["web-application"],
+            "description": "Site for Storing and Viewing Meal Recipes",
+            "date": "2022",
+            "github": "https://github.com/preciousnwaoha/simply-recipes",
+            "link": "https://simply-recipees.netlify.app",
+            "tools": ["Gatsby JS", "Graph QL", "Contentful CMS", "Javascript", "CSS"],
+            "client": "Personal Learning"
+        },
+        {
+            "name": "Personal Portfolio",
+            "thumbnail": "/img/portfolio/thumb/portfolio.png",
+            "imgs": "/img/portfolio/large/portfolio/1.png, portfolio/img/portfolio/large/portfolio/2.png, portfolio/img/portfolio/large/portfolio/3.png, portfolio/img/portfolio/large/portfolio/4.png, portfolio/img/portfolio/large/portfolio/5.png, portfolio/img/portfolio/large/portfolio/6.png, portfolio/img/portfolio/large/portfolio/7.png, portfolio/img/portfolio/large/portfolio/8.png, portfolio/img/portfolio/large/portfolio/9.png, portfolio/img/portfolio/large/portfolio/10.png",
+            "categories": ["web-application"],
+            "description": "I built my portfolio website using only HTML, SCSS and JavaScript, i also integrated an email sending API to help me recieve emails from you.",
+            "date": "2021",
+            "github": "https://github.com/preciousnwaoha/preciousnwaoha",
+            "link": "/",
+            "tools": ["Javascript", "HTML5", "Formspree", "SASS", "CSS"],
+            "client": "Personal"
+        },
+        {
+            "name": "Number Jack",
+            "thumbnail": "/img/portfolio/thumb/number-jack.png",
+            "imgs": "/img/portfolio/large/number-jack/1.png, portfolio/img/portfolio/large/number-jack/2.png, portfolio/img/portfolio/large/number-jack/3.png, portfolio/img/portfolio/large/number-jack/4.png, portfolio/img/portfolio/large/number-jack/5.png, portfolio/img/portfolio/large/number-jack/6.png, portfolio/img/portfolio/large/number-jack/7.png, portfolio/img/portfolio/large/number-jack/8.png,",
+            "categories": ["game"],
+            "description": "The goal of this game is to be the last man standing after all players hit the set max number, after an agreed number of rounds.<br> I was inspired to build this game when i saw Pearl Harnald CEO of Scrimba.com in a javascript tutorial, he made a simple blackjack game that has 2 buttons (drawcard and skipturn). <br> So i decided to upgrade the game, <b>adding computers, multiplayer, randomization, rounds, scoreboards etc</b> it has been really fun and is still in work.<br>I used HTML, SCSS, and Vanilla Javascript",
+            "date": "2021",
+            "github": "https://github.com/preciousnwaoha/numberjack",
+            "link": "https://number-jack.netlify.app",
+            "tools": ["Javascript", "HTML5", "CSS3"],
+            "client": "Opensource"
+        },
+        {
+            "name": "Ball Shooter",
+            "thumbnail": "/img/portfolio/thumb/ball-shooter.png",
+            "imgs": "/img/portfolio/large/ball-shooter/1.png, portfolio/img/portfolio/large/ball-shooter/2.png, portfolio/img/portfolio/large/ball-shooter/3.png, portfolio/img/portfolio/large/ball-shooter/4.png",
+            "categories": ["game"],
+            "description": "This is a fun 2d ball shooting game I built as an opensource enthusiast to learn HTML Canvas development. bet you can't score above 15,000",
+            "date": "2021",
+            "github": "https://github.com/preciousnwaoha/ball-shooter",
+            "link": "https://ball-shooter.netlify.app",
+            "tools": ["HTML Canvas", "Javascript", "CSS"],
+            "client": "Opensource"
+        },
+    
+        {
+            "name": "FIVA FOODS Order Site",
+            "thumbnail": "/img/portfolio/thumb/fivafoods.png",
+            "imgs": "/img/portfolio/large/fivafoods/1.png",
+            "categories": ["web-application"],
+            "description": "Website to view meals and order.",
+            "date": "2021",
+            "github": "https://github.com/preciousnwaoha/food-order-app",
+            "link": "https://fivafood.netlify.app",
+            "tools": ["React.js", "CSS", "JSON", "HTML"],
+            "client": "Blueportal"
+        },
+        {
+            "name": "University Website",
+            "thumbnail": "/img/portfolio/thumb/university.png",
+            "imgs": "/img/portfolio/large/university/1.png, /img/portfolio/large/university/2.png, /img/portfolio/large/university/3.png",
+            "categories": ["design"],
+            "description": "Static Site Build",
+            "date": "2021",
+            "github": "https://github.com/preciousnwaoha/leads-tracker",
+            "link": "https://university-v1.netlify.app",
+            "tools": ["HTML", "SCSS", "JS"],
+            "client": "Personal"
+        },
+        {
+            "name": "PS4 Landing Page",
+            "thumbnail": "/img/portfolio/thumb/ps4.png",
+            "imgs": "/img/portfolio/large/ps4/1.png, /img/portfolio/large/ps4/2.png, /img/portfolio/large/ps4/3.png",
+            "categories": ["design"],
+            "description": "Static Site Build",
+            "date": "2021",
+            "github": "https://github.com/preciousnwaoha/leads-tracker",
+            "link": "https://ps4-v1.netlify.app",
+            "tools": ["HTML", "SCSS", "JS"],
+            "client": "Personal"
+        }
+    ]
+}
