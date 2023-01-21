@@ -11,7 +11,7 @@
             "icon": "<i class=\"fas fa-laptop-code\"></i>"
         },
         {
-            "name": "Smart Contract Developemnt/Audits",
+            "name": "Smart Contract Developement/Audits",
             "text": "I write and audit smart contracts in Solidty, Ethers.js etc.",
             "icon": "<i class=\"fas fa-bullhorn\"></i>"
         },
