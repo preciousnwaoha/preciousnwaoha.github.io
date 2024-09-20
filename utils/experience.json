@@ -1,55 +1,61 @@
 {
-    "experiences": [
-        {
-            "role": "Frontend Developer",
-            "company": "Shoppleverse",
-            "date": "Jun 2022 - present (8 mos)",
-            "location": "remote",
-            "details": [
-                "Developed",
-                "Developed"
-            ]
-        },
-        {
-            "role": "Blockchain Developer Intern",
-            "company": "Blockchain Hub Africa",
-            "date": "Apr 2022 - Jun 2022 (3 mos)",
-            "location": "remote",
-            "details": [
-                "Developed",
-                "Developed"
-            ]
-        },
-        {
-            "role": "Website Developer - Next.js (Contract)",
-            "company": "Blueportal",
-            "date": "Apr 2022 - Jun 2022 (3 mos)",
-            "location": "remote",
-            "details": [
-                "Developed",
-                "Developed"
-            ]
-        },
-        {
-            "role": "Frontend Web & AI Intern",
-            "company": "Roar Nigeria",
-            "date": "Nov 2021 - May 2022 (7 mos)",
-            "location": "Enugu Nigeria",
-            "details": [
-                "Developed",
-                "Developed"
-            ]
-        },
-        {
-            "role": "Freelance Web/C++ Coder",
-            "company": "Self-Employed",
-            "date": "Sept 2020 - Oct 2021 (1 yr 1 mos)",
-            "location": "Enugu Nigeria",
-            "details": [
-                "Developed",
-                "Developed"
-            ]
-        }
-    ]
-    
+  "experiences": [
+    {
+      "role": "Fullstack Engineer",
+      "company": "Inkspiff",
+      "date": "May 2023 - present (1 yr 6 mos)",
+      "location": "remote US",
+      "details": [
+        "Built a full-stack AI dev tool that documents any codebase in 1 minute using NextJS, NodeJS, and SQL that generated $7k.",
+        "Led migration of the database and server from Firebase to PostgreSQL with Prisma ORM which saved the startup $5000.",
+        "Coded leads scrapper, waitlist site, and free markdown tools, generating 100k leads & 1k+ signups in Python, and Next.js."
+      ]
+    },
+    {
+      "role": "Frontend Developer",
+      "company": "Shoppleverse",
+      "date": "Jun 2022 - Jun 2023 (1 yr)",
+      "location": "remote",
+      "details": [
+        "Built the front-end of a web3 e-commerce marketplace that allows thousands of users to purchase products using crypto.",
+        "Developed the waiting list site used for the product launch that yielded 250+ of leads.",
+        "Spearheaded the refinement of the business model, using YC guides, resulting in more than 50% better market positioning."
+      ]
+    },
+    {
+      "role": "Blockchain Developer Intern",
+      "company": "Blockchain Hub Africa",
+      "date": "Apr 2022 - Jun 2022 (3 mos)",
+      "location": "remote",
+      "details": ["Developed non-anonymous payment service that won 1st place in Blockchain Hub Africa Hackathon."]
+    },
+    {
+      "role": "Contract Fullstack Developer - (Next.js)",
+      "company": "Blueportal",
+      "date": "Apr 2022 - Jun 2022 (3 mos)",
+      "location": "remote",
+      "details": [
+        "Designed and developed the official personal brand website for an over 2 million followers client fan base.",
+        "Integrated full fledged e-commerce store with payments & emails, selling 100+ products using ReactJS and Firebase."
+      ]
+    },
+    {
+      "role": "Frontend Web & AI Intern",
+      "company": "Roar Nigeria",
+      "date": "Nov 2021 - May 2022 (7 mos)",
+      "location": "Enugu Nigeria",
+      "details": [
+        "Engineered a work chat app tested at an accelerator to improve efficiency in teams by +50% by cutting decision time.",
+        "Developed",
+        "Led fellow interns in a 40-day code challenge that improved team technical proficiencies and collaboration."
+      ]
+    },
+    {
+      "role": "Freelance Web/C++ Coder",
+      "company": "Self-Employed",
+      "date": "May 2020 - Oct 2021 (1 yr 6 mos)",
+      "location": "Enugu Nigeria",
+      "details": []
+    }
+  ]
 }

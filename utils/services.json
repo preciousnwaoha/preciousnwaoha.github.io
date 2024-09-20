@@ -6,6 +6,11 @@
             "icon": "<i class=\"fas fa-laptop-code\"></i>"
         },
         {
+            "name": "App Developemnt",
+            "text": "React native apps are always a good choice for a fast and reliable app",
+            "icon": "<i class=\"fas fa-laptop-code\"></i>"
+        },
+        {
             "name": "Web3 Developemnt",
             "text": "I can build you Token ICO, NFT Marketplace, or Dapps in no time",
             "icon": "<i class=\"fas fa-laptop-code\"></i>"
