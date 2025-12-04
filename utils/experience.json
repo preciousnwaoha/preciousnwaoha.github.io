@@ -1,10 +1,20 @@
 {
   "experiences": [
     {
-      "role": "Fullstack Engineer",
+      "role": "AI & Fullstack Engineer",
       "company": "Inkspiff",
-      "date": "May 2023 - present (1 yr 6 mos)",
+      "date": "March 2025 - present (10 mos)",
       "location": "remote US",
+      "details": [
+        "Delivered 2 production AI features (Health Info & Multimodal Help) that added a subscription model to the business, by integrating LLMs, Nest.js and prompt engineering.",
+        "Released opensource codebase for integrating 4 different LLM SDKs into one Nest.js backend saving over 90% starter time."
+      ]
+    },
+    {
+      "role": "Principal Fullstack Engineer",
+      "company": "Inkspiff",
+      "date": "May 2023 - February 2025 (1 yr 10 mos)",
+      "location": "remote, US",
       "details": [
         "Built a full-stack AI dev tool that documents any codebase in 1 minute using NextJS, NodeJS, and SQL that generated $7k.",
         "Led migration of the database and server from Firebase to PostgreSQL with Prisma ORM which saved the startup $5000.",
@@ -12,10 +22,21 @@
       ]
     },
     {
+      "role": "Contract Frontend Developer (Mobile - React Native)",
+      "company": "Popla",
+      "date": "Jan 2024 - April 2024 (4 mos)",
+      "location": "remote, Lagos",
+      "details": [
+        "Worked with a remote team on a contract and built the frontend of an app that allows users create and join live DJ sessions (parties) using location servicies with React Native, Typescript, and CSS.",
+        "Implemented real-time features using Websockets that allowed users to see live updates of songs being played, users joining/leaving sessions, and chat messages.",
+        "Collaborated with backend developers to integrate RESTful APIs and ensure seamless data flow between frontend and backend systems."
+      ]
+    },
+    {
       "role": "Frontend Developer",
       "company": "Shoppleverse",
       "date": "Jun 2022 - Jun 2023 (1 yr)",
-      "location": "remote",
+      "location": "remote, Lagos",
       "details": [
         "Built the front-end of a web3 e-commerce marketplace that allows thousands of users to purchase products using crypto.",
         "Developed the waiting list site used for the product launch that yielded 250+ of leads.",
@@ -25,15 +46,15 @@
     {
       "role": "Blockchain Developer Intern",
       "company": "Blockchain Hub Africa",
-      "date": "Apr 2022 - Jun 2022 (3 mos)",
-      "location": "remote",
+      "date": "June 2022 - Sept 2022 (4 mos)",
+      "location": "remote, Enugu",
       "details": ["Developed non-anonymous payment service that won 1st place in Blockchain Hub Africa Hackathon."]
     },
     {
       "role": "Contract Fullstack Developer - (Next.js)",
       "company": "Blueportal",
       "date": "Apr 2022 - Jun 2022 (3 mos)",
-      "location": "remote",
+      "location": "remote, Lagos",
       "details": [
         "Designed and developed the official personal brand website for an over 2 million followers client fan base.",
         "Integrated full fledged e-commerce store with payments & emails, selling 100+ products using ReactJS and Firebase."
@@ -52,7 +73,7 @@
     },
     {
       "role": "Freelance Web/C++ Coder",
-      "company": "Self-Employed",
+      "company": "GuideToPhone, Youtube",
       "date": "May 2020 - Oct 2021 (1 yr 6 mos)",
       "location": "Enugu Nigeria",
       "details": []

@@ -1,16 +1,16 @@
 {
-    "educations": [
-        {
-            "name": "B.Sc Electrical Engineering",
-            "date": "Sept 2017 - present",
-            "institution": "University of Nigeria",
-            "info": "Programming coursework: Algorithms and Data Structures, Networks, Operating Systems,APIs, OOP, Functional & Asynchronous Programming. EE Coursework: Embedded Systems, IoT, Circuits, Logic Design, Computer Arch, Signal Processing, Quantization."
-        },
-        {
-            "name": "Software Engineering Program",
-            "date": "May 2022 - 2023",
-            "institution": "ALX",
-            "info": "Bash, Python Programming, DSA, Dev ops."
-        }
-    ]
+  "educations": [
+    {
+      "name": "B.Sc Electrical Engineering",
+      "date": "November 2017 - December 2024",
+      "institution": "University of Nigeria",
+      "info": "Programming coursework: Algorithms and Data Structures, Networks, Operating Systems,APIs, OOP, Functional & Asynchronous Programming. EE Coursework: Embedded Systems, IoT, Circuits, Logic Design, Computer Arch, Signal Processing, Quantization."
+    },
+    {
+      "name": "Software Engineering Program",
+      "date": "May 2022 - 2023",
+      "institution": "ALX (6 months)",
+      "info": "Bash, Python Programming, DSA, Dev ops."
+    }
+  ]
 }

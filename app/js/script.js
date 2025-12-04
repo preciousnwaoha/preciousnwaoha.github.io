@@ -104,9 +104,7 @@
       .then((data) => {
         const { experiences } = data;
         for (let i = 0; i < experiences.length; i++) {
-          const expBullets = experiences[i].details.map(
-            (detail) => detail
-          );
+          const expBullets = experiences[i].details.map((detail) => detail);
 
           expTimelineWrapper.innerHTML += `
               <!-- timeline item start -->
@@ -207,11 +205,16 @@ function bodyScrollingToggle() {
         const { projects } = data;
 
         for (let i = 0; i < projects.length; i++) {
+          // Create a URL-friendly slug from the project name
+          // e.g., "Velin AI" becomes "velin-ai"
+          const projectSlug = projects[i].name.toLowerCase().split(" ").join("-").replace(/[^a-z0-9-]/g, '');
+
+
           projectsItemsWrapper.innerHTML += `
           <!-- portfolio item start -->
           <div class="portfolio-item" data-category="${projects[
             i
-          ].categories.join(" ")}">
+          ].categories.join(" ")}" data-slug="${projectSlug}">
             <div class="portfolio-item-inner outer-shadow">
               <div class="portfolio-item-img">
                 <img src="${
@@ -261,8 +264,9 @@ function bodyScrollingToggle() {
           prevBtn = popup.querySelector(".pp-prev"),
           nextBtn = popup.querySelector(".pp-next"),
           closeBtn = popup.querySelector(".pp-close"),
-          projectContainer = popup.querySelector(".pp-details"),
+          projectDetailsContainer = popup.querySelector(".pp-details"),
           projectDetailsBtn = popup.querySelector(".pp-project-details-btn");
+
         let itemIndex, slideIndex, screenshots;
 
         /* filter portfolio items */
@@ -282,10 +286,13 @@ function bodyScrollingToggle() {
             const target = event.target.getAttribute("data-target");
             let checkIfNoData = true;
             portfolioItems.forEach((item) => {
-              if (
-                target === item.getAttribute("data-category") ||
-                target === "all"
-              ) {
+              // 1. Get the categories string and split it into an array
+              const itemCategories = item
+                .getAttribute("data-category")
+                .split(" ");
+
+              // 2. Check if the array INCLUDES the target (or if target is 'all')
+              if (itemCategories.includes(target) || target === "all") {
                 item.classList.remove("hide");
                 item.classList.add("show");
                 checkIfNoData = false;
@@ -314,10 +321,19 @@ function bodyScrollingToggle() {
             itemIndex = Array.from(
               portfolioItem.parentElement.children
             ).indexOf(portfolioItem);
-            screenshots = portfolioItems[itemIndex]
-              .querySelector(".portfolio-item-img img")
-              .getAttribute("data-screenshots");
-            // convert screenshots into array
+
+            // FIX 3: Set URL Hash when opening project
+            const slug = portfolioItems[itemIndex].getAttribute("data-slug");
+            window.location.hash = slug;
+
+
+            openPopup();
+          }
+        });
+
+        // Helper function to handle opening logic (reused for click and load)
+        function openPopup() {
+            screenshots = portfolioItems[itemIndex].querySelector(".portfolio-item-img img").getAttribute("data-screenshots");
             screenshots = screenshots.split(",");
             if (screenshots.length === 1) {
               prevBtn.style.display = "none";
@@ -330,14 +346,17 @@ function bodyScrollingToggle() {
             popupToggle();
             popupSlideshow();
             popupDetails();
-          }
-        });
+        }
 
         closeBtn.addEventListener("click", () => {
           popupToggle();
           if (projectDetailsContainer.classList.contains("active")) {
             popupDetailsToggle();
           }
+
+          // FIX 3: Reset URL to #portfolio when closing
+          window.location.hash = "portfolio";
+
         });
 
         function popupToggle() {
@@ -413,6 +432,7 @@ function bodyScrollingToggle() {
         projectDetailsBtn.addEventListener("click", () => {
           popupDetailsToggle();
         });
+
         function popupDetailsToggle() {
           if (projectDetailsContainer.classList.contains("active")) {
             projectDetailsBtn.querySelector("i").classList.remove("fa-minus");
@@ -428,6 +448,25 @@ function bodyScrollingToggle() {
               projectDetailsContainer.scrollHeight + "px";
             popup.scrollTo(0, projectDetailsContainer.offsetTop);
           }
+        }
+
+         /* ----------------------------------------------------- */
+        /* FIX 3 part 2: Check URL on Load for Project Deep Link */
+        /* ----------------------------------------------------- */
+        const currentHash = window.location.hash.substring(1); // remove '#'
+        if(currentHash && currentHash !== 'portfolio' && currentHash !== 'home' && currentHash !== 'about' && currentHash !== 'contact' && currentHash !== 'services') {
+            // Find project with matching slug
+            portfolioItems.forEach((item, index) => {
+                if(item.getAttribute('data-slug') === currentHash) {
+                    // Activate portfolio section first (in case we landed here directly)
+                    document.querySelector(".section.active").classList.remove("active");
+                    document.querySelector("#portfolio").classList.add("active");
+                    document.querySelector("#portfolio").classList.remove("hide");
+                    
+                    itemIndex = index;
+                    openPopup();
+                }
+            });
         }
       });
   };
@@ -454,4 +493,33 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     document.querySelector(".preloader").style.display = "none";
   }, 600);
+
+  // Check if there is a hash in the URL (e.g., #portfolio)
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    // Check if a section with this ID exists
+    if (document.querySelector(hash) && document.querySelector(hash).classList.contains("section")) {
+      // Deactivate Home (or currently active section)
+      document.querySelector(".section.active").classList.add("hide");
+      document.querySelector(".section.active").classList.remove("active");
+      
+      // Activate the requested section
+      document.querySelector(hash).classList.add("active");
+      document.querySelector(hash).classList.remove("hide");
+
+      // Update Navigation Menu Active State
+      const navMenu = document.querySelector(".nav-menu");
+      const navItems = navMenu.querySelectorAll(".link-item");
+      navItems.forEach((item) => {
+        if (hash === item.hash) {
+          // Deactivate others
+          navMenu.querySelector(".active").classList.add("outer-shadow", "hover-in-shadow");
+          navMenu.querySelector(".active").classList.remove("active", "inner-shadow");
+          // Activate this one
+          item.classList.add("active", "inner-shadow");
+          item.classList.remove("outer-shadow", "hover-in-shadow");
+        }
+      });
+    }
+  }
 });
