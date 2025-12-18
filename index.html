@@ -16,8 +16,14 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- font awesome -->
-    <link rel="stylesheet" href="/dist/font-awesome.css" />
+    <!-- font awesome (load non-blocking) -->
+    <link
+      rel="preload"
+      href="/dist/font-awesome.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="/dist/font-awesome.css" /></noscript>
     <!-- main css -->
     <link rel="stylesheet" href="/dist/styles.css" />
     <!-- responsive css -->
@@ -59,7 +65,65 @@
       href="/dist/skins/color-5.css"
       disabled
     />
-    <link rel="stylesheet" href="/dist/style-switcher.css" />
+    <!-- style switcher - load non-blocking (demo only) -->
+    <link
+      rel="preload"
+      href="/dist/style-switcher.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="/dist/style-switcher.css"
+    /></noscript>
+    <!-- Animated "made with" text styles (scoped) -->
+    <style>
+      .home-section .made-with-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 18px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 50;
+      }
+
+      .home-section .made-with {
+        display: inline-block;
+        white-space: nowrap;
+        padding: 8px 20px;
+        border-radius: 999px;
+        background: rgba(0,0,0,0.25);
+        color: #ff9c07;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        transform: translateX(100%);
+        animation: pn-marquee 12s linear infinite;
+        font-family: inherit;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      }
+
+      /* stagger a second copy so the scroll looks continuous */
+      .home-section .made-with + .made-with {
+        animation-delay: 6s;
+      }
+
+      @keyframes pn-marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+
+      /* Respect user's motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        .home-section .made-with {
+          animation: none !important;
+          transform: none !important;
+        }
+        .home-section .made-with-container { justify-content: center; }
+      }
+    </style>
   </head>
   <body class="dark">
     <!-- preloader start -->
@@ -266,10 +330,17 @@
                 src="/img/profile-pic-new.png"
                 class="outer-shadow"
                 alt="profile-pic"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
         </div>
+      </div>
+      <!-- Animated moving text at bottom of home section -->
+      <div class="made-with-container" aria-hidden="false">
+        <div class="made-with">THIS SITE IS MADE WITH ONLY HTML, CSS, &amp; JS</div>
+        <div class="made-with" aria-hidden="true">THIS SITE IS MADE WITH ONLY HTML, CSS, &amp; JS</div>
       </div>
     </section>
     <!-- home section end -->
@@ -288,6 +359,8 @@
                 src="/img/profile-pic-new.png"
                 alt="profile-pic"
                 class="outer-shadow"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <!-- social links start -->
@@ -391,7 +464,12 @@
 
               <div class="img-box img-box-1">
                 <h3>Proficient</h3>
-                <img src="/img/skills/hoodies/hoodie-1.png" alt="" />
+                <img
+                  src="/img/skills/hoodies/hoodie-1.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <!-- proficient skill items end -->
             </div>
@@ -412,7 +490,12 @@
 
               <div class="img-box img-box-2">
                 <h3>Proficient</h3>
-                <img src="/img/skills/hoodies/hoodie-2.png" alt="" />
+                <img
+                  src="/img/skills/hoodies/hoodie-2.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <!-- pamiliar skill items end -->
             </div>
@@ -434,7 +517,12 @@
 
               <div class="img-box img-box-2">
                 <h3>Proficient</h3>
-                <img src="/img/skills/hoodies/hoodie-1.png" alt="" />
+                <img
+                  src="/img/skills/hoodies/hoodie-1.png"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <!-- familiar skill items end -->
             </div>
@@ -517,7 +605,6 @@
       </div>
     </section>
     <!-- portfolio section end -->
-
 
     <!-- contact section start -->
     <section class="contact-section section" id="contact">
@@ -642,6 +729,8 @@
             src="/img/portfolio/large/portfolio/1.png"
             alt="img"
             class="pp-img outer-shadow"
+            loading="lazy"
+            decoding="async"
           />
           <div class="pp-counter"></div>
           <div class="pp-loader">
@@ -676,8 +765,8 @@
     <!-- style switcher start -->
 
     <!-- main js -->
-    <script src="/app/js/script.js"></script>
+    <script src="/app/js/script.js" defer></script>
     <!-- style-switcher js -->
-    <script src="/app/js/style-switcher.js"></script>
+    <script src="/app/js/style-switcher.js" defer></script>
   </body>
 </html>

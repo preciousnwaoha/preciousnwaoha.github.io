@@ -207,8 +207,11 @@ function bodyScrollingToggle() {
         for (let i = 0; i < projects.length; i++) {
           // Create a URL-friendly slug from the project name
           // e.g., "Velin AI" becomes "velin-ai"
-          const projectSlug = projects[i].name.toLowerCase().split(" ").join("-").replace(/[^a-z0-9-]/g, '');
-
+          const projectSlug = projects[i].name
+            .toLowerCase()
+            .split(" ")
+            .join("-")
+            .replace(/[^a-z0-9-]/g, "");
 
           projectsItemsWrapper.innerHTML += `
           <!-- portfolio item start -->
@@ -219,7 +222,9 @@ function bodyScrollingToggle() {
               <div class="portfolio-item-img">
                 <img src="${
                   projects[i].thumbnail
-                }" alt="portfolio image" data-screenshots="${projects[i].imgs}">
+                }" alt="portfolio image" data-screenshots="${
+            projects[i].imgs
+          }" loading="lazy" decoding="async">
                 <!-- view project btn -->
                 <span class="view-project">view project</span>
               </div>
@@ -326,26 +331,52 @@ function bodyScrollingToggle() {
             const slug = portfolioItems[itemIndex].getAttribute("data-slug");
             window.location.hash = slug;
 
-
             openPopup();
           }
         });
 
+        // Normalize image path helper
+        function normalizeImgPath(src) {
+          if (!src) return null;
+          let s = src.trim();
+          // remove any surrounding quotes
+          s = s.replace(/^"|"$/g, "");
+          // ignore empty
+          if (!s) return null;
+          // if path starts with 'portfolio/' remove that prefix
+          if (s.startsWith("portfolio/")) {
+            s = s.replace(/^portfolio\//, "");
+          }
+          // ensure leading slash for absolute paths under /img/
+          if (!s.startsWith("/") && (s.startsWith("img/") || s.startsWith("/img/") || s.includes("/img/"))) {
+            if (!s.startsWith("/")) s = "/" + s;
+          }
+          return s;
+        }
+
         // Helper function to handle opening logic (reused for click and load)
         function openPopup() {
-            screenshots = portfolioItems[itemIndex].querySelector(".portfolio-item-img img").getAttribute("data-screenshots");
-            screenshots = screenshots.split(",");
-            if (screenshots.length === 1) {
-              prevBtn.style.display = "none";
-              nextBtn.style.display = "none";
-            } else {
-              prevBtn.style.display = "block";
-              nextBtn.style.display = "block";
-            }
-            slideIndex = 0;
-            popupToggle();
-            popupSlideshow();
-            popupDetails();
+          const raw =
+            portfolioItems[itemIndex]
+              .querySelector(".portfolio-item-img img")
+              .getAttribute("data-screenshots") || "";
+
+          screenshots = raw
+            .split(",")
+            .map((s) => normalizeImgPath(s))
+            .filter(Boolean);
+
+          if (screenshots.length <= 1) {
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+          } else {
+            prevBtn.style.display = "block";
+            nextBtn.style.display = "block";
+          }
+          slideIndex = 0;
+          popupToggle();
+          popupSlideshow();
+          popupDetails();
         }
 
         closeBtn.addEventListener("click", () => {
@@ -356,7 +387,6 @@ function bodyScrollingToggle() {
 
           // FIX 3: Reset URL to #portfolio when closing
           window.location.hash = "portfolio";
-
         });
 
         function popupToggle() {
@@ -450,23 +480,32 @@ function bodyScrollingToggle() {
           }
         }
 
-         /* ----------------------------------------------------- */
+        /* ----------------------------------------------------- */
         /* FIX 3 part 2: Check URL on Load for Project Deep Link */
         /* ----------------------------------------------------- */
         const currentHash = window.location.hash.substring(1); // remove '#'
-        if(currentHash && currentHash !== 'portfolio' && currentHash !== 'home' && currentHash !== 'about' && currentHash !== 'contact' && currentHash !== 'services') {
-            // Find project with matching slug
-            portfolioItems.forEach((item, index) => {
-                if(item.getAttribute('data-slug') === currentHash) {
-                    // Activate portfolio section first (in case we landed here directly)
-                    document.querySelector(".section.active").classList.remove("active");
-                    document.querySelector("#portfolio").classList.add("active");
-                    document.querySelector("#portfolio").classList.remove("hide");
-                    
-                    itemIndex = index;
-                    openPopup();
-                }
-            });
+        if (
+          currentHash &&
+          currentHash !== "portfolio" &&
+          currentHash !== "home" &&
+          currentHash !== "about" &&
+          currentHash !== "contact" &&
+          currentHash !== "services"
+        ) {
+          // Find project with matching slug
+          portfolioItems.forEach((item, index) => {
+            if (item.getAttribute("data-slug") === currentHash) {
+              // Activate portfolio section first (in case we landed here directly)
+              document
+                .querySelector(".section.active")
+                .classList.remove("active");
+              document.querySelector("#portfolio").classList.add("active");
+              document.querySelector("#portfolio").classList.remove("hide");
+
+              itemIndex = index;
+              openPopup();
+            }
+          });
         }
       });
   };
@@ -498,11 +537,14 @@ window.addEventListener("load", () => {
   if (window.location.hash) {
     const hash = window.location.hash;
     // Check if a section with this ID exists
-    if (document.querySelector(hash) && document.querySelector(hash).classList.contains("section")) {
+    if (
+      document.querySelector(hash) &&
+      document.querySelector(hash).classList.contains("section")
+    ) {
       // Deactivate Home (or currently active section)
       document.querySelector(".section.active").classList.add("hide");
       document.querySelector(".section.active").classList.remove("active");
-      
+
       // Activate the requested section
       document.querySelector(hash).classList.add("active");
       document.querySelector(hash).classList.remove("hide");
@@ -513,8 +555,12 @@ window.addEventListener("load", () => {
       navItems.forEach((item) => {
         if (hash === item.hash) {
           // Deactivate others
-          navMenu.querySelector(".active").classList.add("outer-shadow", "hover-in-shadow");
-          navMenu.querySelector(".active").classList.remove("active", "inner-shadow");
+          navMenu
+            .querySelector(".active")
+            .classList.add("outer-shadow", "hover-in-shadow");
+          navMenu
+            .querySelector(".active")
+            .classList.remove("active", "inner-shadow");
           // Activate this one
           item.classList.add("active", "inner-shadow");
           item.classList.remove("outer-shadow", "hover-in-shadow");

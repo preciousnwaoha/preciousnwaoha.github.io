@@ -113,8 +113,8 @@
     },
     {
       "name": "Innoscripta News",
-      "thumbnail": "/img/portfolio/thumb/innoscripta1.png",
-      "imgs": "/img/portfolio/thumb/innoscripta1.png",
+      "thumbnail": "/img/portfolio/thumb/innoscripta1.webp",
+      "imgs": "/img/portfolio/thumb/innoscripta1.webp",
       "categories": ["web-application"],
       "description": "An advanced, multi-source news aggregator built with React, Redux, RTK Query, and TypeScript. This project showcases a modern, scalable, and high-performance frontend application that integrates multiple news APIs to deliver personalized news feeds and an immersive user experience.",
       "date": "2022",
@@ -131,7 +131,19 @@
       "client": "Innoscripta (Germany)"
     },
     {
-      "name": "Huypay",
+      "name": "File Manager OS (Open Source)",
+      "thumbnail": "/img/portfolio/thumb/filemanageros1.png",
+      "imgs": "/img/portfolio/thumb/filemanageros1.webp",
+      "categories": ["web-application"],
+      "description": "Open source web-based file manager OS built with React, Redux, Tailwind CSS, and TypeScript. It features a desktop-like interface, file operations, drag-and-drop functionality, and responsive design, providing users with a seamless file management experience directly from their web browsers.",
+      "date": "2022",
+      "github": "https://github.com/preciousnwaoha/filemanageros",
+      "link": "https://filemanageros.netlify.app/",
+      "tools": ["React.js", "Redux Toolkit", "Typescript", "Tailwind CSS"],
+      "client": "Self (Open Source)"
+    },
+    {
+      "name": "Hupay",
       "thumbnail": "/img/portfolio/thumb/hupay.png",
       "imgs": "/img/portfolio/large/hupay/1.png, /img/portfolio/large/hupay/2.png,/img/portfolio/large/hupay/3.png, /img/portfolio/large/hupay/4.png, /img/portfolio/large/hupay/5.png, /img/portfolio/large/hupay/6.png",
       "categories": ["blockchain"],
@@ -152,6 +164,18 @@
       "client": "Blockchain Hub Africa"
     },
     {
+      "name": "OMWIF (Crypto ICO Site)",
+      "thumbnail": "/img/portfolio/thumb/omwif1.png",
+      "imgs": "/img/portfolio/thumb/omwif1.png",
+      "categories": ["web-application", "blockchain"],
+      "description": "OMWIF is a crypto token ICO landing page built with Next.js, Tailwind CSS, and TypeScript. The site features a modern design, responsive layout, and interactive elements to engage visitors and provide information about the OMWIF token sale.",
+      "date": "2022",
+      "github": "https://github.com/preciousnwaoha/msite-temp",
+      "link": "https://melaniawifcoin.xyz/",
+      "tools": ["Next.js", "Typescript", "Tailwind CSS"],
+      "client": "Self (Open Source)"
+    },
+    {
       "name": "Kaffy Store",
       "thumbnail": "/img/portfolio/thumb/kaffy-store.png",
       "imgs": "/img/portfolio/large/kaffy-store/1.png, portfolio/img/portfolio/large/kaffy-store/2.png, portfolio/img/portfolio/large/kaffy-store/3.png, portfolio/img/portfolio/large/kaffy-store/4.png, portfolio/img/portfolio/large/kaffy-store/5.png, portfolio/img/portfolio/large/kaffy-store/6.png",
@@ -162,6 +186,42 @@
       "link": "https://iamkaffy.com/store",
       "tools": ["Next.js", "SendinBlue API", "Firebase", "Node.js"],
       "client": "Blueportal"
+    },
+    {
+      "name": "Sparkplay (Web Game)",
+      "thumbnail": "/img/portfolio/thumb/sparkplay.png",
+      "imgs": "/img/portfolio/large/sparkplay/1.png, /img/portfolio/large/sparkplay/2.png, /img/portfolio/large/sparkplay/3.png, /img/portfolio/large/sparkplay/4.png",
+      "categories": ["web-application", "game"],
+      "description": "Learn Electrical Engineering Circuit Diagrams in a fun way, one component at a time! Sparkplay is an educational web game that teaches users about electrical circuit diagrams through interactive gameplay. Players progress by correctly identifying and placing components in various circuit configurations, enhancing their understanding of electrical engineering concepts while having fun.",
+      "date": "2022",
+      "github": "https://github.com/preciousnwaoha/sparkplay",
+      "link": "https://preciousnwaoha.netlify.app/",
+      "tools": ["Next.js", "React.js", "CSS", "Redux", "Javascript"],
+      "client": "Self (Open Source)"
+    },
+    {
+      "name": "Patentic ($1000 raised)",
+      "thumbnail": "/img/portfolio/thumb/patentic.png",
+      "imgs": "/img/portfolio/large/patentic/1.png, /img/portfolio/large/patentic/2.png, /img/portfolio/large/patentic/3.png",
+      "categories": ["web-application", "blockchain"],
+      "description": "Patentic allows users to easily create, store, and view patents on the platform. Users can upload their patent documents and store them securely on the blockchain, ensuring that they are tamper-proof and immutable. They can also view and manage their patents from their dashboard, making it easier to keep track of their intellectual property.",
+      "date": "2022",
+      "github": "https://github.com/preciousnwaoha/patentic-client",
+      "link": "https://preciousnwaoha.netlify.app/",
+      "tools": ["Next.js", "Ethers.js", "Wagmi", "CSS", "Javascript", "Solidity"],
+      "client": "Polygon Africa"
+    },
+    {
+      "name": "Portfolio Website (Opensource)",
+      "thumbnail": "/img/portfolio/thumb/portfoliosite1.png",
+      "imgs": "/img/portfolio/thumb/portfoliosite1.png",
+      "categories": ["web-application"],
+      "description": "",
+      "date": "2022",
+      "github": "https://github.com/preciousnwaoha/simple-portfolio-site_zuri",
+      "link": "https://preciousnwaoha.netlify.app/",
+      "tools": ["HTML", "CSS", "Javascript"],
+      "client": "Self (Open Source)"
     },
     {
       "name": "Flog",
