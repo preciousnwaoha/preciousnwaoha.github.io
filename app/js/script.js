@@ -348,7 +348,12 @@ function bodyScrollingToggle() {
             s = s.replace(/^portfolio\//, "");
           }
           // ensure leading slash for absolute paths under /img/
-          if (!s.startsWith("/") && (s.startsWith("img/") || s.startsWith("/img/") || s.includes("/img/"))) {
+          if (
+            !s.startsWith("/") &&
+            (s.startsWith("img/") ||
+              s.startsWith("/img/") ||
+              s.includes("/img/"))
+          ) {
             if (!s.startsWith("/")) s = "/" + s;
           }
           return s;
