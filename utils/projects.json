@@ -3,7 +3,7 @@
     {
       "name": "Velin AI (SaaS - $455 MRR)",
       "thumbnail": "/img/portfolio/thumb/velin1.png",
-      "imgs": "/img/portfolio/thumb/velin1.png",
+      "imgs": "/img/portfolio/large/velinai/1.png",
       "categories": ["web-application", "saas", "desktop", "ai"],
       "description": "Solo built undetectable real-time AI for interviews and meetings that has reached $445 MRR, with Next.js, Typescript , React, Electron, C++, C#, Supabase and Github Actions on web and PC.",
       "date": "August, 2025",
@@ -26,9 +26,28 @@
       "client": "Solo (Indie hacker)"
     },
     {
+      "name": "HumanJobHunter ($300 MRR)",
+      "thumbnail": "/img/portfolio/thumb/humanjobhunter1.png",
+      "imgs": "/img/portfolio/large/humanjobhunter/1.png, /img/portfolio/large/humanjobhunter/2.png, /img/portfolio/large/humanjobhunter/3.png, /img/portfolio/large/humanjobhunter/4.png",
+      "categories": ["web-application", "saas"],
+      "description": "Online Web based service to hire real job hunting experts to find, tailor and appy to over 400 jobs on hyour behalf. Features a blog, referral program, stripe subscription system and a lot more.",
+      "date": "December, 2025",
+      "github": "https://github.com/preciousnwaoha/humanjobhunter",
+      "link": "https://humanjobhunter.com",
+      "tools": [
+        "Next.js",
+        "Stripe",
+        "Google Cloud",
+        "Typescript",
+        "Tailwind CSS",
+        "Sanity CMS"
+      ],
+      "client": "Solo (Indie hacker)"
+    },
+    {
       "name": "Pharmora (Healthcare Delivery)",
       "thumbnail": "/img/portfolio/thumb/pharmora1.png",
-      "imgs": "/img/portfolio/thumb/pharmora1.png",
+      "imgs": "/img/portfolio/large/pharmora/1.png, /img/portfolio/large/pharmora/2.png, /img/portfolio/large/pharmora/3.png",
       "categories": ["web-application", "saas", "mobile", "ai"],
       "description": "Delivered 2 production AI features (Health Info & Multimodal Help) that added a subscription model to the business, by integrating LLMs, Nest.js and prompt engineering.",
       "date": "April, 2025",
@@ -208,7 +227,14 @@
       "date": "2022",
       "github": "https://github.com/preciousnwaoha/patentic-client",
       "link": "https://preciousnwaoha.netlify.app/",
-      "tools": ["Next.js", "Ethers.js", "Wagmi", "CSS", "Javascript", "Solidity"],
+      "tools": [
+        "Next.js",
+        "Ethers.js",
+        "Wagmi",
+        "CSS",
+        "Javascript",
+        "Solidity"
+      ],
       "client": "Polygon Africa"
     },
     {
