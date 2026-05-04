@@ -78,45 +78,34 @@
     <!-- Animated "made with" text styles (scoped) -->
     <style>
       .home-section .made-with-container {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 18px;
-        display: flex;
-        gap: 20px;
-        align-items: center;
+        position: relative;
+        width: 100%;
         overflow: hidden;
+        padding: 10px 0;
+        margin-top: 44px;
         pointer-events: none;
-        z-index: 50;
+        border-top: 1px solid var(--bg-black-100);
       }
 
       .home-section .made-with {
         display: inline-block;
         white-space: nowrap;
-        padding: 8px 20px;
-        border-radius: 999px;
-        background: rgba(0, 0, 0, 0.25);
         color: #ff9c07;
         font-weight: 700;
         letter-spacing: 0.6px;
-        transform: translateX(100%);
-        animation: pn-marquee 12s linear infinite;
+        font-size: 12px;
         font-family: inherit;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        animation: pn-marquee 28s linear infinite;
+        will-change: transform;
       }
 
-      /* stagger a second copy so the scroll looks continuous */
-      .home-section .made-with + .made-with {
-        animation-delay: 6s;
+      body:not(.dark) .home-section .made-with {
+        color: #c07a00;
       }
 
       @keyframes pn-marquee {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
       }
 
       /* Respect user's motion preferences */
@@ -126,7 +115,8 @@
           transform: none !important;
         }
         .home-section .made-with-container {
-          justify-content: center;
+          white-space: normal;
+          text-align: center;
         }
       }
     </style>
@@ -147,10 +137,14 @@
       <div class="container">
         <div class="row justify-content-between">
           <div class="logo">
-            <a href="index.html">P</a>
+            <a href="index.html">Precious N.</a>
           </div>
-          <div class="hamburger-btn outer-shadow hover-in-shadow">
-            <span></span>
+          <div class="header-right">
+            <a href="#media" class="link-item posts-nav-btn">Media</a>
+            <a href="#posts" class="link-item posts-nav-btn">Posts</a>
+            <div class="hamburger-btn outer-shadow hover-in-shadow">
+              <span></span>
+            </div>
           </div>
         </div>
       </div>
@@ -238,6 +232,16 @@
               >contact</a
             >
           </li>
+          <li>
+            <a href="#media" class="link-item outer-shadow hover-in-shadow"
+              >media</a
+            >
+          </li>
+          <li>
+            <a href="#posts" class="link-item outer-shadow hover-in-shadow"
+              >posts</a
+            >
+          </li>
         </ul>
       </div>
       <!-- copyright text -->
@@ -305,9 +309,11 @@
             <p>Hello</p>
             <h2>I'm Precious (Takara)</h2>
             <h1>
-              Fullstack Engineer <br />
-              <b style="font-weight: 600"> [ AI, Web, Mobile, Desktop ] </b>
+              <span id="typed-text"></span><span class="typing-cursor"></span>
             </h1>
+            <span class="hero-bracket">[ I, build, AI, Web, Mobile, & Desktop, Apps ]</span>
+
+            <div class="home-socials" id="home-socials-container"></div>
 
             <div
               style="
@@ -328,6 +334,12 @@
                 style="color: #ff9c07"
                 >Portfolio</a
               >
+              <a
+                href="#posts"
+                class="link-item btn-1 outer-shadow hover-in-shadow"
+                style="color: #2eb1ed"
+                >Posts</a
+              >
             </div>
           </div>
           <div class="home-img">
@@ -339,18 +351,135 @@
                 loading="lazy"
                 decoding="async"
               />
+              <div class="available-badge">
+                <span class="available-dot"></span>
+                Open to opportunities
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Animated moving text at bottom of home section -->
-      <div class="made-with-container" aria-hidden="false">
-        <div class="made-with">
-          THIS SITE IS MADE WITH ONLY HTML, CSS, &amp; JS
+      <!-- Stats strip -->
+      <div class="stats-strip">
+        <div class="stat-item"><span class="stat-val">6+</span><span class="stat-lbl">Years Shipping</span></div>
+        <div class="stat-item"><span class="stat-val">4×</span><span class="stat-lbl">Hackathon Winner</span></div>
+        <div class="stat-item"><span class="stat-val">900+</span><span class="stat-lbl">Monthly Users</span></div>
+        <div class="stat-item"><span class="stat-val">$5k+</span><span class="stat-lbl">Solo Revenue</span></div>
+        <div class="stat-item"><span class="stat-val">2×</span><span class="stat-lbl">AI SaaS Founder</span></div>
+      </div>
+
+      <!-- Featured Projects -->
+      <div class="home-extra-section">
+        <div class="container">
+          <p class="home-extra-eyebrow">Featured Projects <span class="eyebrow-line"></span></p>
+          <div class="feat-grid">
+            <a href="https://velinai.live" target="_blank" rel="noreferrer" class="feat-card">
+              <div class="feat-card-img-wrap">
+                <img src="/img/portfolio/thumb/velin1.png" alt="Velin AI" loading="lazy" decoding="async">
+              </div>
+              <div class="feat-card-body">
+                <div class="feat-card-top">
+                  <span class="feat-card-name">Velin AI</span>
+                  <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$455 MRR</span>
+                </div>
+                <span class="feat-card-tag">SaaS · Desktop · AI</span>
+                <p class="feat-card-desc">Undetectable real-time AI for live meetings &amp; tests. Cross-platform desktop + web.</p>
+                <span class="feat-card-link">View project <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+              </div>
+            </a>
+            <a href="https://humanjobhunter.com" target="_blank" rel="noreferrer" class="feat-card">
+              <div class="feat-card-img-wrap">
+                <img src="/img/portfolio/thumb/humanjobhunter1.png" alt="HumanJobHunter" loading="lazy" decoding="async">
+              </div>
+              <div class="feat-card-body">
+                <div class="feat-card-top">
+                  <span class="feat-card-name">HumanJobHunter</span>
+                  <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$300 MRR</span>
+                </div>
+                <span class="feat-card-tag">SaaS · Web</span>
+                <p class="feat-card-desc">Outsource your job hunt to real human experts who apply to 400+ jobs for you.</p>
+                <span class="feat-card-link">View project <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+              </div>
+            </a>
+            <a href="https://pharmora.ng" target="_blank" rel="noreferrer" class="feat-card">
+              <div class="feat-card-img-wrap">
+                <img src="/img/portfolio/thumb/pharmora1.png" alt="Pharmora" loading="lazy" decoding="async">
+              </div>
+              <div class="feat-card-body">
+                <div class="feat-card-top">
+                  <span class="feat-card-name">Pharmora</span>
+                  <span class="feat-card-badge" style="color:#2eb1ed;background:rgba(46,177,237,0.12)">#1 W. Africa</span>
+                </div>
+                <span class="feat-card-tag">Mobile · AI · Healthcare</span>
+                <p class="feat-card-desc">AI-powered Healthcare delivery — #1 in West Africa on the App Store.</p>
+                <span class="feat-card-link">View project <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="made-with" aria-hidden="true">
-          THIS SITE IS MADE WITH ONLY HTML, CSS, &amp; JS
+      </div>
+
+      <!-- Videos -->
+      <div class="home-extra-section">
+        <div class="container">
+          <p class="home-extra-eyebrow">Media <span class="eyebrow-line"></span></p>
+          <div class="vid-grid">
+            <a href="https://youtu.be/Mq0i15fBfE8" target="_blank" rel="noreferrer" class="vid-card">
+              <div class="vid-thumb-wrap">
+                <img src="https://img.youtube.com/vi/Mq0i15fBfE8/mqdefault.jpg" alt="Introducing Velin AI" loading="lazy" decoding="async">
+                <div class="vid-play-btn">
+                  <div class="vid-play-circle">
+                    <i class="fas fa-play" style="color:#fff;font-size:16px;margin-left:3px"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="vid-card-body">
+                <div class="vid-card-title">Introducing Velin AI</div>
+                <div class="vid-card-sub">Invisible real-time AI desktop app</div>
+              </div>
+            </a>
+            <a href="https://youtu.be/8KcjwhlvZso" target="_blank" rel="noreferrer" class="vid-card">
+              <div class="vid-thumb-wrap">
+                <img src="https://img.youtube.com/vi/8KcjwhlvZso/mqdefault.jpg" alt="Introducing Inkspiff" loading="lazy" decoding="async">
+                <div class="vid-play-btn">
+                  <div class="vid-play-circle">
+                    <i class="fas fa-play" style="color:#fff;font-size:16px;margin-left:3px"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="vid-card-body">
+                <div class="vid-card-title">Introducing Inkspiff</div>
+                <div class="vid-card-sub">Index any large codebase in seconds with AI</div>
+              </div>
+            </a>
+          </div>
         </div>
+      </div>
+
+      <!-- What I'm Doing -->
+      <div class="home-extra-section home-now-wrap">
+        <div class="container">
+          <p class="home-extra-eyebrow">What I'm Doing <span class="eyebrow-line"></span></p>
+          <div class="now-grid">
+            <div class="now-card">
+              <div class="now-icon" style="background:rgba(251,131,158,0.15);color:#fb839e"><i class="fas fa-robot"></i></div>
+              <p>Building AI products that make daily processes easier for everyone</p>
+            </div>
+            <div class="now-card">
+              <div class="now-icon" style="background:rgba(236,148,18,0.15);color:#ec9412"><i class="fas fa-pen-nib"></i></div>
+              <p>Writing about AI engineering, SaaS &amp; my shipping workflow</p>
+            </div>
+            <div class="now-card">
+              <div class="now-icon" style="background:rgba(31,197,134,0.15);color:#1fc586"><i class="fas fa-rocket"></i></div>
+              <p>Scaling Velin AI to 10k MRR as an indie hacker</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated marquee strip at bottom of home section -->
+      <div class="made-with-container" aria-hidden="true">
+        <div class="made-with">THIS SITE IS MADE WITH ONLY HTML, CSS &amp; JS &nbsp;·&nbsp; 6+ YEARS SHIPPING &nbsp;·&nbsp; OPEN TO WORK &nbsp;·&nbsp; 4× HACKATHON WINNER &nbsp;·&nbsp; VELIN AI — $455 MRR &nbsp;·&nbsp; 900+ USERS &nbsp;·&nbsp; THIS SITE IS MADE WITH ONLY HTML, CSS &amp; JS &nbsp;·&nbsp; 6+ YEARS SHIPPING &nbsp;·&nbsp; OPEN TO WORK &nbsp;·&nbsp; 4× HACKATHON WINNER &nbsp;·&nbsp; VELIN AI — $455 MRR &nbsp;·&nbsp; 900+ USERS &nbsp;·&nbsp;</div>
       </div>
     </section>
     <!-- home section end -->
@@ -373,56 +502,30 @@
                 decoding="async"
               />
             </div>
-            <!-- social links start -->
-            <div class="social-links">
-              <a
-                href="https://github.com/preciousnwaoha"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a
-                href="https:/x.com/takaraqode"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                href="https://linktr.ee/preciousnwaoha/"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-c"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/preciousnwaoha04/"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-linked\in-in"></i
-              ></a>
-            </div>
+            <!-- social links - rendered by JS from socials.json -->
+            <div class="social-links" id="about-socials-container"></div>
             <!-- social links end -->
           </div>
           <div class="about-info">
             <p>
-              <span
-                >Hi! My name is Precious Nwaoha. I am a self-taught Fullstack
-                Product Engineer with 5+ years of experience building and
-                shipping web, mobile, desktop and blockchain applications.</span
-              >
-              I work on projects using Javascript/Typesctipt framworks like
-              <b>Next.js, React.js, React Native, Electron, Ether.js, etc,</b>
-              and use LLMs in both development workflow and implementing product
-              features, on a day-to-day basis.
+              <span><b>Hey, I'm Precious Nwaoha</b> — also known as <b style="color:var(--skin-color)">Takara</b>. A Senior Fullstack Product &amp; AI Engineer with <b>6+ years</b> shipping web, mobile, desktop, and AI-powered products from idea to production.</span>
             </p>
 
             <p>
-              <span
-                >I have built two(2) AI SaaS products completely solo which have
-                hit over $5000 revenue each, achecived over 5M social media
-                views, won four(4) global coding hackathons, and worked with
-                remote companies around the world.</span
-              >
+              I'm the kind of engineer who <b>ships</b>. I've built two AI SaaS products completely solo that each hit over <b>$5,000 in revenue</b>, won <b>4 global blockchain hackathons</b>, and serve as Founding Engineer (AI) at <b>Pharmora</b> — the #1 Healthcare delivery app in West Africa.
             </p>
             <p>
-              I contribute to opensource, follow tech news, and love music and
-              dance!
+              I integrate LLMs into production daily — with proper <b>LLMOps, evals, model pooling, and RAG pipelines</b>. Not just wrappers — real systems.
             </p>
+
+            <div class="about-inline-stats">
+              <div class="inline-stat"><span class="inline-stat-val">6+</span><span class="inline-stat-lbl">Years</span></div>
+              <div class="inline-stat"><span class="inline-stat-val">4×</span><span class="inline-stat-lbl">Hackathons</span></div>
+              <div class="inline-stat"><span class="inline-stat-val">$5k+</span><span class="inline-stat-lbl">Revenue</span></div>
+              <div class="inline-stat"><span class="inline-stat-val">900+</span><span class="inline-stat-lbl">Users</span></div>
+              <div class="inline-stat"><span class="inline-stat-val">2×</span><span class="inline-stat-lbl">SaaS Founder</span></div>
+            </div>
+
             <a
               href="https://drive.google.com/file/d/1QXsqR5-j2fv4jk0T8_DiWtLeAQzJtEJJ/view?usp=sharing"
               target="_blank"
@@ -449,6 +552,7 @@
             >
             <span class="tab-item" data-target=".experience">experience</span>
             <span class="tab-item" data-target=".education">education</span>
+            <span class="tab-item" data-target=".achievements">achievements</span>
           </div>
         </div>
         <!-- about tabs end -->
@@ -456,86 +560,15 @@
         <!-- skills start -->
         <div class="row">
           <div class="skills tab-content active">
-            <div class="skills-item proficient">
-              <!-- proficient skill items start -->
-
-              <div class="skills-item-box box-1">
-                <div class="skill skill-1">React</div>
-                <div class="skill skill-2">TypeScript</div>
-                <div class="skill skill-3">Next.js</div>
-                <div class="skill skill-4">JavaScript</div>
-              </div>
-              <div class="skills-item-box box-2">
-                <div class="skill skill-5">HTML|CSS</div>
-                <div class="skill skill-6">React Native</div>
-                <div class="skill skill-7">Node.js</div>
-                <div class="skill skill-8">Electron</div>
-              </div>
-
-              <div class="img-box img-box-1">
-                <h3>Proficient</h3>
-                <img
-                  src="/img/skills/hoodies/hoodie-1.png"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <!-- proficient skill items end -->
+            <div class="skill-cat-filter">
+              <span class="skill-cat-btn active" data-cat="all">All</span>
+              <span class="skill-cat-btn" data-cat="frontend">Frontend</span>
+              <span class="skill-cat-btn" data-cat="backend">Backend</span>
+              <span class="skill-cat-btn" data-cat="ai">AI (LLM)</span>
+              <span class="skill-cat-btn" data-cat="blockchain">Blockchain</span>
+              <span class="skill-cat-btn" data-cat="desktop">Desktop</span>
             </div>
-            <div class="skills-item familiar">
-              <!-- proficient skill items start -->
-              <div class="skills-item-box box-1">
-                <div class="skill skill-1">CSS</div>
-                <div class="skill skill-2">Nest.js</div>
-                <div class="skill skill-3">jQuery</div>
-                <div class="skill skill-4">Firebase</div>
-              </div>
-              <div class="skills-item-box box-2">
-                <div class="skill skill-5">AWS</div>
-                <div class="skill skill-6">AI LLMs</div>
-                <div class="skill skill-7">Redux</div>
-                <div class="skill skill-8">Bash</div>
-              </div>
-
-              <div class="img-box img-box-2">
-                <h3>Proficient</h3>
-                <img
-                  src="/img/skills/hoodies/hoodie-2.png"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <!-- pamiliar skill items end -->
-            </div>
-
-            <div class="skills-item familiar">
-              <!-- familiar skill items start -->
-              <div class="skills-item-box box-1">
-                <div class="skill skill-1">Tailwind</div>
-                <div class="skill skill-2">Express</div>
-                <div class="skill skill-3">Figma</div>
-                <div class="skill skill-4">C++, C#</div>
-              </div>
-              <div class="skills-item-box box-2">
-                <div class="skill skill-5">Supabase</div>
-                <div class="skill skill-6">Cloud</div>
-                <div class="skill skill-7">PostgresQL</div>
-                <div class="skill skill-8">Docker</div>
-              </div>
-
-              <div class="img-box img-box-2">
-                <h3>Proficient</h3>
-                <img
-                  src="/img/skills/hoodies/hoodie-1.png"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <!-- familiar skill items end -->
-            </div>
+            <div class="skill-pill-grid" id="skill-pill-grid"></div>
           </div>
         </div>
         <!-- skills end -->
@@ -563,6 +596,64 @@
           </div>
         </div>
         <!-- education end -->
+
+        <!-- achievements start -->
+        <div class="row">
+          <div class="achievements tab-content" style="width:100%">
+            <div class="achieve-grid">
+              <div class="achieve-card">
+                <div class="achieve-icon-wrap" style="background:rgba(236,148,18,0.15);color:#ec9412"><i class="fas fa-trophy"></i></div>
+                <div>
+                  <div class="achieve-title">4× Global Hackathon Winner</div>
+                  <div class="achieve-detail">Blockchain Hub Africa, Polygon Africa, Bunzz BHA — multiple 1st place wins across global competitions</div>
+                </div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-icon-wrap" style="background:rgba(251,131,158,0.15);color:#fb839e"><i class="fas fa-rocket"></i></div>
+                <div>
+                  <div class="achieve-title">4+ SaaS Products Shipped Solo</div>
+                  <div class="achieve-detail">Velin AI, HumanJobHunter, ImageColorEditor, Inkspiff &amp; more — built and shipped as solo/principal dev</div>
+                </div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-icon-wrap" style="background:rgba(31,197,134,0.15);color:#1fc586"><i class="fas fa-users"></i></div>
+                <div>
+                  <div class="achieve-title">Founder Member @ NSK.AI</div>
+                  <div class="achieve-detail">Largest Student AI Engineering Community in West Africa — 1,300+ members</div>
+                </div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-icon-wrap" style="background:rgba(46,177,237,0.15);color:#2eb1ed"><i class="fas fa-heartbeat"></i></div>
+                <div>
+                  <div class="achieve-title">Founding Engineer @ Pharmora</div>
+                  <div class="achieve-detail">#1 Healthcare delivery app in West Africa (with AI)</div>
+                </div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-icon-wrap" style="background:rgba(138,73,255,0.15);color:#8a49ff"><i class="fas fa-dollar-sign"></i></div>
+                <div>
+                  <div class="achieve-title">900+ Active Monthly Users</div>
+                  <div class="achieve-detail">Across all solo projects — Velin AI, HumanJobHunter, and open-source tools</div>
+                </div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-icon-wrap" style="background:rgba(204,58,59,0.15);color:#cc3a3b"><i class="fas fa-star"></i></div>
+                <div>
+                  <div class="achieve-title">Featured by Bunzz ($4.5M Seed)</div>
+                  <div class="achieve-detail">Followed by Bunzz founders. Hackathon announcement published on their blog.</div>
+                </div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-icon-wrap" style="background:rgba(236,148,18,0.15);color:#ec9412"><i class="fas fa-code"></i></div>
+                <div>
+                  <div class="achieve-title">Open Source Contributor</div>
+                  <div class="achieve-detail"><a href="https://github.com/preciousnwaoha/nocode-pipeline-builder" target="_blank" rel="noreferrer" style="color:var(--skin-color)">nocode-pipeline-builder</a> — AI pipeline builder, open source</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- achievements end -->
       </div>
     </section>
     <!-- about section end -->
@@ -624,36 +715,7 @@
             <h2 data-heading="contact">Get In Touch</h2>
           </div>
         </div>
-        <div class="row">
-          <!-- contact item start -->
-          <div class="contact-item">
-            <div class="contact-item-inner outer-shadow">
-              <i class="fas fa-phone"></i>
-              <span>Phone</span>
-              <p>+13109538559</p>
-              <p>+2349059228500</p>
-            </div>
-          </div>
-          <!-- contact item end -->
-          <!-- contact item start -->
-          <div class="contact-item">
-            <div class="contact-item-inner outer-shadow">
-              <i class="fas fa-envelope"></i>
-              <span>Email</span>
-              <p>nwaohaprecious25@gmail.com</p>
-            </div>
-          </div>
-          <!-- contact item end -->
-          <!-- contact item start -->
-          <div class="contact-item">
-            <div class="contact-item-inner outer-shadow">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Address</span>
-              <p>Gwarinpa, Abuja - 900108.</p>
-            </div>
-          </div>
-          <!-- contact item end -->
-        </div>
+        <div class="row" id="contact-items-wrapper"></div>
         <div class="row">
           <div class="contact-form">
             <form action="https://formspree.io/f/xdovkyaq" method="POST">
@@ -753,6 +815,211 @@
       </div>
     </div>
     <!-- portfolio popup end -->
+
+    <!-- media section start -->
+    <section class="media-section section" id="media">
+      <div class="container">
+        <div class="row">
+          <div class="section-title">
+            <h2 data-heading="media">Videos &amp; Demos</h2>
+          </div>
+        </div>
+
+        <!-- Videos -->
+        <div class="row" style="margin-bottom:40px">
+          <div style="flex:0 0 100%;max-width:100%;padding:0 15px">
+            <p class="home-extra-eyebrow">YouTube <span class="eyebrow-line"></span></p>
+            <div class="media-vid-grid">
+              <a href="https://youtu.be/Mq0i15fBfE8" target="_blank" rel="noreferrer" class="vid-card">
+                <div class="vid-thumb-wrap">
+                  <img src="https://img.youtube.com/vi/Mq0i15fBfE8/mqdefault.jpg" alt="Introducing Velin AI" loading="lazy" decoding="async">
+                  <div class="vid-play-btn">
+                    <div class="vid-play-circle">
+                      <i class="fas fa-play" style="color:#fff;font-size:16px;margin-left:3px"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="vid-card-body">
+                  <div class="vid-card-title">Introducing Velin AI</div>
+                  <div class="vid-card-sub">Invisible real-time AI desktop app for live meetings &amp; interviews</div>
+                </div>
+              </a>
+              <a href="https://youtu.be/8KcjwhlvZso" target="_blank" rel="noreferrer" class="vid-card">
+                <div class="vid-thumb-wrap">
+                  <img src="https://img.youtube.com/vi/8KcjwhlvZso/mqdefault.jpg" alt="Introducing Inkspiff" loading="lazy" decoding="async">
+                  <div class="vid-play-btn">
+                    <div class="vid-play-circle">
+                      <i class="fas fa-play" style="color:#fff;font-size:16px;margin-left:3px"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="vid-card-body">
+                  <div class="vid-card-title">Introducing Inkspiff</div>
+                  <div class="vid-card-sub">Index any large codebase in seconds with AI</div>
+                </div>
+              </a>
+              <a href="https://youtube.com/@preciousnwaoha" target="_blank" rel="noreferrer" class="vid-card vid-card-more">
+                <div class="vid-card-body" style="padding:32px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:140px">
+                  <div style="width:48px;height:48px;border-radius:50%;background:rgba(251,131,158,0.15);display:flex;align-items:center;justify-content:center">
+                    <i class="fab fa-youtube" style="color:var(--skin-color);font-size:20px"></i>
+                  </div>
+                  <div class="vid-card-title" style="text-align:center">More on YouTube</div>
+                  <div class="vid-card-sub" style="text-align:center">@preciousnwaoha</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product demos / screenshots -->
+        <div class="row">
+          <div style="flex:0 0 100%;max-width:100%;padding:0 15px">
+            <p class="home-extra-eyebrow">Product Demos <span class="eyebrow-line"></span></p>
+            <div class="media-demo-grid">
+              <a href="https://velinai.live" target="_blank" rel="noreferrer" class="feat-card">
+                <div class="feat-card-img-wrap">
+                  <img src="/img/portfolio/thumb/velin1.png" alt="Velin AI" loading="lazy" decoding="async">
+                </div>
+                <div class="feat-card-body">
+                  <div class="feat-card-top">
+                    <span class="feat-card-name">Velin AI</span>
+                    <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$455 MRR</span>
+                  </div>
+                  <span class="feat-card-tag">SaaS · Desktop · AI</span>
+                  <p class="feat-card-desc">Undetectable real-time AI for live meetings &amp; tests. Cross-platform.</p>
+                  <span class="feat-card-link">Live demo <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+                </div>
+              </a>
+              <a href="https://humanjobhunter.com" target="_blank" rel="noreferrer" class="feat-card">
+                <div class="feat-card-img-wrap">
+                  <img src="/img/portfolio/thumb/humanjobhunter1.png" alt="HumanJobHunter" loading="lazy" decoding="async">
+                </div>
+                <div class="feat-card-body">
+                  <div class="feat-card-top">
+                    <span class="feat-card-name">HumanJobHunter</span>
+                    <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$300 MRR</span>
+                  </div>
+                  <span class="feat-card-tag">SaaS · Web</span>
+                  <p class="feat-card-desc">Outsource your job hunt to real human experts who apply to 400+ jobs for you.</p>
+                  <span class="feat-card-link">Try it <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+                </div>
+              </a>
+              <a href="https://pharmora.ng" target="_blank" rel="noreferrer" class="feat-card">
+                <div class="feat-card-img-wrap">
+                  <img src="/img/portfolio/thumb/pharmora1.png" alt="Pharmora" loading="lazy" decoding="async">
+                </div>
+                <div class="feat-card-body">
+                  <div class="feat-card-top">
+                    <span class="feat-card-name">Pharmora</span>
+                    <span class="feat-card-badge" style="color:#2eb1ed;background:rgba(46,177,237,0.12)">#1 W. Africa</span>
+                  </div>
+                  <span class="feat-card-tag">Mobile · AI · Healthcare</span>
+                  <p class="feat-card-desc">AI-powered Healthcare delivery — #1 in West Africa on the App Store.</p>
+                  <span class="feat-card-link">View app <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- media section end -->
+
+    <!-- posts section start -->
+    <section class="posts-section section" id="posts">
+      <div class="posts-container">
+
+        <!-- Intro -->
+        <div class="post-intro">
+          <img src="/img/profile-pic-new.png" class="post-intro-avatar" alt="Precious Nwaoha" loading="lazy" decoding="async">
+          <div class="post-intro-right">
+            <span class="post-intro-handle">Hi, I'm @takaraqode.</span>
+            <p class="post-intro-bio">Senior Fullstack Product &amp; AI Engineer. Building <strong>Velin AI</strong> and writing about AI engineering, SaaS growth &amp; shipping workflows. Every post is from real production experience.</p>
+            <div class="post-intro-socials" id="posts-socials-container"></div>
+          </div>
+        </div>
+
+        <!-- Tag filter -->
+        <div class="post-tag-filter">
+          <button class="post-tag-btn active" data-tag="all">All</button>
+          <button class="post-tag-btn" data-tag="AI Engineering" style="--tag-color:#fb839e">AI Engineering</button>
+          <button class="post-tag-btn" data-tag="SaaS" style="--tag-color:#ec9412">SaaS</button>
+          <button class="post-tag-btn" data-tag="Product" style="--tag-color:#1fc586">Product</button>
+          <button class="post-tag-btn" data-tag="Workflow" style="--tag-color:#2eb1ed">Workflow</button>
+        </div>
+
+        <!-- Featured post -->
+        <a href="https://preciousnwaoha.github.io/posts/2026/system-promt-like-a-pro" target="_blank" rel="noreferrer" class="feat-post-card" id="featured-post">
+          <div class="feat-post-label">Featured Post <span class="feat-post-label-line"></span></div>
+          <div class="feat-post-meta">
+            <span class="post-date">Mar 15, 2026</span>
+            <span class="post-meta-dot">·</span>
+            <span class="post-read">8 min read</span>
+            <span class="post-tag-badge" style="color:#fb839e;background:rgba(251,131,158,0.15)">AI Engineering</span>
+          </div>
+          <span class="feat-post-title">Make AI Apps 20x Better — System Prompt Like a Pro</span>
+          <p class="feat-post-excerpt">Everything wrong with how most devs write system prompts, and the exact framework I use to make AI behaviour predictable and powerful in production.</p>
+          <span class="feat-post-read-more">Read post <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </a>
+
+        <!-- Post list -->
+        <div class="post-item" data-tag="AI Engineering">
+          <div class="post-meta">
+            <span class="post-date">Feb 22, 2026</span>
+            <span class="post-meta-dot">·</span>
+            <span class="post-read">5 min read</span>
+            <span class="post-tag-badge" style="color:#fb839e;background:rgba(251,131,158,0.12)">AI Engineering</span>
+          </div>
+          <a href="https://preciousnwaoha.github.io/posts/2026/control-ai-with-mouse-gestures" target="_blank" rel="noreferrer" class="post-title">Control AI with Custom Mouse Gestures</a>
+          <p class="post-excerpt">I built a gesture-detection layer on top of my AI tools so I can trigger prompts, switch models, and run automations — without touching the keyboard.</p>
+        </div>
+
+        <div class="post-item" data-tag="SaaS">
+          <div class="post-meta">
+            <span class="post-date">Feb 1, 2026</span>
+            <span class="post-meta-dot">·</span>
+            <span class="post-read">6 min read</span>
+            <span class="post-tag-badge" style="color:#ec9412;background:rgba(236,148,18,0.12)">SaaS</span>
+          </div>
+          <a href="https://preciousnwaoha.github.io/posts/2026/how-lifecycle-emails-can-save-your-product" target="_blank" rel="noreferrer" class="post-title">Lifecycle Emails Can Save Your SaaS</a>
+          <p class="post-excerpt">The email sequences that tripled trial-to-paid conversion for Velin AI. Real copy, real data, zero hype.</p>
+        </div>
+
+        <div class="post-item" data-tag="Product">
+          <div class="post-meta">
+            <span class="post-date">Jan 18, 2026</span>
+            <span class="post-meta-dot">·</span>
+            <span class="post-read">4 min read</span>
+            <span class="post-tag-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">Product</span>
+          </div>
+          <a href="https://velinai.live/posts" target="_blank" rel="noreferrer" class="post-title">Velin AI: Undetectable Real-time AI for Live Interviews &amp; Tests</a>
+          <p class="post-excerpt">How I built and shipped an invisible AI desktop app from scratch — the architecture, the hard parts, and why Electron + C++ was the right call.</p>
+        </div>
+
+        <div class="post-item" data-tag="Workflow">
+          <div class="post-meta">
+            <span class="post-date">Jan 5, 2026</span>
+            <span class="post-meta-dot">·</span>
+            <span class="post-read">7 min read</span>
+            <span class="post-tag-badge" style="color:#2eb1ed;background:rgba(46,177,237,0.12)">Workflow</span>
+          </div>
+          <a href="https://preciousnwaoha.github.io/posts/2026/my-current-development-workflow-with-ai" target="_blank" rel="noreferrer" class="post-title">My Current Coding Workflow for Rapid Iteration</a>
+          <p class="post-excerpt">Specs in Markdown → Claude Code → MCP → ship. The workflow I use to go from idea to deployed feature in under a day.</p>
+        </div>
+
+        <a href="https://preciousnwaoha.github.io" target="_blank" rel="noreferrer" class="posts-all-link">
+          All Posts <i class="fas fa-arrow-right" style="font-size:11px;color:var(--skin-color)"></i>
+        </a>
+
+        <div class="posts-footer">
+          <span class="posts-footer-text">© 2026 Precious Nwaoha · preciousnwaoha.github.io</span>
+          <div class="posts-footer-socials" id="posts-footer-socials-container"></div>
+        </div>
+
+      </div>
+    </section>
+    <!-- posts section end -->
 
     <!-- style switcher start - for demo purposes only -->
     <div class="style-switcher outer-shadow">

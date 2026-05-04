@@ -3,80 +3,62 @@
     {
       "role": "AI & Fullstack Engineer",
       "company": "Inkspiff",
-      "date": "March 2025 - present (10 mos)",
-      "location": "remote US",
+      "date": "March 2025 – Present",
+      "location": "Remote · US",
       "details": [
-        "Delivered 2 production AI features (Health Info & Multimodal Help) that added a subscription model to the business, by integrating LLMs, Nest.js and prompt engineering.",
-        "Released opensource codebase for integrating 4 different LLM SDKs into one Nest.js backend saving over 90% starter time."
+        "Delivered 2 production AI features adding a subscription model via LLMs & Nest.js.",
+        "Released OSS library integrating 4 LLM SDKs into Nest.js, saving 90% starter time."
+      ]
+    },
+    {
+      "role": "Founding Engineer (AI)",
+      "company": "Pharmora",
+      "date": "Jan 2025 – Present",
+      "location": "Remote · NG",
+      "details": [
+        "#1 Healthcare delivery app in West Africa (iOS & Android).",
+        "Built AI subscription features: Health Info & Multimodal Help with LLM pipelines."
       ]
     },
     {
       "role": "Principal Fullstack Engineer",
       "company": "Inkspiff",
-      "date": "May 2023 - February 2025 (1 yr 10 mos)",
-      "location": "remote, US",
+      "date": "May 2023 – Feb 2025",
+      "location": "Remote · US",
       "details": [
-        "Built a full-stack AI dev tool that documents any codebase in 1 minute using NextJS, NodeJS, and SQL that generated $7k.",
-        "Led migration of the database and server from Firebase to PostgreSQL with Prisma ORM which saved the startup $5000.",
-        "Coded leads scrapper, waitlist site, and free markdown tools, generating 100k leads & 1k+ signups in Python, and Next.js."
+        "Built AI dev tool generating $7k. Led DB migration saving startup $5,000.",
+        "Scraped 100k leads & 1k+ signups with Python & Next.js tools."
       ]
     },
     {
-      "role": "Contract Frontend Developer (Mobile - React Native)",
+      "role": "Contract Frontend Dev (Mobile)",
       "company": "Popla",
-      "date": "Jan 2024 - April 2024 (4 mos)",
-      "location": "remote, Lagos",
+      "date": "Jan 2024 – Apr 2024",
+      "location": "Remote · Lagos",
       "details": [
-        "Worked with a remote team on a contract and built the frontend of an app that allows users create and join live DJ sessions (parties) using location servicies with React Native, Typescript, and CSS.",
-        "Implemented real-time features using Websockets that allowed users to see live updates of songs being played, users joining/leaving sessions, and chat messages.",
-        "Collaborated with backend developers to integrate RESTful APIs and ensure seamless data flow between frontend and backend systems."
+        "Built React Native app with real-time Websocket features for live DJ sessions.",
+        "1k downloads within first month of launch."
       ]
     },
     {
       "role": "Frontend Developer",
       "company": "Shoppleverse",
-      "date": "Jun 2022 - Jun 2023 (1 yr)",
-      "location": "remote, Lagos",
+      "date": "Jun 2022 – Jun 2023",
+      "location": "Remote · Lagos",
       "details": [
-        "Built the front-end of a web3 e-commerce marketplace that allows thousands of users to purchase products using crypto.",
-        "Developed the waiting list site used for the product launch that yielded 250+ of leads.",
-        "Spearheaded the refinement of the business model, using YC guides, resulting in more than 50% better market positioning."
+        "Built Web3 e-commerce frontend for thousands of crypto users.",
+        "250+ leads from product launch waitlist site."
       ]
     },
     {
-      "role": "Blockchain Developer Intern",
-      "company": "Blockchain Hub Africa",
-      "date": "June 2022 - Sept 2022 (4 mos)",
-      "location": "remote, Enugu",
-      "details": ["Developed non-anonymous payment service that won 1st place in Blockchain Hub Africa Hackathon."]
-    },
-    {
-      "role": "Contract Fullstack Developer - (Next.js)",
+      "role": "Contract Fullstack Developer",
       "company": "Blueportal",
-      "date": "Apr 2022 - Jun 2022 (3 mos)",
-      "location": "remote, Lagos",
+      "date": "Apr 2022 – Jun 2022",
+      "location": "Remote · Lagos",
       "details": [
-        "Designed and developed the official personal brand website for an over 2 million followers client fan base.",
-        "Integrated full fledged e-commerce store with payments & emails, selling 100+ products using ReactJS and Firebase."
+        "Built personal brand website for a 2M+ followers client fan base.",
+        "Integrated full e-commerce store with payments & emails, selling 100+ products."
       ]
-    },
-    {
-      "role": "Frontend Web & AI Intern",
-      "company": "Roar Nigeria",
-      "date": "Nov 2021 - May 2022 (7 mos)",
-      "location": "Enugu Nigeria",
-      "details": [
-        "Engineered a work chat app tested at an accelerator to improve efficiency in teams by +50% by cutting decision time.",
-        "Developed",
-        "Led fellow interns in a 40-day code challenge that improved team technical proficiencies and collaboration."
-      ]
-    },
-    {
-      "role": "Freelance Web/C++ Coder",
-      "company": "GuideToPhone, Youtube",
-      "date": "May 2020 - Oct 2021 (1 yr 6 mos)",
-      "location": "Enugu Nigeria",
-      "details": []
     }
   ]
 }

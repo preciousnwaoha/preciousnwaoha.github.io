@@ -1,0 +1,20 @@
+{
+  "contact": [
+    {
+      "icon": "fas fa-phone",
+      "label": "Phone",
+      "lines": ["+13109538559", "+2349059228500"]
+    },
+    {
+      "icon": "fas fa-envelope",
+      "label": "Email",
+      "lines": ["nwaohaprecious25@gmail.com"]
+    },
+    {
+      "icon": "fas fa-map-marker-alt",
+      "label": "Location",
+      "lines": ["Nigeria, Remote."],
+      "url": "https://maps.google.com/?q=Nigeria"
+    }
+  ]
+}

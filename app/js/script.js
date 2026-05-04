@@ -213,28 +213,43 @@ function bodyScrollingToggle() {
             .join("-")
             .replace(/[^a-z0-9-]/g, "");
 
+            const badge = projects[i].badge || '';
+          const badgeColor = projects[i].badgeColor || 'var(--skin-color)';
+          const tools = projects[i].tools || [];
+          const visibleTools = tools.slice(0, 4);
+          const extraTools = tools.length > 4 ? tools.length - 4 : 0;
+          const toolChips = visibleTools.map(t => `<span class="port-tool-chip">${t}</span>`).join('') +
+            (extraTools > 0 ? `<span class="port-tool-chip">+${extraTools}</span>` : '');
+
           projectsItemsWrapper.innerHTML += `
           <!-- portfolio item start -->
           <div class="portfolio-item" data-category="${projects[
             i
           ].categories.join(" ")}" data-slug="${projectSlug}">
             <div class="portfolio-item-inner outer-shadow">
-              <div class="portfolio-item-img">
+              <div class="portfolio-item-img" style="position:relative">
                 <img src="${
                   projects[i].thumbnail
                 }" alt="portfolio image" data-screenshots="${
             projects[i].imgs
           }" loading="lazy" decoding="async">
+                ${badge ? `<span class="port-card-badge" style="color:${badgeColor};border-color:${badgeColor}">${badge}</span>` : ''}
                 <!-- view project btn -->
                 <span class="view-project">view project</span>
               </div>
               <p class="portfolio-item-title">${projects[i].name}</p>
+              <div class="port-card-tools">${toolChips}</div>
+              <span class="port-view-link">View project <i class="fas fa-arrow-right" style="font-size:9px"></i></span>
               <!-- portfolio item details start -->
               <div class="portfolio-item-details">
                 <div class="row">
                   <div class="description">
                     <h3>Project Brief</h3>
                     <p>${projects[i].description}</p>
+                    <div class="pp-action-btns">
+                      ${projects[i].link && projects[i].link !== '#' ? `<a href="${projects[i].link}" target="_blank" rel="noreferrer" class="pp-live-btn"><i class="fas fa-external-link-alt" style="font-size:11px"></i> Live Site</a>` : ''}
+                      ${projects[i].github && projects[i].github !== '#' ? `<a href="${projects[i].github}" target="_blank" rel="noreferrer" class="pp-gh-btn"><i class="fab fa-github" style="font-size:13px"></i> GitHub</a>` : ''}
+                    </div>
                   </div>
                   <div class="info">
                     <h3>Project Info</h3>
@@ -244,12 +259,6 @@ function bodyScrollingToggle() {
                       <li>Tools - <span>${projects[i].tools.join(
                         ", "
                       )}</span></li>
-                      <li>Github - <span><a href="${projects[i].github}">${
-            projects[i].github
-          }</a></span></li>
-                      <li>Link - <span><a href="${projects[i].link}">${
-            projects[i].link
-          }</a></span></li>
                     </ul>
                   </div>
                 </div>
@@ -495,7 +504,9 @@ function bodyScrollingToggle() {
           currentHash !== "home" &&
           currentHash !== "about" &&
           currentHash !== "contact" &&
-          currentHash !== "services"
+          currentHash !== "services" &&
+          currentHash !== "posts" &&
+          currentHash !== "media"
         ) {
           // Find project with matching slug
           portfolioItems.forEach((item, index) => {
@@ -574,3 +585,161 @@ window.addEventListener("load", () => {
     }
   }
 });
+
+/*------------------ typing animation -------------------*/
+(() => {
+  const TYPING_STRINGS = ['Fullstack Engineer (All Ends)', 'AI Engineer (LLMS)', 'Product Engineer (SaaS/Indie)'];
+  const typedEl = document.getElementById('typed-text');
+  if (!typedEl) return;
+
+  let stringIdx = 0, charIdx = 0, deleting = false;
+
+  function tick() {
+    const current = TYPING_STRINGS[stringIdx];
+    typedEl.textContent = current.slice(0, charIdx);
+
+    if (!deleting) {
+      charIdx++;
+      if (charIdx > current.length) {
+        deleting = true;
+        setTimeout(tick, 1800);
+        return;
+      }
+    } else {
+      charIdx--;
+      if (charIdx < 0) {
+        deleting = false;
+        charIdx = 0;
+        stringIdx = (stringIdx + 1) % TYPING_STRINGS.length;
+      }
+    }
+    setTimeout(tick, deleting ? 28 : 55);
+  }
+
+  tick();
+})();
+
+/*------------------ skill category filter -------------------*/
+(() => {
+  const SKILLS = {
+    all:        [['React','#ec9412'],['TypeScript','#fb839e'],['Next.js','#1fc586'],['JavaScript','#2eb1ed'],['React Native','#8a49ff'],['Node.js','#1fc586'],['Nest.js','#cc3a3b'],['Electron','#2eb1ed'],['Python','#ec9412'],['Tailwind CSS','#fb839e'],['PostgreSQL','#2eb1ed'],['AWS','#ec9412'],['Supabase','#1fc586'],['Redis','#cc3a3b'],['LangGraph','#8a49ff'],['Pinecone','#fb839e'],['Socket.io','#2eb1ed'],['Solidity','#8a49ff'],['C++','#ec9412'],['Docker','#2eb1ed'],['Figma','#fb839e'],['C#','#1fc586']],
+    frontend:   [['React','#ec9412'],['TypeScript','#fb839e'],['Next.js','#1fc586'],['JavaScript','#2eb1ed'],['Tailwind CSS','#fb839e'],['React Native','#8a49ff'],['Redux','#8a49ff'],['TanStack','#1fc586'],['HTML|CSS','#2eb1ed']],
+    backend:    [['Node.js','#1fc586'],['Nest.js','#cc3a3b'],['Python','#ec9412'],['PostgreSQL','#2eb1ed'],['Redis','#cc3a3b'],['Supabase','#1fc586'],['Firebase','#ec9412'],['Express','#2eb1ed'],['Docker','#2eb1ed'],['AWS','#ec9412'],['Coolify','#8a49ff'],['MongoDB','#1fc586']],
+    ai:         [['LangGraph','#8a49ff'],['Pinecone','#fb839e'],['OpenAI API','#1fc586'],['Anthropic API','#fb839e'],['Gemini API','#2eb1ed'],['OpenRouter','#888888'],['RAG','#ec9412'],['LLMOps','#8a49ff'],['Prompt Eng.','#1fc586'],['LiveKit','#cc3a3b']],
+    blockchain: [['Solidity','#8a49ff'],['Ethers.js','#2eb1ed'],['Hardhat','#ec9412'],['Wagmi','#1fc586'],['Web3.js','#fb839e']],
+    desktop:    [['Electron','#2eb1ed'],['C++','#ec9412'],['C#','#1fc586'],['React','#fb839e'],['TypeScript','#8a49ff']],
+  };
+
+  const grid = document.getElementById('skill-pill-grid');
+  const filterBtns = document.querySelectorAll('.skill-cat-btn');
+  if (!grid || !filterBtns.length) return;
+
+  function renderSkills(cat) {
+    const pills = SKILLS[cat] || SKILLS.all;
+    grid.innerHTML = pills.map(([name, color]) =>
+      `<span class="skill-pill" style="background:${color}">${name}</span>`
+    ).join('');
+  }
+
+  renderSkills('all');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderSkills(btn.getAttribute('data-cat'));
+    });
+  });
+})();
+
+/*------------------ posts tag filter -------------------*/
+(() => {
+  const tagBtns = document.querySelectorAll('.post-tag-btn');
+  const postItems = document.querySelectorAll('.post-item[data-tag]');
+  const featPost = document.getElementById('featured-post');
+  if (!tagBtns.length) return;
+
+  const TAG_COLORS = {
+    'AI Engineering': '#fb839e',
+    'SaaS': '#ec9412',
+    'Product': '#1fc586',
+    'Workflow': '#2eb1ed',
+  };
+
+  tagBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tagBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'transparent';
+        b.style.color = '';
+      });
+      btn.classList.add('active');
+      const tag = btn.getAttribute('data-tag');
+      const color = TAG_COLORS[tag];
+      if (color) {
+        btn.style.background = color;
+        btn.style.color = '#fff';
+      } else {
+        btn.style.background = 'var(--skin-color)';
+        btn.style.color = '#fff';
+      }
+
+      if (featPost) {
+        featPost.style.display = tag === 'all' ? '' : 'none';
+      }
+
+      postItems.forEach(item => {
+        const show = tag === 'all' || item.getAttribute('data-tag') === tag;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+})();
+
+/*------------------ socials loader -------------------*/
+(() => {
+  const CONTAINERS = {
+    'home-socials-container':         { cls: 'home-social-link outer-shadow hover-in-shadow', tag: 'a' },
+    'about-socials-container':        { cls: 'outer-shadow hover-in-shadow', tag: 'a' },
+    'posts-socials-container':        { cls: 'post-social-link', tag: 'a' },
+    'posts-footer-socials-container': { cls: 'post-social-link', tag: 'a' },
+  };
+
+  fetch('../../utils/socials.json')
+    .then(r => r.json())
+    .then(({ socials }) => {
+      Object.entries(CONTAINERS).forEach(([id, cfg]) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = socials.map(s =>
+          `<a href="${s.url}" target="_blank" rel="noreferrer" class="${cfg.cls}" title="${s.label}"><i class="${s.icon}"></i></a>`
+        ).join('');
+      });
+    })
+    .catch(() => {});
+})();
+
+/*------------------ contact loader -------------------*/
+(() => {
+  const wrapper = document.getElementById('contact-items-wrapper');
+  if (!wrapper) return;
+
+  fetch('../../utils/contact.json')
+    .then(r => r.json())
+    .then(({ contact }) => {
+      wrapper.innerHTML = contact.map(item => {
+        const lines = item.lines.map(line =>
+          item.url ? `<p><a href="${item.url}" target="_blank" rel="noreferrer" style="color:inherit;text-decoration:none">${line}</a></p>` : `<p>${line}</p>`
+        ).join('');
+        return `
+          <div class="contact-item">
+            <div class="contact-item-inner outer-shadow">
+              <i class="${item.icon}"></i>
+              <span>${item.label}</span>
+              ${lines}
+            </div>
+          </div>`;
+      }).join('');
+    })
+    .catch(() => {});
+})();
