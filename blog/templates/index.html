@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Blog | {{SITE_NAME}}</title>
+  <meta name="description" content="{{BLOG_DESCRIPTION}}" />
+  <link rel="canonical" href="{{BLOG_URL}}" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog | {{SITE_NAME}}" />
+  <meta property="og:description" content="{{BLOG_DESCRIPTION}}" />
+  <meta property="og:url" content="{{BLOG_URL}}" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="{{HOME_URL}}">Home</a>
+      <a href="{{BLOG_URL}}">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-index">
+    <section class="blog-intro">
+      <p class="post-kicker">Writing</p>
+      <h1>Blog</h1>
+      <p>{{BLOG_DESCRIPTION}}</p>
+    </section>
+
+    <section class="post-grid">
+      {{POSTS_HTML}}
+    </section>
+  </main>
+</body>
+</html>
+
+

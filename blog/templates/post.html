@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{{TITLE}} | {{SITE_NAME}}</title>
+  <meta name="description" content="{{DESCRIPTION}}" />
+  <link rel="canonical" href="{{CANONICAL}}" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{TITLE}}" />
+  <meta property="og:description" content="{{DESCRIPTION}}" />
+  <meta property="og:url" content="{{CANONICAL}}" />
+  {{OG_IMAGE_TAG}}
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{TITLE}}" />
+  <meta name="twitter:description" content="{{DESCRIPTION}}" />
+  {{TWITTER_IMAGE_TAG}}
+
+  <script type="application/ld+json">
+{{JSON_LD}}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">{{TITLE}}</h1>
+        <p class="post-meta">
+          <time datetime="{{DATE_ISO}}">{{DATE_DISPLAY}}</time>{{UPDATED_DISPLAY}}
+        </p>
+        {{TAGS_HTML}}
+      </header>
+
+      {{COVER_HTML}}
+
+      {{VIDEO_HTML}}
+
+      <section class="post-content">
+        {{CONTENT}}
+      </section>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+|-- .DS_Store
+|-- about.txt
+|-- android-chrome-192x192.png
+|-- android-chrome-512x512.png
+|-- apple-touch-icon.png
+|-- cv.pdf
+|-- favicon-16x16.png
+|-- favicon-32x32.png
+|-- favicon.ico
+|-- index.html
+|-- notes.txt
+|-- package-lock.json
+|-- package.json
+|-- profile-readme.md
+|-- robots.txt
+|-- site.webmanifest
+|-- sitemap.xml
+|-- .vscode
+  |-- settings.json
+|-- todo
+  |-- blog.todo
+|-- utils
+  |-- education.json
+  |-- experience.json
+  |-- projects.json
+  |-- services.json
+|-- webfonts
+  |-- fa-brands-400.eot
+  |-- fa-brands-400.svg
+  |-- fa-brands-400.ttf
+  |-- fa-brands-400.woff
+  |-- fa-brands-400.woff2
+  |-- fa-regular-400.eot
+  |-- fa-regular-400.svg
+  |-- fa-regular-400.ttf
+  |-- fa-regular-400.woff
+  |-- fa-regular-400.woff2
+  |-- fa-solid-900.eot
+  |-- fa-solid-900.svg
+  |-- fa-solid-900.ttf
+  |-- fa-solid-900.woff
+  |-- fa-solid-900.woff2
+|-- blog
+  |-- blog-template.html
+  |-- posts
+    |-- my-first-blog.md
+  |-- templates
+    |-- index.html
+    |-- post.html
+|-- app
+  |-- js
+    |-- build-blog.mjs
+    |-- script.js
+    |-- style-switcher.js
+  |-- scss
+    |-- _globals.scss
+    |-- blog.css
+    
+    |-- styles.css
+    |-- styles.css.map
+    |-- styles.scss
+|-- dist
+  |-- font-awesome.css
+  |-- responsive.css
+  |-- style-switcher.css
+  |-- styles.css
+  |-- styles.css.map
+  |-- skins
+    |-- color-1.css
+    |-- color-2.css
+    |-- color-3.css
+    |-- color-4.css
+    |-- color-5.css
+|-- img
+  
