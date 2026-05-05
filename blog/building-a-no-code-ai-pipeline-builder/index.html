@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Building a No-Code AI Pipeline Builder — Architecture and Decisions | Your Name</title>
+  <meta name="description" content="How I designed the execution engine, node system, variable resolution, and streaming for a visual AI workflow tool." />
+  <link rel="canonical" href="https://yourdomain.com/blog/building-a-no-code-ai-pipeline-builder/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Building a No-Code AI Pipeline Builder — Architecture and Decisions" />
+  <meta property="og:description" content="How I designed the execution engine, node system, variable resolution, and streaming for a visual AI workflow tool." />
+  <meta property="og:url" content="https://yourdomain.com/blog/building-a-no-code-ai-pipeline-builder/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Building a No-Code AI Pipeline Builder — Architecture and Decisions" />
+  <meta name="twitter:description" content="How I designed the execution engine, node system, variable resolution, and streaming for a visual AI workflow tool." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;Building a No-Code AI Pipeline Builder — Architecture and Decisions&quot;,
+  &quot;description&quot;: &quot;How I designed the execution engine, node system, variable resolution, and streaming for a visual AI workflow tool.&quot;,
+  &quot;datePublished&quot;: &quot;2026-05-04&quot;,
+  &quot;dateModified&quot;: &quot;2026-05-04&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/building-a-no-code-ai-pipeline-builder/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;ai&quot;,
+    &quot;engineering&quot;,
+    &quot;backend&quot;,
+    &quot;fastapi&quot;,
+    &quot;open-source&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">Building a No-Code AI Pipeline Builder — Architecture and Decisions</h1>
+        <p class="post-meta">
+          <time datetime="2026-05-04">May 3, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#ai</span>
+  <span class="tag">#engineering</span>
+  <span class="tag">#backend</span>
+  <span class="tag">#fastapi</span>
+  <span class="tag">#open-source</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="Building a No-Code AI Pipeline Builder — Architecture and Decisions cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p><strong>TL;DR:</strong> the hard parts were the execution engine (topological sort + variable resolution), the config-driven node system that keeps frontend and backend in sync, and making streaming work cleanly through SSE. everything else followed from getting those three right.</p>
+<h2>the core problem</h2>
+<p>a pipeline builder is basically a graph executor.</p>
+<p>you have nodes. you have edges. you have variables that flow between them.</p>
+<p>the challenge is not the UI. React Flow handles the canvas well.</p>
+<p>the real challenge is:</p>
+<ul>
+<li>how do you determine execution order when dependencies can come from edges <em>and</em> variable references?</li>
+<li>how do you resolve <code>{{ nodeId.field }}</code> before a node runs?</li>
+<li>how do you stream results back to the browser while execution is still in progress?</li>
+<li>how do you keep the frontend node config in sync with what the backend actually expects?</li>
+</ul>
+<p>those four questions shaped everything.</p>
+<h2>execution order: topological sort</h2>
+<p>every workflow is a DAG — a directed acyclic graph.</p>
+<p>to execute it correctly, i need to run each node only after its dependencies have finished.</p>
+<p>that is a topological sort.</p>
+<p>but there is a catch: dependency edges can come from two places:</p>
+<ul>
+<li>explicit edges drawn on the canvas</li>
+<li>variable references in node fields, like <code>{{ webSearch.results }}</code></li>
+</ul>
+<p>so the sort has to consider both.</p>
+<p>the engine builds an adjacency graph from edges <em>and</em> scans every string field for variable patterns. both sources contribute to the in-degree count.</p>
+<p>if the sort produces fewer nodes than the workflow has, there is a cycle. the validator catches that before execution starts.</p>
+<h2>variable resolution</h2>
+<p>once execution order is determined, the engine resolves variables before each node runs.</p>
+<p>a variable like <code>{{ llm.response }}</code> gets replaced with the actual output from the LLM node that already ran.</p>
+<p>the resolver handles a useful edge case: if the entire value is a single variable reference, it preserves the original type — a list stays a list, a number stays a number. only inline variables inside a larger string force a string conversion.</p>
+<p>that matters for nodes that expect structured inputs.</p>
+<h2>the node system</h2>
+<p>every node type has two representations.</p>
+<p><strong>backend: NodeSpec</strong><br>
+defines what fields the node accepts, what outputs it produces, and what validations run before execution.</p>
+<p><strong>frontend: nodeConfig</strong><br>
+defines how the node renders — labels, field types (text, dropdown, slider, switch), default values, and which fields are half-width.</p>
+<p>these two stay in sync by contract. if a new field is added to the backend spec, the frontend config gets the matching UI field, and vice versa.</p>
+<p>that is enforced by convention, not by code generation. it is manual but simple.</p>
+<p>the node executor is a separate file per node type. it takes a context object with the resolved inputs and returns a dict of outputs. no side effects beyond that.</p>
+<h2>streaming with SSE</h2>
+<p>the frontend connects to a single <code>/run</code> endpoint over Server-Sent Events.</p>
+<p>the backend runs the workflow and yields events as it goes:</p>
+<ul>
+<li><code>run_started</code></li>
+<li><code>node_started</code></li>
+<li><code>llm_token</code> (one per streamed token)</li>
+<li><code>node_completed</code></li>
+<li><code>run_failed</code> or <code>run_completed</code></li>
+</ul>
+<p>each event is a JSON dict.</p>
+<p>the LLM node has a streaming toggle. when enabled, the executor yields tokens one by one and the frontend renders them in real time. when disabled, the full response arrives in one <code>node_completed</code> event.</p>
+<p>SSE is the right transport here. it is simpler than WebSockets for a one-direction stream, and it works well with FastAPI's <code>StreamingResponse</code>.</p>
+<h2>validation before execution</h2>
+<p>the engine never runs an invalid workflow.</p>
+<p>before any node executes, the validator checks:</p>
+<ul>
+<li>the graph has no cycles</li>
+<li>all variable references point to real nodes and real output fields</li>
+<li>required fields are not empty</li>
+<li>every referenced node exists</li>
+</ul>
+<p>if validation fails, the run returns a clear error message. execution never starts.</p>
+<h2>what i would do differently</h2>
+<p>the main thing i would revisit is the node spec sync between frontend and backend.</p>
+<p>right now it is manual — you add a field to the backend, you add it to the frontend config separately.</p>
+<p>a better approach would be a single schema that generates both. that is the kind of thing worth building once the node types stabilize.</p>
+<h2>final thought</h2>
+<p>the interesting engineering in a tool like this is not the UI.</p>
+<p>it is the execution layer:</p>
+<ul>
+<li>ordering correctly,</li>
+<li>resolving variables reliably,</li>
+<li>streaming without blocking,</li>
+<li>and failing clearly.</li>
+</ul>
+<p>get those right, and the rest is just adding new node types.</p>
+<p>that is the part i found genuinely fun to build.</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>

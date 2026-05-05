@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>LLM Engineering Inside a Pipeline Builder | Your Name</title>
+  <meta name="description" content="How I built the multi-provider LLM layer — routing, streaming, token tracking, cost estimation, and why abstraction matters more than people think." />
+  <link rel="canonical" href="https://yourdomain.com/blog/llm-engineering-inside-a-pipeline-builder/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="LLM Engineering Inside a Pipeline Builder" />
+  <meta property="og:description" content="How I built the multi-provider LLM layer — routing, streaming, token tracking, cost estimation, and why abstraction matters more than people think." />
+  <meta property="og:url" content="https://yourdomain.com/blog/llm-engineering-inside-a-pipeline-builder/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LLM Engineering Inside a Pipeline Builder" />
+  <meta name="twitter:description" content="How I built the multi-provider LLM layer — routing, streaming, token tracking, cost estimation, and why abstraction matters more than people think." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;LLM Engineering Inside a Pipeline Builder&quot;,
+  &quot;description&quot;: &quot;How I built the multi-provider LLM layer — routing, streaming, token tracking, cost estimation, and why abstraction matters more than people think.&quot;,
+  &quot;datePublished&quot;: &quot;2026-05-04&quot;,
+  &quot;dateModified&quot;: &quot;2026-05-04&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/llm-engineering-inside-a-pipeline-builder/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;llm&quot;,
+    &quot;ai&quot;,
+    &quot;engineering&quot;,
+    &quot;streaming&quot;,
+    &quot;open-source&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">LLM Engineering Inside a Pipeline Builder</h1>
+        <p class="post-meta">
+          <time datetime="2026-05-04">May 3, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#llm</span>
+  <span class="tag">#ai</span>
+  <span class="tag">#engineering</span>
+  <span class="tag">#streaming</span>
+  <span class="tag">#open-source</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="LLM Engineering Inside a Pipeline Builder cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p><strong>TL;DR:</strong> the LLM layer is a router, not a direct model call. every provider gets an adapter that conforms to one interface. the executor talks to the router, not the provider. that one decision makes everything — streaming, fallback, cost tracking, and adding new models — much easier to manage.</p>
+<h2>why abstraction matters here</h2>
+<p>the obvious way to add LLM support to a project is to call the OpenAI SDK directly.</p>
+<p>that works.</p>
+<p>until you want Anthropic. or Gemini. or OpenRouter. or until OpenAI changes their API.</p>
+<p>then you are refactoring call sites everywhere.</p>
+<p>the better approach is a single interface that every provider implements:</p>
+<ul>
+<li><code>complete(request) → response</code></li>
+<li><code>stream(request) → async generator of chunks</code></li>
+</ul>
+<p>the executor calls the interface. the router decides which provider handles the call based on the model name.</p>
+<p>that is the whole design.</p>
+<h2>the provider layer</h2>
+<p>each provider gets its own file: <code>openai.py</code>, <code>anthropic.py</code>, <code>gemini.py</code>, <code>openrouter.py</code>.</p>
+<p>each one implements the same base class:</p>
+<ul>
+<li><code>complete()</code> for non-streaming calls</li>
+<li><code>stream()</code> for streaming — yields <code>LLMStreamChunk</code> objects, one per token</li>
+</ul>
+<p>the router maps model names to provider instances. <code>gpt-4o</code> goes to OpenAI. <code>claude-sonnet-4-6</code> goes to Anthropic. <code>gemini-2.5-flash</code> goes to Gemini. anything with the <code>or/</code> prefix goes to OpenRouter.</p>
+<p>adding a new provider means adding one file and one line in the router. nothing else changes.</p>
+<h2>streaming in practice</h2>
+<p>streaming is the part that requires the most care.</p>
+<p>the interface is an async generator. the LLM node executor iterates it and yields events upstream to the execution engine, which then yields SSE events to the browser.</p>
+<p>the chain is:</p>
+<p><code>provider.stream()</code> → <code>executor.stream_execute()</code> → <code>engine.run_streaming()</code> → SSE response → browser</p>
+<p>each step is an async generator yielding dicts. no shared state. no callbacks.</p>
+<p>the final chunk from the provider includes the full response text and token usage. the executor captures that and emits a <code>done</code> event with outputs. the engine then emits <code>node_completed</code>.</p>
+<p>the key design decision: streaming is opt-in per node. there is a switch in the LLM node config. when disabled, the executor calls <code>complete()</code> instead, and the response arrives in a single event. that is useful when downstream nodes need the full text before they can run, or when streaming latency is not worth the overhead.</p>
+<h2>token tracking and cost estimation</h2>
+<p>every response includes input and output token counts.</p>
+<p>the cost estimator multiplies those by a per-model price table.</p>
+<p>the price table is just a dict. it is not clever. it is easy to update when providers change pricing.</p>
+<p>token counts and cost are included in the <code>node_completed</code> event so the frontend can display them per node.</p>
+<p>that matters in practice. when you are running a workflow repeatedly, you want to know which nodes are expensive before they run up a real bill.</p>
+<h2>what the executor actually does</h2>
+<p>the LLM node executor:</p>
+<ol>
+<li>reads <code>provider</code> and <code>model</code> from the resolved node config</li>
+<li>reads <code>system</code>, <code>prompt</code>, <code>temperature</code>, <code>maxTokens</code>, and <code>stream</code></li>
+<li>constructs an <code>LLMRequest</code></li>
+<li>calls <code>router.get_provider(model).stream()</code> or <code>.complete()</code></li>
+<li>returns a dict with <code>response</code>, <code>usage_input_tokens</code>, <code>usage_output_tokens</code>, <code>cost_estimate</code>, plus internal metadata fields</li>
+</ol>
+<p>that is the whole executor. it does not touch provider SDKs directly. it does not know which HTTP library any provider uses.</p>
+<p>that separation is what keeps the executor testable and the providers swappable.</p>
+<h2>adding a new model or provider</h2>
+<p>to add a new model to an existing provider, you update one list in the provider file and add its pricing to the price table.</p>
+<p>to add a new provider entirely:</p>
+<ol>
+<li>create a new file in <code>integrations/llm/</code></li>
+<li>implement <code>BaseLLMProvider</code> — <code>complete()</code> and <code>stream()</code></li>
+<li>add the model prefix or model names to the router</li>
+<li>add price entries to the pricing table</li>
+<li>add the model options to the frontend node config</li>
+</ol>
+<p>that is five steps. it is not complicated because the abstraction is clean.</p>
+<h2>what i have learned from this</h2>
+<p>the thing that saves the most time in LLM engineering is not picking the right model.</p>
+<p>it is not being locked into one.</p>
+<p>having a clean provider layer means:</p>
+<ul>
+<li>you can benchmark providers against each other easily</li>
+<li>you can fall back when one is slow or rate-limited</li>
+<li>you can route tasks to cheaper models when quality is not the bottleneck</li>
+<li>you can add new models when they ship without touching the rest of the app</li>
+</ul>
+<p>that is the real payoff.</p>
+<h2>final thought</h2>
+<p>a lot of LLM apps are just one provider, one model, hardcoded.</p>
+<p>that works for demos.</p>
+<p>for anything that runs in production, or for a tool like this where the model choice is the user's decision, the abstraction is not optional.</p>
+<p>build the router. keep the providers behind an interface. the rest becomes much easier to change.</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>

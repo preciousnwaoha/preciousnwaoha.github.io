@@ -1,439 +1,183 @@
-
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog | Precious Nwaoha</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta
-      name="description"
-      content="Thoughts on building web, mobile, desktop, and AI products."
-    />
-    <link rel="canonical" href="https://preciousnwaoha.github.com/blog/" />
+  <title>Blog | Your Name</title>
+  <meta name="description" content="Thoughts on building web, mobile, desktop, and AI products." />
+  <link rel="canonical" href="https://yourdomain.com/blog/" />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Blog | Your Name" />
-    <meta
-      property="og:description"
-      content="Thoughts on building web, mobile, desktop, and AI products."
-    />
-    <meta property="og:url" content="https://preciousnwaoha.github.com/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog | Your Name" />
+  <meta property="og:description" content="Thoughts on building web, mobile, desktop, and AI products." />
+  <meta property="og:url" content="https://yourdomain.com/blog/" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- font awesome (load non-blocking) -->
-    <link
-      rel="preload"
-      href="/dist/font-awesome.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript><link rel="stylesheet" href="/dist/font-awesome.css" /></noscript>
-    <!-- main css -->
-    <link rel="stylesheet" href="/dist/styles.css" />
-    <!-- responsive css -->
-    <link rel="stylesheet" href="/dist/responsive.css" />
-    <!-- default color skin -->
-    <link rel="stylesheet" href="/dist/skins/color-1.css" />
-    <link rel="stylesheet" href="/dist/blog.css" />
-    <!-- style switcher - for demo purposes only -->
-
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="color-1"
-      href="/dist/skins/color-1.css"
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="color-2"
-      href="/dist/skins/color-2.css"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="color-3"
-      href="/dist/skins/color-3.css"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="color-4"
-      href="/dist/skins/color-4.css"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="color-5"
-      href="/dist/skins/color-5.css"
-      disabled
-    />
-    <!-- style switcher - load non-blocking (demo only) -->
-    <link
-      rel="preload"
-      href="/dist/style-switcher.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript
-      ><link rel="stylesheet" href="/dist/style-switcher.css"
-    /></noscript>
-    <!-- Animated "made with" text styles (scoped) -->
-    <style>
-      .home-section .made-with-container {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 18px;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        overflow: hidden;
-        pointer-events: none;
-        z-index: 50;
-      }
-
-      .home-section .made-with {
-        display: inline-block;
-        white-space: nowrap;
-        padding: 8px 20px;
-        border-radius: 999px;
-        background: rgba(0, 0, 0, 0.25);
-        color: #ff9c07;
-        font-weight: 700;
-        letter-spacing: 0.6px;
-        transform: translateX(100%);
-        animation: pn-marquee 12s linear infinite;
-        font-family: inherit;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-      }
-
-      /* stagger a second copy so the scroll looks continuous */
-      .home-section .made-with + .made-with {
-        animation-delay: 6s;
-      }
-
-      @keyframes pn-marquee {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
-
-      /* Respect user's motion preferences */
-      @media (prefers-reduced-motion: reduce) {
-        .home-section .made-with {
-          animation: none !important;
-          transform: none !important;
-        }
-        .home-section .made-with-container {
-          justify-content: center;
-        }
-      }
-    </style>
-  </head>
-
-  <body class="dark">
-    <!-- preloader start -->
-    <div class="preloader">
-      <div class="box">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <!-- preloader end -->
-
-    <!-- header start -->
-    <header class="header">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="logo">
-            <a href="index.html">P</a>
-          </div>
-          <div class="hamburger-btn outer-shadow hover-in-shadow">
-            <span></span>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- header end -->
-
-    <!-- navigation menu start -->
-    <nav class="nav-menu">
-      <!-- effect wrap start -->
-      <div class="effect-wrap">
-        <div class="effect effect-1"></div>
-        <div class="effect effect-2">
-          <!-- 28 divs -->
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="effect effect-3"></div>
-        <div class="effect effect-4"></div>
-        <div class="effect effect-5">
-          <!-- 10 divs -->
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-      <!-- effect wrap end -->
-      <div class="close-nav-menu outer-shadow hover-in-shadow">&times;</div>
-      <div class="nav-menu-inner">
-        <ul>
-          <li>
-            <a href="#home" class="link-item inner-shadow active">home</a>
-          </li>
-          <li>
-            <a href="#about" class="link-item outer-shadow hover-in-shadow"
-              >about</a
-            >
-          </li>
-
-          <li>
-            <a href="#portfolio" class="link-item outer-shadow hover-in-shadow"
-              >portfolio</a
-            >
-          </li>
-          <li>
-            <a href="#services" class="link-item outer-shadow hover-in-shadow"
-              >services</a
-            >
-          </li>
-          <!-- <li><a href="#" class="link-item outer-shadow hover-in-shadow">testimonial</a></li> -->
-          <li>
-            <a href="#contact" class="link-item outer-shadow hover-in-shadow"
-              >contact</a
-            >
-          </li>
-        </ul>
-      </div>
-      <!-- copyright text -->
-      <!-- <p class="copyright-text">&copy; 2021 Precious Nwaoha</p> -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="https://yourdomain.com">Home</a>
+      <a href="https://yourdomain.com/blog/">Blog</a>
     </nav>
-    <div class="fade-out-effect"></div>
-    <!-- navigation menu end -->
+  </header>
 
-    <main class="blog-index">
-      <section class="blog-intro">
-        <p class="post-kicker">Writing</p>
-        <h1>Blog</h1>
-        <p>Thoughts on building web, mobile, desktop, and AI products.</p>
-      </section>
-
-      <section class="post-grid">
-        <article class="post-card">
-          <a
-            class="card-cover"
-            href="/blog/my-current-development-workflow-with-ai/"
-            >
-            <img
-              src="/assets/blog/cover-1.jpg"
-              alt="My Current Develoment Workflow With AI cover"
-            />
-          </a>
-          <div class="card-body">
-            <p class="card-date">February 5, 2026</p>
-            <h2 class="card-title">
-              <a href="/blog/my-current-development-workflow-with-ai/"
-                >My Current Develoment Workflow With AI</a
-              >
-            </h2>
-            <p class="card-description">
-              How I built my personal site and added a blog.
-            </p>
-            <div class="card-tags">
-              <span class="tag">#claude</span> <span class="tag">#web</span>
-              <span class="tag">#seo</span>
-            </div>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <!-- about section start -->
-    <section class="about-section section" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="section-title">
-            <h2 data-heading="main info">About me</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="about-img">
-            <div class="img-box inner-shadow">
-              <img
-                src="/img/profile-pic-new.png"
-                alt="profile-pic"
-                class="outer-shadow"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <!-- social links start -->
-            <div class="social-links">
-              <a
-                href="https://github.com/preciousnwaoha"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a
-                href="https:/x.com/takaraqode"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                href="https://linktr.ee/preciousnwaoha/"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-c"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/preciousnwaoha04/"
-                class="outer-shadow hover-in-shadow"
-                ><i class="fab fa-linked\in-in"></i
-              ></a>
-            </div>
-            <!-- social links end -->
-          </div>
-          <div class="about-info">
-            <p>
-              <span
-                >Hi! My name is Precious Nwaoha. I am a self-taught Fullstack
-                Product Engineer with 5+ years of experience building and
-                shipping web, mobile, desktop and blockchain applications.</span
-              >
-              I work on projects using Javascript/Typesctipt framworks like
-              <b>Next.js, React.js, React Native, Electron, Ether.js, etc,</b>
-              and use LLMs in both development workflow and implementing product
-              features, on a day-to-day basis.
-            </p>
-
-            <p>
-              <span
-                >I have built two(2) AI SaaS products completely solo which have
-                hit over $5000 revenue each, achecived over 5M social media
-                views, won four(4) global coding hackathons, and worked with
-                remote companies around the world.</span
-              >
-            </p>
-            <p>
-              I contribute to opensource, follow tech news, and love music and
-              dance!
-            </p>
-            <a
-              href="https://drive.google.com/file/d/1QXsqR5-j2fv4jk0T8_DiWtLeAQzJtEJJ/view?usp=sharing"
-              target="_blank"
-              class="btn-1 outer-shadow hover-in-shadow"
-              >Download CV</a
-            >
-            <a
-              href="#contact"
-              class="link-item btn-1 outer-shadow hover-in-shadow"
-              >Hire Me</a
-            >
-            <div class="scroll-down">
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
-          <!-- down arrow -->
-        </div>
-
-        <!-- about tabs start -->
-        <div class="row">
-          <div class="about-tabs">
-            <span class="tab-item outer-shadow active" data-target=".skills"
-              >skills</span
-            >
-            <span class="tab-item" data-target=".experience">experience</span>
-            <span class="tab-item" data-target=".education">education</span>
-          </div>
-        </div>
-        <!-- about tabs end -->
-      </div>
+  <main class="blog-index">
+    <section class="blog-intro">
+      <p class="post-kicker">Writing</p>
+      <h1>Blog</h1>
+      <p>Thoughts on building web, mobile, desktop, and AI products.</p>
     </section>
-    <!-- about section end -->
 
-    <!-- style switcher start - for demo purposes only -->
-    <div class="style-switcher outer-shadow">
-      <div class="style-switcher-toggler s-icon outer-shadow hover-in-shadow">
-        <i class="fas fa-cog fa-spin"></i>
-      </div>
-      <div class="day-night s-icon outer-shadow hover-in-shadow">
-        <i class="fas"></i>
-      </div>
-
-      <h4>Theme Colors</h4>
-      <div class="colors">
-        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
-        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
-        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
-        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
-        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
-      </div>
-    </div>
-    <!-- style switcher start -->
-
-    <!-- main js -->
-    <script src="/app/js/script.js" defer></script>
-    <!-- style-switcher js -->
-    <script src="/app/js/style-switcher.js" defer></script>
-  </body>
+    <section class="post-grid">
+      <article class="post-card">
+  <a class="card-cover" href="/blog/building-a-no-code-ai-pipeline-builder/"><img src="/assets/blog/cover-1.jpg" alt="Building a No-Code AI Pipeline Builder — Architecture and Decisions cover" /></a>
+  <div class="card-body">
+    <p class="card-date">May 3, 2026</p>
+    <h2 class="card-title"><a href="/blog/building-a-no-code-ai-pipeline-builder/">Building a No-Code AI Pipeline Builder — Architecture and Decisions</a></h2>
+    <p class="card-description">How I designed the execution engine, node system, variable resolution, and streaming for a visual AI workflow tool.</p>
+    <div class="card-tags"><span class="tag">#ai</span> <span class="tag">#engineering</span> <span class="tag">#backend</span> <span class="tag">#fastapi</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/contribute-to-the-no-code-pipeline-builder/"><img src="/assets/blog/cover-1.jpg" alt="Contribute to the No-Code AI Pipeline Builder — What You&#39;ll Build and Learn cover" /></a>
+  <div class="card-body">
+    <p class="card-date">May 3, 2026</p>
+    <h2 class="card-title"><a href="/blog/contribute-to-the-no-code-pipeline-builder/">Contribute to the No-Code AI Pipeline Builder — What You&#39;ll Build and Learn</a></h2>
+    <p class="card-description">An open invitation to developers who want real AI engineering experience — how to contribute, what skills you&#39;ll gain, and what the project still needs.</p>
+    <div class="card-tags"><span class="tag">#open-source</span> <span class="tag">#ai</span> <span class="tag">#engineering</span> <span class="tag">#contribute</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/i-built-a-no-code-ai-pipeline-builder/"><img src="/assets/blog/cover-1.jpg" alt="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source) cover" /></a>
+  <div class="card-body">
+    <p class="card-date">May 3, 2026</p>
+    <h2 class="card-title"><a href="/blog/i-built-a-no-code-ai-pipeline-builder/">I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)</a></h2>
+    <p class="card-description">A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them.</p>
+    <div class="card-tags"><span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#open-source</span> <span class="tag">#pipeline</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/llm-engineering-inside-a-pipeline-builder/"><img src="/assets/blog/cover-1.jpg" alt="LLM Engineering Inside a Pipeline Builder cover" /></a>
+  <div class="card-body">
+    <p class="card-date">May 3, 2026</p>
+    <h2 class="card-title"><a href="/blog/llm-engineering-inside-a-pipeline-builder/">LLM Engineering Inside a Pipeline Builder</a></h2>
+    <p class="card-description">How I built the multi-provider LLM layer — routing, streaming, token tracking, cost estimation, and why abstraction matters more than people think.</p>
+    <div class="card-tags"><span class="tag">#llm</span> <span class="tag">#ai</span> <span class="tag">#engineering</span> <span class="tag">#streaming</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/how-lifecycle-emails-can-save-a-saas-product/"><img src="/assets/blog/lifecycle-emails-cover.jpg" alt="How Lifecycle Emails Can Save a SaaS Product cover" /></a>
+  <div class="card-body">
+    <p class="card-date">April 26, 2026</p>
+    <h2 class="card-title"><a href="/blog/how-lifecycle-emails-can-save-a-saas-product/">How Lifecycle Emails Can Save a SaaS Product</a></h2>
+    <p class="card-description">A simple email system helped me reduce churn, recover abandoned checkouts, and bring old users back.</p>
+    <div class="card-tags"><span class="tag">#saas</span> <span class="tag">#lifecycle-emails</span> <span class="tag">#growth</span> <span class="tag">#retention</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/my-prompt-engineering-style/"><img src="/assets/blog/cover-1.jpg" alt="System Promt Like a Pro - My Prompt Engineering Process in LLM Apps cover" /></a>
+  <div class="card-body">
+    <p class="card-date">April 26, 2026</p>
+    <h2 class="card-title"><a href="/blog/my-prompt-engineering-style/">System Promt Like a Pro - My Prompt Engineering Process in LLM Apps</a></h2>
+    <p class="card-description">How I build prompts in real products, and why structure, context, rules, and reminders improve output quality a lot.</p>
+    <div class="card-tags"><span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#prompt-engineering</span> <span class="tag">#rag</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/my-free-saas-stack/"><img src="/assets/blog/cover-1.jpg" alt="My $0 Stack for Building SaaS and AI Products cover" /></a>
+  <div class="card-body">
+    <p class="card-date">April 26, 2026</p>
+    <h2 class="card-title"><a href="/blog/my-free-saas-stack/">My $0 Stack for Building SaaS and AI Products</a></h2>
+    <p class="card-description">The stack i keep coming back to when i want to ship fast, keep costs low, and still build something serious.</p>
+    <div class="card-tags"><span class="tag">#saas</span> <span class="tag">#ai</span> <span class="tag">#startup</span> <span class="tag">#indie-hacker</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/ai-engineering-pro-facts/"><img src="/assets/blog/cover-1.jpg" alt="AI Engineering Pro Facts cover" /></a>
+  <div class="card-body">
+    <p class="card-date">February 5, 2026</p>
+    <h2 class="card-title"><a href="/blog/ai-engineering-pro-facts/">AI Engineering Pro Facts</a></h2>
+    <p class="card-description">A few things I keep coming back to when building real AI products.</p>
+    <div class="card-tags"><span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#engineer</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/ai-engineering-pro-facts/"><img src="/assets/blog/cover-1.jpg" alt="AI Engineering Pro Facts cover" /></a>
+  <div class="card-body">
+    <p class="card-date">February 5, 2026</p>
+    <h2 class="card-title"><a href="/blog/ai-engineering-pro-facts/">AI Engineering Pro Facts</a></h2>
+    <p class="card-description">How I built my personal site and added a blog.</p>
+    <div class="card-tags"><span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#engineer</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/how-i-save-on-devops-cloud-and-tooling-costs/"><img src="/assets/blog/cover-1.jpg" alt="How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0 cover" /></a>
+  <div class="card-body">
+    <p class="card-date">February 5, 2026</p>
+    <h2 class="card-title"><a href="/blog/how-i-save-on-devops-cloud-and-tooling-costs/">How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0</a></h2>
+    <p class="card-description">The stack I use to keep infra and tooling costs near zero while still shipping real products.</p>
+    <div class="card-tags"><span class="tag">#saas</span> <span class="tag">#devops</span> <span class="tag">#cloud</span> <span class="tag">#startup</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/my-ai-engineering-stack/"><img src="/assets/blog/cover-1.jpg" alt="My AI Engineering Stack cover" /></a>
+  <div class="card-body">
+    <p class="card-date">February 5, 2026</p>
+    <h2 class="card-title"><a href="/blog/my-ai-engineering-stack/">My AI Engineering Stack</a></h2>
+    <p class="card-description">The stack I use to build AI products that are fast, reliable, and actually shippable.</p>
+    <div class="card-tags"><span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#engineer</span> <span class="tag">#backend</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/my-current-development-workflow-with-ai/"><img src="/assets/blog/cover-1.jpg" alt="My Current Develoment Workflow With AI cover" /></a>
+  <div class="card-body">
+    <p class="card-date">February 5, 2026</p>
+    <h2 class="card-title"><a href="/blog/my-current-development-workflow-with-ai/">My Current Develoment Workflow With AI</a></h2>
+    <p class="card-description">How I built my personal site and added a blog.</p>
+    <div class="card-tags"><span class="tag">#claude</span> <span class="tag">#web</span> <span class="tag">#seo</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/ok-the-app-is-ready-how-i-ranked-it-with-seo/"><img src="/assets/blog/cover-1.jpg" alt="Ok, the app is ready. How I ranked it with SEO cover" /></a>
+  <div class="card-body">
+    <p class="card-date">February 5, 2026</p>
+    <h2 class="card-title"><a href="/blog/ok-the-app-is-ready-how-i-ranked-it-with-seo/">Ok, the app is ready. How I ranked it with SEO</a></h2>
+    <p class="card-description">What i did for Velin AI and other products to get indexed, get found, and start bringing in users.</p>
+    <div class="card-tags"><span class="tag">#seo</span> <span class="tag">#saas</span> <span class="tag">#startup</span> <span class="tag">#marketing</span></div>
+  </div>
+</article>
+<article class="post-card">
+  <a class="card-cover" href="/blog/welcome-to-the-qode-blog/"><img src="/assets/blog/cover-1.jpg" alt="Welcome to the Qode blog cover" /></a>
+  <div class="card-body">
+    <p class="card-date">February 5, 2026</p>
+    <h2 class="card-title"><a href="/blog/welcome-to-the-qode-blog/">Welcome to the Qode blog</a></h2>
+    <p class="card-description">AI engineering, SaaS building, dev workflow, prompt design, infra, and product notes from the build.</p>
+    <div class="card-tags"><span class="tag">#ai</span> <span class="tag">#llm</span> <span class="tag">#engineer</span> <span class="tag">#saas</span></div>
+  </div>
+</article>
+<article class="post-card">
+  
+  <div class="card-body">
+    <p class="card-date"></p>
+    <h2 class="card-title"><a href="/blog/making-an-unclickable-unfocusable-interactive-desktop-app/">making-an-unclickable-unfocusable-interactive-desktop-app</a></h2>
+    <p class="card-description"></p>
+    
+  </div>
+</article>
+<article class="post-card">
+  
+  <div class="card-body">
+    <p class="card-date"></p>
+    <h2 class="card-title"><a href="/blog/model-pooling-and-evaluation/">model-pooling-and-evaluation</a></h2>
+    <p class="card-description"></p>
+    
+  </div>
+</article>
+    </section>
+  </main>
+</body>
 </html>
+
+

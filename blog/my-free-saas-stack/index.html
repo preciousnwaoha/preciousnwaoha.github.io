@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>My $0 Stack for Building SaaS and AI Products | Your Name</title>
+  <meta name="description" content="The stack i keep coming back to when i want to ship fast, keep costs low, and still build something serious." />
+  <link rel="canonical" href="https://yourdomain.com/blog/my-free-saas-stack/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="My $0 Stack for Building SaaS and AI Products" />
+  <meta property="og:description" content="The stack i keep coming back to when i want to ship fast, keep costs low, and still build something serious." />
+  <meta property="og:url" content="https://yourdomain.com/blog/my-free-saas-stack/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="My $0 Stack for Building SaaS and AI Products" />
+  <meta name="twitter:description" content="The stack i keep coming back to when i want to ship fast, keep costs low, and still build something serious." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;My $0 Stack for Building SaaS and AI Products&quot;,
+  &quot;description&quot;: &quot;The stack i keep coming back to when i want to ship fast, keep costs low, and still build something serious.&quot;,
+  &quot;datePublished&quot;: &quot;2026-04-27&quot;,
+  &quot;dateModified&quot;: &quot;2026-04-27&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/my-free-saas-stack/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;saas&quot;,
+    &quot;ai&quot;,
+    &quot;startup&quot;,
+    &quot;indie-hacker&quot;,
+    &quot;stack&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">My $0 Stack for Building SaaS and AI Products</h1>
+        <p class="post-meta">
+          <time datetime="2026-04-27">April 26, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#saas</span>
+  <span class="tag">#ai</span>
+  <span class="tag">#startup</span>
+  <span class="tag">#indie-hacker</span>
+  <span class="tag">#stack</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="My $0 Stack for Building SaaS and AI Products cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p><strong>TL;DR:</strong> for most SaaS products, including AI products, i like a simple stack that gives me speed, support, and almost no monthly cost at the start: Next.js + Tailwind for web, React Native for mobile, Electron for desktop, Vercel for hosting, Supabase for db and auth, Resend for emails, PostHog for analytics, Sentry for errors, and Coolify + Hetzner when i want to self-host properly.</p>
+<p>That is not me trying to be fancy. That is just the stack that keeps letting me ship.</p>
+<h2>why i like this stack</h2>
+<p>when you are building SaaS, especially as a solo founder or a small team, the problem is not just “can i build it?”</p>
+<p>the real question is:</p>
+<ul>
+<li>can i ship it fast?</li>
+<li>can i support it properly?</li>
+<li>can i keep the costs at $0 or near $0 for as long as possible?</li>
+<li>can i still make the product feel premium?</li>
+</ul>
+<p>that is the balance i care about.</p>
+<p>i do not want a stack that is cheap but fragile.</p>
+<p>i do not want a stack that is powerful but expensive from day one.</p>
+<p>i want something in the middle, something that lets me move fast, keep quality high, and only start paying more when the product actually grows.</p>
+<h2>web: next.js + tailwind css</h2>
+<p>for web, i keep coming back to <strong>Next.js</strong> and <strong>Tailwind CSS</strong>.</p>
+<p>i like Next.js because it gives me a clean path for:</p>
+<ul>
+<li>landing pages,</li>
+<li>dashboards,</li>
+<li>auth flows,</li>
+<li>blog pages,</li>
+<li>admin tools,</li>
+<li>SEO pages,</li>
+<li>and product UI.</li>
+</ul>
+<p>it is one of those frameworks that just makes sense for SaaS.</p>
+<p>Tailwind, on the other hand, helps me move quickly without turning every component into a styling project. i can build clean UI fast, keep things consistent, and not fight the stylesheet all day.</p>
+<p>for me, that is a huge win.</p>
+<p>if i want to ship a proper SaaS frontend without overthinking the stack, this is usually where i start.</p>
+<h2>app: react native</h2>
+<p>for mobile, i like <strong>React Native</strong>.</p>
+<p>not because it is perfect, but because it lets me stay close to the same mental model i already use for web.</p>
+<p>that matters a lot.</p>
+<p>if i already know React, i do not want to restart from zero just to support mobile. i want to reuse the same logic, same product thinking, same speed.</p>
+<p>React Native is good when:</p>
+<ul>
+<li>i want a companion app,</li>
+<li>i want notifications,</li>
+<li>i want mobile access to the product,</li>
+<li>or i need a real app without building two separate codebases from scratch.</li>
+</ul>
+<p>for SaaS, mobile is not always the first thing i build, but when i do need it, React Native is usually my preferred path.</p>
+<h2>desktop: electron</h2>
+<p>for desktop apps, especially when i am building something like Velin AI, i use <strong>Electron</strong>.</p>
+<p>Electron is not the lightest thing in the world, but it is extremely practical.</p>
+<p>it gives me:</p>
+<ul>
+<li>cross-platform support,</li>
+<li>faster shipping,</li>
+<li>access to system-level behavior,</li>
+<li>and a good path for macOS and Windows from the same codebase.</li>
+</ul>
+<p>that is a big deal for AI desktop products.</p>
+<p>a lot of tools in my space need to run on the desktop, stay accessible, and integrate with user workflows. Electron helps me do that without rebuilding the app twice.</p>
+<p>if the product is desktop-first, Electron still makes a lot of sense to me.</p>
+<h2>hosting: vercel</h2>
+<p>for hosting, <strong>Vercel</strong> is still one of my default choices.</p>
+<p>especially for:</p>
+<ul>
+<li>landing pages,</li>
+<li>SaaS dashboards,</li>
+<li>frontend apps,</li>
+<li>docs,</li>
+<li>and blog content.</li>
+</ul>
+<p>the reason i like Vercel is simple: it reduces friction.</p>
+<p>i can deploy fast, preview changes quickly, and focus on the product instead of infrastructure drama.</p>
+<p>when i want the frontend to just work, Vercel is usually the easiest answer.</p>
+<h2>database: supabase</h2>
+<p>for the database, i usually reach for <strong>Supabase</strong>.</p>
+<p>for most projects, it gives me enough power without making the early setup annoying.</p>
+<p>i like it because it gives me:</p>
+<ul>
+<li>Postgres,</li>
+<li>auth,</li>
+<li>storage,</li>
+<li>and a very practical developer workflow.</li>
+</ul>
+<p>for a lot of SaaS products, that is enough.</p>
+<p>if a project gets too complex, or the architecture needs more control, then i may move closer to direct Postgres management or a different setup. but for most early products, Supabase is a great place to start.</p>
+<p>it is one of those tools that saves me from building too much infrastructure too early.</p>
+<h2>auth: supabase auth or clerk</h2>
+<p>for authentication, my first choice is usually <strong>Supabase Auth</strong>.</p>
+<p>i like keeping auth close to the database and the rest of the product when i can.</p>
+<p>it is simple, it is practical, and it fits the rest of the stack well.</p>
+<p>that said, <strong>Clerk</strong> is also great.</p>
+<p>if the product needs a smoother auth experience out of the box, Clerk is a very strong option. i do not see this as a religion thing. i just pick what makes the product easier to ship and support.</p>
+<p>my rule is simple:</p>
+<ul>
+<li>if i want fewer moving parts, Supabase Auth,</li>
+<li>if i want a more polished auth layer quickly, Clerk.</li>
+</ul>
+<h2>emails: resend</h2>
+<p>for emails, <strong>Resend</strong> is one of my favorites.</p>
+<p>email is not just notifications. for SaaS, email is:</p>
+<ul>
+<li>onboarding,</li>
+<li>abandoned checkout,</li>
+<li>lifecycle messages,</li>
+<li>account updates,</li>
+<li>support,</li>
+<li>product reminders,</li>
+<li>and recovery.</li>
+</ul>
+<p>so i need something that is reliable and easy to use.</p>
+<p>Resend gives me that.</p>
+<p>it is one of the cleanest email tools i have used for product work, and it fits well with both transactional email and the lifecycle system i like to build into products.</p>
+<p>for me, email is not extra. it is part of the product.</p>
+<h2>analytics: posthog</h2>
+<p>for analytics, i like <strong>PostHog</strong>.</p>
+<p>i do not want to guess what users are doing.</p>
+<p>i want to see:</p>
+<ul>
+<li>where they drop off,</li>
+<li>what they click,</li>
+<li>which features they use,</li>
+<li>and what actually matters in the funnel.</li>
+</ul>
+<p>PostHog helps me do that without making analytics feel like a giant enterprise project.</p>
+<p>that matters because a lot of early products die from confusion, not from lack of effort.</p>
+<p>if i can understand the user flow clearly, i can make better product decisions faster.</p>
+<h2>errors and production: sentry</h2>
+<p>for production errors, <strong>Sentry</strong> is one of the most useful tools i use.</p>
+<p>this is especially true for desktop apps and AI apps, where bugs can be hard to reproduce.</p>
+<p>i want to know:</p>
+<ul>
+<li>what broke,</li>
+<li>where it broke,</li>
+<li>what device it happened on,</li>
+<li>which version the user had,</li>
+<li>and what the stack trace looked like.</li>
+</ul>
+<p>Sentry gives me that.</p>
+<p>that means i can fix real problems faster, instead of waiting for users to explain them badly in support messages.</p>
+<p>for serious SaaS, i think error tracking is not optional.</p>
+<h2>blog: md / mdx or sanity</h2>
+<p>for the blog, i usually do one of two things:</p>
+<ul>
+<li>write <strong>md / mdx</strong> files directly in the website and parse them into <code>/blog</code></li>
+<li>or use <strong>Sanity</strong> when i want a more flexible content workflow</li>
+</ul>
+<p>i like md/mdx because it is simple and fast.</p>
+<p>i like Sanity when i want a content system that is easier to manage from a CMS perspective.</p>
+<p>for a personal site or founder blog, md/mdx is often enough.</p>
+<p>for something more content-heavy, Sanity can be a better fit.</p>
+<h2>what i like most about this stack</h2>
+<p>the best thing about this stack is not just that it is cheap.</p>
+<p>it is that it gives me a clean path to build a real product without paying for everything upfront.</p>
+<p>that matters because in the beginning, most products are not infrastructure problems.</p>
+<p>they are product problems.</p>
+<p>you want to:</p>
+<ul>
+<li>validate the idea,</li>
+<li>ship the MVP,</li>
+<li>support users,</li>
+<li>fix bugs,</li>
+<li>and learn quickly.</li>
+</ul>
+<p>this stack supports that.</p>
+<h2>when i self-host, i like hetzner + coolify</h2>
+<p>if i want to self-host properly, i like using a <strong>Hetzner</strong> server with <strong>Coolify</strong>.</p>
+<p>that gives me a lot more control without forcing me to do every devops task manually.</p>
+<p>Coolify helps me manage deployments, services, and the server in a much more practical way. Hetzner gives me good compute for the money.</p>
+<p>for products that need more serious hosting, this combo is one of my favorite ways to keep costs down while still staying in control.</p>
+<h2>everything here can start at $0</h2>
+<p>that is one reason i like this stack so much.</p>
+<p>in the beginning, a lot of the tools can be free:</p>
+<ul>
+<li>Vercel,</li>
+<li>Supabase,</li>
+<li>Resend,</li>
+<li>PostHog,</li>
+<li>Sentry,</li>
+<li>and even your blog setup if you keep it simple.</li>
+</ul>
+<p>that means you can ship something real without immediately taking on a bunch of monthly bills.</p>
+<p>and that is important.</p>
+<p>because a product that has not proven itself should not behave like a giant company yet.</p>
+<h2>my simple rule</h2>
+<p>i try to pay only when the product needs it.</p>
+<p>not before.</p>
+<p>if a tool helps me ship faster, support better, or stay reliable, i use it.</p>
+<p>if it is just adding cost and complexity, i keep it free, simple, or self-hosted.</p>
+<p>that mindset has saved me a lot of money, and it has helped me move much faster too.</p>
+<h2>final thought</h2>
+<p>there are many good stacks out there.</p>
+<p>this is just the one i keep returning to because it gives me the best mix of:</p>
+<ul>
+<li>speed,</li>
+<li>support,</li>
+<li>low cost,</li>
+<li>and room to grow.</li>
+</ul>
+<p>for SaaS, and especially for AI products, that combination matters a lot.</p>
+<p>i do not want the fanciest stack.</p>
+<p>i want the stack that lets me ship, learn, and keep going.</p>
+<p>and this one does that for me.</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>

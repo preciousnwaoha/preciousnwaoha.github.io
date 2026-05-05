@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0 | Your Name</title>
+  <meta name="description" content="The stack I use to keep infra and tooling costs near zero while still shipping real products." />
+  <link rel="canonical" href="https://yourdomain.com/blog/how-i-save-on-devops-cloud-and-tooling-costs/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0" />
+  <meta property="og:description" content="The stack I use to keep infra and tooling costs near zero while still shipping real products." />
+  <meta property="og:url" content="https://yourdomain.com/blog/how-i-save-on-devops-cloud-and-tooling-costs/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0" />
+  <meta name="twitter:description" content="The stack I use to keep infra and tooling costs near zero while still shipping real products." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0&quot;,
+  &quot;description&quot;: &quot;The stack I use to keep infra and tooling costs near zero while still shipping real products.&quot;,
+  &quot;datePublished&quot;: &quot;2026-02-06&quot;,
+  &quot;dateModified&quot;: &quot;2026-02-06&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/how-i-save-on-devops-cloud-and-tooling-costs/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;saas&quot;,
+    &quot;devops&quot;,
+    &quot;cloud&quot;,
+    &quot;startup&quot;,
+    &quot;indie-hacker&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0</h1>
+        <p class="post-meta">
+          <time datetime="2026-02-06">February 5, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#saas</span>
+  <span class="tag">#devops</span>
+  <span class="tag">#cloud</span>
+  <span class="tag">#startup</span>
+  <span class="tag">#indie-hacker</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0 cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p><strong>TL;DR:</strong> You do not need a huge cloud bill to ship a serious product.</p>
+<p>Over time, I have learned a simple rule: <strong>spend money only where it directly removes pain or unlocks growth</strong>. Everything else should be free, cheap, self-hosted, or automated.</p>
+<p>That is how I keep shipping Velin AI and other products without letting infrastructure eat the business alive.</p>
+<h2>The mindset</h2>
+<p>When you are building as a solo founder or a small startup, cloud costs can quietly become a second business.</p>
+<p>A few dollars here, a few more there, and suddenly:</p>
+<ul>
+<li>hosting is expensive,</li>
+<li>logs are expensive,</li>
+<li>emails are expensive,</li>
+<li>analytics are expensive,</li>
+<li>CI/CD is expensive,</li>
+<li>and every “small” tool becomes another monthly bill.</li>
+</ul>
+<p>I do not like that.</p>
+<p>My goal is not just to build products. My goal is to <strong>ship quality products while keeping fixed costs extremely low</strong>.</p>
+<h2>My default stack for cheap, solid infrastructure</h2>
+<p>Here is the stack I keep coming back to:</p>
+<ul>
+<li><strong>Coolify</strong> for self-hosted DevOps and deployment management</li>
+<li><strong>Hetzner</strong> or <strong>AWS startup credits</strong> for servers</li>
+<li><strong>Render</strong> for simpler projects or smaller workloads</li>
+<li><strong>Vercel</strong> for frontend hosting</li>
+<li><strong>Supabase</strong> or Postgres on a server for databases</li>
+<li><strong>Resend</strong> for transactional and lifecycle emails</li>
+<li><strong>PostHog</strong> for analytics</li>
+<li><strong>Sentry</strong> for error tracking</li>
+<li><strong>GitHub Actions</strong> for CI, builds, and automation</li>
+<li><strong><a href="http://cron-job.org">cron-job.org</a></strong> for free cron jobs</li>
+</ul>
+<p>That combination has saved me a lot of money.</p>
+<h2>Coolify changed how I think about DevOps</h2>
+<p>Coolify is one of the biggest cost-saving tools I have used.</p>
+<p>In simple terms, it lets you self-host and manage deployments without making everything feel like manual Ubuntu suffering. You can deploy:</p>
+<ul>
+<li>frontend apps,</li>
+<li>backend apps,</li>
+<li>Postgres,</li>
+<li>Redis,</li>
+<li>and other services</li>
+</ul>
+<p>from one dashboard.</p>
+<p>If you already have a server from Hetzner, AWS, or somewhere else, you can install Coolify and suddenly deployments become much easier.</p>
+<p>That is the real value.</p>
+<p>It gives you most of the benefits people usually pay a platform for, while still letting you stay in control.</p>
+<h3>Why I like it</h3>
+<p>I do not want to spend my time buried in server maintenance.</p>
+<p>I want to ship.</p>
+<p>Coolify helps me do that by making self-hosting feel more like product work and less like punishment.</p>
+<p>It also keeps memory-related issues more manageable when you use it with the right plan and server setup.</p>
+<h2>Why Hetzner is one of my favorite cost-saving moves</h2>
+<p>If I want a server that feels powerful without costing a fortune, Hetzner is usually one of the first places I look.</p>
+<p>A lot of the time, the same level of compute that costs much more on AWS can be dramatically cheaper there. That matters when you are running real workloads and not just a tiny landing page.</p>
+<p>For the kind of products I build, especially when I need decent CPU and memory, Hetzner often gives me a much better value.</p>
+<h2>AWS credits are still very useful</h2>
+<p>AWS can still be a great option if you can get startup credits.</p>
+<p>I have used AWS startup credits to cover servers for projects where I needed serious infra without paying out of pocket immediately.</p>
+<p>That works especially well when:</p>
+<ul>
+<li>you are early,</li>
+<li>you need time to validate,</li>
+<li>and you do not want infra costs blocking the build.</li>
+</ul>
+<p>I would not use AWS blindly for everything, because costs can grow fast. But with credits, it can buy you a lot of breathing room.</p>
+<h2>Render is good when you want simple</h2>
+<p>If I have a smaller project or something that does not need heavy custom infra, Render is still a great option.</p>
+<p>It is one of the easiest ways to get a backend or service online without turning deployment into a project of its own.</p>
+<p>For smaller workloads, that simplicity is worth a lot.</p>
+<h2>Vercel is still my go-to for web hosting</h2>
+<p>For frontend and web apps, Vercel remains one of my favorite options.</p>
+<p>It is especially strong if you are using Next.js, which is still my personal favorite for building web products.</p>
+<p>For a lot of projects, Vercel gives me exactly what I need:</p>
+<ul>
+<li>fast deployment,</li>
+<li>easy previews,</li>
+<li>good developer experience,</li>
+<li>and a very low-friction workflow.</li>
+</ul>
+<p>If the frontend is mostly web-based, Vercel is hard to beat.</p>
+<h2>GitHub Actions saves me more time than people realize</h2>
+<p>I almost forgot to mention this, but GitHub Actions is a huge part of how I keep costs down.</p>
+<p>I use it for:</p>
+<ul>
+<li>builds,</li>
+<li>checks,</li>
+<li>cross-platform automation,</li>
+<li>and shipping Velin AI for both macOS and Windows.</li>
+</ul>
+<p>That matters a lot because it lets me automate work I would otherwise have to do manually or pay someone else to manage.</p>
+<p>In practice, GitHub Actions helps me:</p>
+<ul>
+<li>build releases automatically,</li>
+<li>run tests,</li>
+<li>package desktop builds,</li>
+<li>and keep the shipping process consistent.</li>
+</ul>
+<p>That is one of those tools that quietly replaces paid automation and a lot of manual effort.</p>
+<h2>My email stack stays cheap too</h2>
+<p>For emails, I like <strong>Resend</strong>.</p>
+<p>It has been a great fit for transactional emails and lifecycle emails, and the free tier is generous enough to support real use for early products.</p>
+<p>That is important because email is not optional.</p>
+<p>If you are building a SaaS, you need:</p>
+<ul>
+<li>signup emails,</li>
+<li>password emails,</li>
+<li>onboarding emails,</li>
+<li>abandoned checkout emails,</li>
+<li>lifecycle emails,</li>
+<li>and support emails.</li>
+</ul>
+<p>If you can keep that layer cheap and reliable, you protect margin from day one.</p>
+<h2>Lifecycle emails are worth automating</h2>
+<p>I use lifecycle emails to recover abandoned checkouts, re-engage old users, and keep users moving through the product.</p>
+<p>A simple trigger email can do a lot:</p>
+<ul>
+<li>bring back someone who almost paid,</li>
+<li>help someone finish onboarding,</li>
+<li>recover an old beta user,</li>
+<li>or simply remind people that your product is still alive and improving.</li>
+</ul>
+<p>For Velin AI, this has already helped me bring users back.</p>
+<p>For implementation, I like the idea of a simple cron job that checks user activity and sends the right email at the right time.</p>
+<p>You can use free cron tooling like <strong><a href="http://cron-job.org">cron-job.org</a></strong> to trigger those jobs without paying for another service.</p>
+<h2>PostHog gives me useful analytics without a big bill</h2>
+<p>I like PostHog because it gives me useful product analytics without making me feel trapped in a giant enterprise stack.</p>
+<p>For an early product, I care about:</p>
+<ul>
+<li>what users are doing,</li>
+<li>where they drop off,</li>
+<li>what they click,</li>
+<li>and what actually leads to conversion.</li>
+</ul>
+<p>That is enough to make good decisions.</p>
+<p>You do not need the most expensive analytics platform to understand your users.</p>
+<h2>Sentry is one of the highest-ROI tools I use</h2>
+<p>Sentry has saved me a lot of time.</p>
+<p>For desktop apps especially, it is very useful because it helps me catch real production issues fast.</p>
+<p>When a user hits an error, I want to know:</p>
+<ul>
+<li>who it happened to,</li>
+<li>what version they were on,</li>
+<li>what device they used,</li>
+<li>what the error was,</li>
+<li>and where in the code it came from.</li>
+</ul>
+<p>That is how I can fix issues quickly instead of guessing.</p>
+<p>For me, Sentry is one of those tools that feels optional until you actually need it. Then it becomes essential.</p>
+<h2>What this has done for my products</h2>
+<p>Using this stack, I have been able to:</p>
+<ul>
+<li>ship faster,</li>
+<li>keep fixed costs low,</li>
+<li>reduce infra stress,</li>
+<li>stay in control,</li>
+<li>and avoid paying for things I can automate or self-host.</li>
+</ul>
+<p>I have used this approach across multiple products, including Velin AI and other systems where reliability matters.</p>
+<p>It is not about being cheap for the sake of it.</p>
+<p>It is about spending money where it matters and cutting everything else.</p>
+<h2>The real lesson</h2>
+<p>You do not need the most expensive stack to build something serious.</p>
+<p>You need:</p>
+<ul>
+<li>a clear product,</li>
+<li>a reliable deployment path,</li>
+<li>good automation,</li>
+<li>sane email infrastructure,</li>
+<li>tracking that tells the truth,</li>
+<li>and error monitoring that keeps you honest.</li>
+</ul>
+<p>Everything else is optional.</p>
+<p>That is how I think about SaaS now.</p>
+<p>If a tool can be free, self-hosted, or replaced with automation, I try to do that first.</p>
+<p>If a tool truly removes pain or saves time, I pay for it.</p>
+<p>That balance is what lets me keep shipping.</p>
+<h2>Final thought</h2>
+<p>A lot of builders assume “better product” means “more expensive stack.”</p>
+<p>I have found the opposite to be true.</p>
+<p>If you are careful, you can ship quality software, move quickly, and keep your infra and tooling costs close to zero for much longer than people think.</p>
+<p>That is not a hack.</p>
+<p>That is just good founder discipline.</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>AI Engineering Pro Facts | Your Name</title>
+  <meta name="description" content="How I built my personal site and added a blog." />
+  <link rel="canonical" href="https://yourdomain.com/blog/ai-engineering-pro-facts/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AI Engineering Pro Facts" />
+  <meta property="og:description" content="How I built my personal site and added a blog." />
+  <meta property="og:url" content="https://yourdomain.com/blog/ai-engineering-pro-facts/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI Engineering Pro Facts" />
+  <meta name="twitter:description" content="How I built my personal site and added a blog." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;AI Engineering Pro Facts&quot;,
+  &quot;description&quot;: &quot;How I built my personal site and added a blog.&quot;,
+  &quot;datePublished&quot;: &quot;2026-02-06&quot;,
+  &quot;dateModified&quot;: &quot;2026-02-06&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/ai-engineering-pro-facts/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;ai&quot;,
+    &quot;llm&quot;,
+    &quot;engineer&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">AI Engineering Pro Facts</h1>
+        <p class="post-meta">
+          <time datetime="2026-02-06">February 5, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#ai</span>
+  <span class="tag">#llm</span>
+  <span class="tag">#engineer</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="AI Engineering Pro Facts cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p>** TL;DR: there's an undetectable real-time AI desktop app you can full control using customizable mouse gestures. I built it, they say it's insane.</p>
+<p>Yes, it's exacltly what i said it is.</p>
+<p>I mean you can draw and &quot;S&quot;, a &quot;Trangle&quot;, or maybe &quot;Infinity&quot; sign, with your mouse and those trigger actions in an invisible AI app, like giving you responses, switching context, reading your screen and more. You choose what gestures you want, and you assign actions to each gesture.</p>
+<h2>A little Context</h2>
+<p>I shipped Velin AI a month ago, an undetectable AI desktop app, that can see your screen, and listen to conversation (only live mode is active), and give you real-time answers during meetings, live interviews or online tests. I had one goal building Velin AI; make the app undeniably better than anything in the category out there. So it had to be smarter and faster than anything out there, and it got to be completely undetectable in every way, on every platform. The app could be controlled with untracable customizable keyboard shortcuts, which was enough, but that also meant you have to constantly press keys for answers. If i could remove that blocker such that just moving your mouse in special paths controls the ai app, then that would be a feature unseen before.</p>
+<h2>Mouse Gestures in Velin AI</h2>
+<p>When you start the Velin AI app, mouse gestures are enabled by default, go to settings &gt; mouse gestures to see all. it's a pro feature though. You can pick a gesture like Circle, and you'll see actions to select, select capture and from that instant, once you draw an Oon the screen with the Velin app open, it captures the Screen, ready to analyse and solve. You can draw an &quot;S&quot; to solve and customize from up to 16 unique mouse gestures: S-shape, Circle, C-Shape, Triangle, Diamond, Figure-8, Infinity, Spiral-inward, n-Shape, Tick, Horizontal Zigzag, Virtical ZigZag, Stair Step, Flipped C, L-Shape, U-shape.</p>
+<p>Free users can only use one mouse gesture (S to solve), and cannot change/customize.</p>
+<p>Since Velin AI app is clickthrough, hideable,transparent, onfocusable, and never becomes active window, a mouse gesture feature is more useful as the app is mostly hidden on the screen, even to the user, and that's how it should be, so you can just make a drawing to show it and see an answer, and another drawing to hide it.</p>
+<h2>Engineering Mouse Gestures,</h2>
+<p>Fundamentally, I mouse gestures for AI control in three different components;</p>
+<ol>
+<li>Gesture &amp; Action Definitions/Configuration</li>
+<li>Gesture Recognition</li>
+<li>Gesture Action Handlers</li>
+<li>Gesture to Action Mapping (Customization)</li>
+<li>State Storage, Limits Checks &amp; Fallbacks</li>
+<li>Gesture Gaurds</li>
+</ol>
+<h2>What Mouse Gestures mean for Velin AI and other AI apps.</h2>
+<p>Mouse gestures as proven to be one of the defining unique features of Velin AI, the idea you are getting correct answers from an invisible AI assistant, and the interviewer or test platform can't see that you typed anything, is insane. Its no longer about hidden that your are typing or cliking, you really arent, you're just drawing things like &quot;L-shape&quot; with your mouse, no clicks, and the ai responds accordingly. That is peak undetectability.</p>
+<p>Aside the very direct use case with Velin AI, I personally have not seen another app that allows full control using mouse gestures, and honestly i think it's a really cool gimic that users would love. some time there's things that make your user experience feel wonderful, this is one of them.</p>
+<p>Okay so that's it, checkout my app Velin AI, Available on MacOS and Windows</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>

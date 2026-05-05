@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>My AI Engineering Stack | Your Name</title>
+  <meta name="description" content="The stack I use to build AI products that are fast, reliable, and actually shippable." />
+  <link rel="canonical" href="https://yourdomain.com/blog/my-ai-engineering-stack/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="My AI Engineering Stack" />
+  <meta property="og:description" content="The stack I use to build AI products that are fast, reliable, and actually shippable." />
+  <meta property="og:url" content="https://yourdomain.com/blog/my-ai-engineering-stack/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="My AI Engineering Stack" />
+  <meta name="twitter:description" content="The stack I use to build AI products that are fast, reliable, and actually shippable." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;My AI Engineering Stack&quot;,
+  &quot;description&quot;: &quot;The stack I use to build AI products that are fast, reliable, and actually shippable.&quot;,
+  &quot;datePublished&quot;: &quot;2026-02-06&quot;,
+  &quot;dateModified&quot;: &quot;2026-02-06&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/my-ai-engineering-stack/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;ai&quot;,
+    &quot;llm&quot;,
+    &quot;engineer&quot;,
+    &quot;backend&quot;,
+    &quot;evals&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">My AI Engineering Stack</h1>
+        <p class="post-meta">
+          <time datetime="2026-02-06">February 5, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#ai</span>
+  <span class="tag">#llm</span>
+  <span class="tag">#engineer</span>
+  <span class="tag">#backend</span>
+  <span class="tag">#evals</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="My AI Engineering Stack cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p><strong>TL;DR:</strong> NestJS/Node.js or FastAPI on the backend, WebSockets or LiveKit for live sessions, multiple LLM providers for reliability and cost control, vector storage where it makes sense, and a real eval process so the system does not just feel smart, but stays good after every change.</p>
+<p>That is the stack.</p>
+<p>Not because it is trendy, but because it works.</p>
+<h2>Let's talk ideology</h2>
+<p>A lot of people ask for an “AI stack” like there is one perfect answer.</p>
+<p>There is not.</p>
+<p>What matters is whether you can build something that is:</p>
+<ul>
+<li>fast enough,</li>
+<li>reliable enough,</li>
+<li>cheap enough,</li>
+<li>and easy enough to improve without breaking everything.</li>
+</ul>
+<p>That is the real game.</p>
+<p>For AI products, the stack is not just about frameworks, it is about how you move from prompt, to retrieval, to model choice, to live delivery, to evaluation, without losing control.</p>
+<h2>My backend choice</h2>
+<p>For backend, I usually reach for one of two paths:</p>
+<ul>
+<li><strong>NestJS / Node.js</strong></li>
+<li><strong>FastAPI / Python</strong></li>
+</ul>
+<h3>NestJS / Node.js</h3>
+<p>I like NestJS when I want structure, maintainability, and a strong TypeScript workflow.</p>
+<p>It is a good fit when the product has:</p>
+<ul>
+<li>a lot of APIs,</li>
+<li>event-driven workflows,</li>
+<li>queues,</li>
+<li>sockets,</li>
+<li>user accounts,</li>
+<li>billing,</li>
+<li>and orchestration logic.</li>
+</ul>
+<p>For products like Velin AI, Node.js also fits well because I can keep the frontend and backend mindset closer together, especially when the whole app is already TypeScript-heavy.</p>
+<h3>FastAPI / Python</h3>
+<p>I use FastAPI when the AI side is more Python-friendly, or when I want to move quickly on model-related APIs, experiments, or internal services.</p>
+<p>FastAPI is especially nice when:</p>
+<ul>
+<li>I need a clean API layer,</li>
+<li>I want Python libraries,</li>
+<li>I am working closer to AI tooling,</li>
+<li>or I need something lightweight and simple.</li>
+</ul>
+<p>My rule is simple: use the backend that keeps the product moving, not the one that looks best in a diagram.</p>
+<h2>Live sessions need live infrastructure</h2>
+<p>If the product is real-time, then the architecture has to be real-time too.</p>
+<p>That is where I use:</p>
+<ul>
+<li><strong>WebSockets</strong></li>
+<li><strong>LiveKit</strong></li>
+<li>or a mix of both</li>
+</ul>
+<h3>WebSockets</h3>
+<p>WebSockets are great for:</p>
+<ul>
+<li>live text responses,</li>
+<li>streaming updates,</li>
+<li>state sync,</li>
+<li>lightweight real-time events,</li>
+<li>and interactive UI feedback.</li>
+</ul>
+<p>For AI apps, they are often enough for a lot of the live experience.</p>
+<h3>LiveKit</h3>
+<p>When I need audio or video session support, LiveKit becomes more interesting.</p>
+<p>It is useful for:</p>
+<ul>
+<li>live interviews,</li>
+<li>meetings,</li>
+<li>conversation workflows,</li>
+<li>voice-based features,</li>
+<li>and anything that needs strong media infrastructure.</li>
+</ul>
+<p>The main point is this: if the product promises real-time interaction, the transport layer has to feel instant. If it feels slow or shaky, the magic disappears.</p>
+<h2>I do not trust one model provider alone</h2>
+<p>This is one of the most important parts of my stack.</p>
+<p>I like having an <strong>agnostic LLM setup</strong>.</p>
+<p>That means I can combine:</p>
+<ul>
+<li><strong>OpenAI</strong></li>
+<li><strong>Gemini</strong></li>
+<li><strong>Claude</strong></li>
+<li><strong>OpenRouter</strong></li>
+</ul>
+<p>depending on the task.</p>
+<h3>Why I do this</h3>
+<p>Because different models are good at different things.</p>
+<p>Some are better for:</p>
+<ul>
+<li>reasoning,</li>
+<li>coding,</li>
+<li>speed,</li>
+<li>cost,</li>
+<li>context handling,</li>
+<li>or fallback reliability.</li>
+</ul>
+<p>If one provider is slow, expensive, rate-limited, or not giving the result I want, I can switch.</p>
+<p>That gives me:</p>
+<ul>
+<li>better resilience,</li>
+<li>better cost control,</li>
+<li>and better quality per task.</li>
+</ul>
+<p>This is a big deal in production.</p>
+<p>I do not want one provider failure to become a product failure.</p>
+<h2>My AI routing logic</h2>
+<p>In practice, I like to think of the system as a router, not a single model call.</p>
+<p>The router decides:</p>
+<ul>
+<li>which model to use,</li>
+<li>when to fall back,</li>
+<li>when to retry,</li>
+<li>when to compress context,</li>
+<li>and when to use retrieval instead of raw generation.</li>
+</ul>
+<p>That is how you avoid a fragile LLM app.</p>
+<p>The app should not just “call AI.”</p>
+<p>It should know <strong>which AI to call, why, and when not to call it at all</strong>.</p>
+<h2>Retrieval and embeddings</h2>
+<p>For long-term memory, context, search, or document grounding, I use vector storage where it makes sense.</p>
+<p>That can be:</p>
+<ul>
+<li><strong>Pinecone</strong></li>
+<li><strong>pgvector</strong></li>
+<li>or another vector layer depending on the product</li>
+</ul>
+<h3>Pinecone</h3>
+<p>I use Pinecone when I want a managed vector database and I do not want to spend time building vector infrastructure myself.</p>
+<p>It is useful for:</p>
+<ul>
+<li>retrieval,</li>
+<li>semantic search,</li>
+<li>document lookup,</li>
+<li>and memory-style workflows.</li>
+</ul>
+<h3>pgvector</h3>
+<p>I like pgvector when I want to keep things simple and close to Postgres.</p>
+<p>That is often enough for:</p>
+<ul>
+<li>smaller products,</li>
+<li>lean systems,</li>
+<li>and apps where I do not want another service just for vectors.</li>
+</ul>
+<h3>The real point</h3>
+<p>Not every AI product needs a giant retrieval architecture.</p>
+<p>Sometimes the right answer is:</p>
+<ul>
+<li>store a few embeddings,</li>
+<li>retrieve only what matters,</li>
+<li>and keep the rest in normal structured DB tables.</li>
+</ul>
+<p>That is usually cleaner than overengineering.</p>
+<h2>LangChain and LangGraph</h2>
+<p>I use tools like <strong>LangChain</strong> and <strong>LangGraph</strong> when the app needs orchestration, chaining, routing, or multi-step flows.</p>
+<p>They are useful for:</p>
+<ul>
+<li>structured AI workflows,</li>
+<li>branching logic,</li>
+<li>memory flows,</li>
+<li>agent-style systems,</li>
+<li>and repeatable pipelines.</li>
+</ul>
+<p>But I do not use them blindly.</p>
+<p>If the app is simple, I keep it simple.</p>
+<p>If the app needs control, tracing, and multiple steps, then those tools become more useful.</p>
+<p>The real skill is not using the framework.</p>
+<p>The real skill is knowing when the framework is worth the complexity.</p>
+<h2>Where the data lives</h2>
+<p>I keep important things in the database.</p>
+<p>Not everything should be hidden inside prompts.</p>
+<p>I store things like:</p>
+<ul>
+<li>prompts,</li>
+<li>JSON formats,</li>
+<li>provider settings,</li>
+<li>model limits,</li>
+<li>routing rules,</li>
+<li>feature flags,</li>
+<li>and configuration.</li>
+</ul>
+<p>That way, the system is editable without a full rewrite every time I want to improve something.</p>
+<p>The database should hold the truth, not just the user data.</p>
+<h2>Evaluation is the part people ignore</h2>
+<p>This is the part I care about a lot.</p>
+<p>A lot of people talk about AI stacks, but the real question is:</p>
+<p><strong>Did this change make the system better, worse, or riskier?</strong></p>
+<p>That is what evaluation is for.</p>
+<h2>My eval philosophy</h2>
+<p>I do not think you need a giant “eval stack” to be serious.</p>
+<p>What matters is having a repeatable way to answer:</p>
+<ul>
+<li>did the new prompt improve quality,</li>
+<li>did the model swap make things worse,</li>
+<li>did retrieval help,</li>
+<li>did latency get better,</li>
+<li>did we introduce a new failure mode,</li>
+<li>did the product feel more reliable or less reliable?</li>
+</ul>
+<p>If you can answer those questions consistently, you already have the important part.</p>
+<h2>What my eval process looks like</h2>
+<p>My eval process usually includes:</p>
+<ul>
+<li>a set of real prompts or real user examples,</li>
+<li>manual review of bad outputs,</li>
+<li>comparisons before and after changes,</li>
+<li>checking edge cases,</li>
+<li>measuring success on the task that matters,</li>
+<li>and watching for regressions.</li>
+</ul>
+<p>That is enough to catch most problems before they become product issues.</p>
+<p>The important thing is that evals are tied to shipping decisions.</p>
+<p>Not just “did the output look nice,” but:</p>
+<ul>
+<li>should this model go live,</li>
+<li>should this prompt ship,</li>
+<li>should this retrieval change stay,</li>
+<li>should this fallback be enabled,</li>
+<li>should this feature be blocked until the failure is fixed.</li>
+</ul>
+<p>That is real eval discipline.</p>
+<h2>The difference between intuition and systems</h2>
+<p>There is a big difference between:</p>
+<ul>
+<li>changing things based on vibes,</li>
+<li>and changing things based on evidence.</li>
+</ul>
+<p>A lot of teams, especially early on, operate on intuition.</p>
+<p>That works until it does not.</p>
+<p>The better path is to create a small but real system:</p>
+<ul>
+<li>test set,</li>
+<li>comparisons,</li>
+<li>human review,</li>
+<li>simple scoring,</li>
+<li>and deployment checks.</li>
+</ul>
+<p>You do not need a huge dashboard to start.</p>
+<p>You just need enough structure to know whether the product got better.</p>
+<h2>Why this stack works for me</h2>
+<p>This stack works because it balances:</p>
+<ul>
+<li>speed,</li>
+<li>reliability,</li>
+<li>cost,</li>
+<li>flexibility,</li>
+<li>and control.</li>
+</ul>
+<p>I can build fast without locking myself into one provider, one framework, or one workflow.</p>
+<p>That matters a lot when you are shipping AI products in production, especially if the product is real-time, user-facing, and expensive to get wrong.</p>
+<h2>Final thought</h2>
+<p>The best AI engineering stack is not the fanciest one.</p>
+<p>It is the one that helps you ship, measure, improve, and keep control.</p>
+<p>For me, that means:</p>
+<ul>
+<li>NestJS or FastAPI,</li>
+<li>WebSockets or LiveKit,</li>
+<li>multiple LLM providers,</li>
+<li>vector storage where needed,</li>
+<li>structured DB storage,</li>
+<li>and a real eval process.</li>
+</ul>
+<p>Simple enough to move fast, strong enough to survive production.</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>

@@ -203,6 +203,7 @@ function bodyScrollingToggle() {
       .then((res) => res.json())
       .then((data) => {
         const { projects } = data;
+        window._projects = projects;
 
         for (let i = 0; i < projects.length; i++) {
           // Create a URL-friendly slug from the project name
@@ -213,60 +214,29 @@ function bodyScrollingToggle() {
             .join("-")
             .replace(/[^a-z0-9-]/g, "");
 
-            const badge = projects[i].badge || '';
+            const badge      = projects[i].badge || '';
           const badgeColor = projects[i].badgeColor || 'var(--skin-color)';
-          const tools = projects[i].tools || [];
-          const visibleTools = tools.slice(0, 4);
-          const extraTools = tools.length > 4 ? tools.length - 4 : 0;
-          const toolChips = visibleTools.map(t => `<span class="port-tool-chip">${t}</span>`).join('') +
-            (extraTools > 0 ? `<span class="port-tool-chip">+${extraTools}</span>` : '');
+          const tools      = projects[i].tools || [];
+          const chips      = tools.slice(0, 4).map(t => `<span class="port-tool-chip">${t}</span>`).join('') +
+            (tools.length > 4 ? `<span class="port-tool-chip">+${tools.length - 4}</span>` : '');
+          const cats       = projects[i].categories.filter(c => c !== 'all').join(' · ');
 
           projectsItemsWrapper.innerHTML += `
-          <!-- portfolio item start -->
-          <div class="portfolio-item" data-category="${projects[
-            i
-          ].categories.join(" ")}" data-slug="${projectSlug}">
+          <div class="portfolio-item" data-category="${projects[i].categories.join(' ')}" data-slug="${projectSlug}">
             <div class="portfolio-item-inner outer-shadow">
-              <div class="portfolio-item-img" style="position:relative">
-                <img src="${
-                  projects[i].thumbnail
-                }" alt="portfolio image" data-screenshots="${
-            projects[i].imgs
-          }" loading="lazy" decoding="async">
+              <div class="portfolio-item-img">
+                <img src="${projects[i].thumbnail}" alt="${projects[i].name}" data-screenshots="${projects[i].imgs}" loading="lazy" decoding="async">
                 ${badge ? `<span class="port-card-badge" style="color:${badgeColor};border-color:${badgeColor}">${badge}</span>` : ''}
-                <!-- view project btn -->
-                <span class="view-project">view project</span>
               </div>
-              <p class="portfolio-item-title">${projects[i].name}</p>
-              <div class="port-card-tools">${toolChips}</div>
-              <span class="port-view-link">View project <i class="fas fa-arrow-right" style="font-size:9px"></i></span>
-              <!-- portfolio item details start -->
-              <div class="portfolio-item-details">
-                <div class="row">
-                  <div class="description">
-                    <h3>Project Brief</h3>
-                    <p>${projects[i].description}</p>
-                    <div class="pp-action-btns">
-                      ${projects[i].link && projects[i].link !== '#' ? `<a href="${projects[i].link}" target="_blank" rel="noreferrer" class="pp-live-btn"><i class="fas fa-external-link-alt" style="font-size:11px"></i> Live Site</a>` : ''}
-                      ${projects[i].github && projects[i].github !== '#' ? `<a href="${projects[i].github}" target="_blank" rel="noreferrer" class="pp-gh-btn"><i class="fab fa-github" style="font-size:13px"></i> GitHub</a>` : ''}
-                    </div>
-                  </div>
-                  <div class="info">
-                    <h3>Project Info</h3>
-                    <ul>
-                      <li>Date - <span>${projects[i].date}</span></li>
-                      <li>Client - <span>${projects[i].client}</span></li>
-                      <li>Tools - <span>${projects[i].tools.join(
-                        ", "
-                      )}</span></li>
-                    </ul>
-                  </div>
-                </div>
+              <div class="portfolio-item-body">
+                <div class="portfolio-item-name">${projects[i].name}</div>
+                <div class="portfolio-item-sub">${cats}</div>
+                <p class="portfolio-item-desc">${projects[i].description}</p>
+                <div class="port-card-tools">${chips}</div>
+                <span class="port-view-link">View project <i class="fas fa-arrow-right" style="font-size:9px"></i></span>
               </div>
-              <!-- portfolio item details end -->
             </div>
           </div>
-          <!-- portfolio item end -->
         `;
         }
 
@@ -277,9 +247,7 @@ function bodyScrollingToggle() {
           popup = document.querySelector(".portfolio-popup"),
           prevBtn = popup.querySelector(".pp-prev"),
           nextBtn = popup.querySelector(".pp-next"),
-          closeBtn = popup.querySelector(".pp-close"),
-          projectDetailsContainer = popup.querySelector(".pp-details"),
-          projectDetailsBtn = popup.querySelector(".pp-project-details-btn");
+          closeBtn = popup.querySelector(".pp-close");
 
         let itemIndex, slideIndex, screenshots;
 
@@ -395,12 +363,52 @@ function bodyScrollingToggle() {
 
         closeBtn.addEventListener("click", () => {
           popupToggle();
-          if (projectDetailsContainer.classList.contains("active")) {
-            popupDetailsToggle();
-          }
-
-          // FIX 3: Reset URL to #portfolio when closing
           window.location.hash = "portfolio";
+        });
+
+        // Click outside modal closes popup
+        popup.addEventListener("click", (e) => {
+          if (!e.target.closest(".pp-modal")) {
+            popupToggle();
+            window.location.hash = "portfolio";
+          }
+        });
+
+        // ---- Fullscreen expand logic ----
+        const expandBtn   = popup.querySelector(".pp-expand-btn");
+        const fsOverlay   = document.getElementById("pp-img-fullscreen");
+        const fsImg       = document.getElementById("pp-fs-img");
+        const fsClose     = document.getElementById("pp-fs-close");
+        const fsPrev      = document.getElementById("pp-fs-prev");
+        const fsNext      = document.getElementById("pp-fs-next");
+
+        function openFullscreen() {
+          if (!fsOverlay) return;
+          fsImg.src = screenshots[slideIndex];
+          fsOverlay.classList.add("open");
+          updateFsNav();
+        }
+        function closeFullscreen() {
+          if (!fsOverlay) return;
+          fsOverlay.classList.remove("open");
+        }
+        function updateFsNav() {
+          if (!fsPrev || !fsNext) return;
+          fsPrev.style.display = screenshots.length > 1 ? "" : "none";
+          fsNext.style.display = screenshots.length > 1 ? "" : "none";
+        }
+
+        if (expandBtn) expandBtn.addEventListener("click", openFullscreen);
+        if (fsClose)   fsClose.addEventListener("click", closeFullscreen);
+        if (fsPrev) fsPrev.addEventListener("click", () => {
+          slideIndex = slideIndex === 0 ? screenshots.length - 1 : slideIndex - 1;
+          popupSlideshow();
+          fsImg.src = screenshots[slideIndex];
+        });
+        if (fsNext) fsNext.addEventListener("click", () => {
+          slideIndex = slideIndex === screenshots.length - 1 ? 0 : slideIndex + 1;
+          popupSlideshow();
+          fsImg.src = screenshots[slideIndex];
         });
 
         function popupToggle() {
@@ -418,9 +426,13 @@ function bodyScrollingToggle() {
             // deactivate loader after the popupImg loaded
             popup.querySelector(".pp-loader").classList.remove("active");
           };
-          popup.querySelector(".pp-counter").innerHTML = `${
-            slideIndex + 1
-          } of ${screenshots.length}`;
+          const counter = popup.querySelector(".pp-counter");
+          if (screenshots.length > 1) {
+            counter.textContent = `${slideIndex + 1} / ${screenshots.length}`;
+            counter.style.display = "";
+          } else {
+            counter.style.display = "none";
+          }
         }
 
         // next slide
@@ -444,54 +456,35 @@ function bodyScrollingToggle() {
         });
 
         function popupDetails() {
-          // if portfolio-item-details not exist
-          if (
-            !portfolioItems[itemIndex].querySelector(".portfolio-item-details")
-          ) {
-            projectDetailsBtn.style.display = "none";
-            return; /* end function execution */
+          const p = (window._projects || [])[itemIndex];
+          if (!p) return;
+
+          popup.querySelector(".pp-modal-title").textContent = p.name;
+          popup.querySelector(".pp-modal-sub").textContent =
+            p.categories.filter(c => c !== "all").join(" · ");
+          popup.querySelector(".pp-modal-cats").textContent =
+            `${p.date}  ·  ${p.client}`;
+          popup.querySelector(".pp-brief-text").textContent = p.description;
+
+          // Action buttons
+          const actionBtns = popup.querySelector(".pp-action-btns");
+          actionBtns.innerHTML = "";
+          if (p.link && p.link !== "#") {
+            actionBtns.innerHTML += `<a href="${p.link}" target="_blank" rel="noreferrer" class="pp-live-btn"><i class="fas fa-external-link-alt"></i> Live Site</a>`;
           }
-          projectDetailsBtn.style.display = "block";
-          // get the project details
-          const details = portfolioItems[itemIndex].querySelector(
-            ".portfolio-item-details"
-          ).innerHTML;
-          // set the project details
-          popup.querySelector(".pp-project-details").innerHTML = details;
-          // get the project title
-          const title = portfolioItems[itemIndex].querySelector(
-            ".portfolio-item-title"
-          ).innerHTML;
-          // set the project title
-          popup.querySelector(".pp-title h2").innerHTML = title;
-          // get the project category
-          const category =
-            portfolioItems[itemIndex].getAttribute("data-category");
-          // set the project category
-          popup.querySelector(".pp-project-category").innerHTML = category
-            .split("-")
-            .join(" ");
-        }
-
-        projectDetailsBtn.addEventListener("click", () => {
-          popupDetailsToggle();
-        });
-
-        function popupDetailsToggle() {
-          if (projectDetailsContainer.classList.contains("active")) {
-            projectDetailsBtn.querySelector("i").classList.remove("fa-minus");
-            projectDetailsBtn.querySelector("i").classList.add("fa-plus");
-
-            projectDetailsContainer.classList.remove("active");
-            projectDetailsContainer.style.maxHeight = 0 + "px";
-          } else {
-            projectDetailsBtn.querySelector("i").classList.remove("fa-plus");
-            projectDetailsBtn.querySelector("i").classList.add("fa-minus");
-            projectDetailsContainer.classList.add("active");
-            projectDetailsContainer.style.maxHeight =
-              projectDetailsContainer.scrollHeight + "px";
-            popup.scrollTo(0, projectDetailsContainer.offsetTop);
+          if (p.github && p.github !== "#") {
+            actionBtns.innerHTML += `<a href="${p.github}" target="_blank" rel="noreferrer" class="pp-gh-btn"><i class="fab fa-github"></i> GitHub</a>`;
           }
+
+          // Info rows
+          popup.querySelector(".pp-info-rows").innerHTML = `
+            <div class="pp-info-row"><span class="pp-info-lbl">Date</span><span class="pp-info-val">${p.date}</span></div>
+            <div class="pp-info-row"><span class="pp-info-lbl">Client</span><span class="pp-info-val">${p.client}</span></div>
+          `;
+
+          // Tech stack
+          popup.querySelector(".pp-tools-wrap").innerHTML =
+            (p.tools || []).map(t => `<span class="pp-tool-chip">${t}</span>`).join("");
         }
 
         /* ----------------------------------------------------- */
@@ -619,37 +612,61 @@ window.addEventListener("load", () => {
   tick();
 })();
 
-/*------------------ skill category filter -------------------*/
+/*------------------ skill category filter (from skills.json) -------------------*/
 (() => {
-  const SKILLS = {
-    all:        [['React','#ec9412'],['TypeScript','#fb839e'],['Next.js','#1fc586'],['JavaScript','#2eb1ed'],['React Native','#8a49ff'],['Node.js','#1fc586'],['Nest.js','#cc3a3b'],['Electron','#2eb1ed'],['Python','#ec9412'],['Tailwind CSS','#fb839e'],['PostgreSQL','#2eb1ed'],['AWS','#ec9412'],['Supabase','#1fc586'],['Redis','#cc3a3b'],['LangGraph','#8a49ff'],['Pinecone','#fb839e'],['Socket.io','#2eb1ed'],['Solidity','#8a49ff'],['C++','#ec9412'],['Docker','#2eb1ed'],['Figma','#fb839e'],['C#','#1fc586']],
-    frontend:   [['React','#ec9412'],['TypeScript','#fb839e'],['Next.js','#1fc586'],['JavaScript','#2eb1ed'],['Tailwind CSS','#fb839e'],['React Native','#8a49ff'],['Redux','#8a49ff'],['TanStack','#1fc586'],['HTML|CSS','#2eb1ed']],
-    backend:    [['Node.js','#1fc586'],['Nest.js','#cc3a3b'],['Python','#ec9412'],['PostgreSQL','#2eb1ed'],['Redis','#cc3a3b'],['Supabase','#1fc586'],['Firebase','#ec9412'],['Express','#2eb1ed'],['Docker','#2eb1ed'],['AWS','#ec9412'],['Coolify','#8a49ff'],['MongoDB','#1fc586']],
-    ai:         [['LangGraph','#8a49ff'],['Pinecone','#fb839e'],['OpenAI API','#1fc586'],['Anthropic API','#fb839e'],['Gemini API','#2eb1ed'],['OpenRouter','#888888'],['RAG','#ec9412'],['LLMOps','#8a49ff'],['Prompt Eng.','#1fc586'],['LiveKit','#cc3a3b']],
-    blockchain: [['Solidity','#8a49ff'],['Ethers.js','#2eb1ed'],['Hardhat','#ec9412'],['Wagmi','#1fc586'],['Web3.js','#fb839e']],
-    desktop:    [['Electron','#2eb1ed'],['C++','#ec9412'],['C#','#1fc586'],['React','#fb839e'],['TypeScript','#8a49ff']],
-  };
-
   const grid = document.getElementById('skill-pill-grid');
-  const filterBtns = document.querySelectorAll('.skill-cat-btn');
-  if (!grid || !filterBtns.length) return;
+  const filterContainer = document.querySelector('.skill-cat-filter');
+  if (!grid || !filterContainer) return;
 
-  function renderSkills(cat) {
-    const pills = SKILLS[cat] || SKILLS.all;
-    grid.innerHTML = pills.map(([name, color]) =>
-      `<span class="skill-pill" style="background:${color}">${name}</span>`
-    ).join('');
+  const CATEGORY_ORDER = ['Languages & Frameworks', 'Tools & Technologies', 'Concepts & Knowledge'];
+
+  function renderSkills(tabId, allSkills) {
+    const tabSkills = allSkills.filter(s => s.tabs.includes(tabId));
+    if (!tabSkills.length) { grid.innerHTML = ''; return; }
+
+    // Group by category
+    const groups = {};
+    CATEGORY_ORDER.forEach(c => { groups[c] = []; });
+    tabSkills.forEach(s => {
+      if (groups[s.category]) groups[s.category].push(s);
+      else { groups[s.category] = groups[s.category] || []; groups[s.category].push(s); }
+    });
+
+    grid.innerHTML = Object.entries(groups)
+      .filter(([, skills]) => skills.length > 0)
+      .map(([cat, skills]) => `
+        <div class="skill-group">
+          <div class="skill-group-label">${cat}</div>
+          <div class="skill-group-pills">
+            ${skills.map(s => `<span class="skill-pill" style="background:${s.color}">${s.name}</span>`).join('')}
+          </div>
+        </div>`)
+      .join('');
   }
 
-  renderSkills('all');
+  fetch('../../utils/skills.json')
+    .then(r => r.json())
+    .then(data => {
+      window._skillsData = data;
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderSkills(btn.getAttribute('data-cat'));
-    });
-  });
+      // Render tabs from JSON
+      filterContainer.innerHTML = data.tabs.map((t, i) =>
+        `<span class="skill-cat-btn${i === 0 ? ' active' : ''}" data-cat="${t.id}">${t.label}</span>`
+      ).join('');
+
+      // Initial render
+      renderSkills('all', data.skills);
+
+      // Tab click
+      filterContainer.addEventListener('click', e => {
+        const btn = e.target.closest('.skill-cat-btn');
+        if (!btn) return;
+        filterContainer.querySelectorAll('.skill-cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderSkills(btn.getAttribute('data-cat'), data.skills);
+      });
+    })
+    .catch(() => {});
 })();
 
 /*------------------ posts tag filter -------------------*/
@@ -693,6 +710,45 @@ window.addEventListener("load", () => {
         item.style.display = show ? '' : 'none';
       });
     });
+  });
+})();
+
+/*------------------ navigate to portfolio project -------------------*/
+window.navigateToProject = function (slug) {
+  const portfolioSection = document.querySelector("#portfolio");
+  const currentActive = document.querySelector(".section.active");
+  if (portfolioSection && currentActive !== portfolioSection) {
+    currentActive.classList.add("hide");
+    currentActive.classList.remove("active");
+    portfolioSection.classList.remove("hide");
+    portfolioSection.classList.add("active");
+    // update nav active state
+    const navMenu = document.querySelector(".nav-menu");
+    const navActive = navMenu.querySelector(".active");
+    if (navActive) {
+      navActive.classList.add("outer-shadow", "hover-in-shadow");
+      navActive.classList.remove("active", "inner-shadow");
+    }
+    const portNav = navMenu.querySelector('[href="#portfolio"]');
+    if (portNav) {
+      portNav.classList.add("active", "inner-shadow");
+      portNav.classList.remove("outer-shadow", "hover-in-shadow");
+    }
+  }
+  // find matching item and trigger click
+  const item = document.querySelector(`.portfolio-item[data-slug="${slug}"]`);
+  if (item) {
+    item.querySelector(".portfolio-item-inner").click();
+  }
+};
+
+/*------------------ featured project card clicks -------------------*/
+(() => {
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".feat-card[data-project-slug]");
+    if (!card) return;
+    const slug = card.getAttribute("data-project-slug");
+    if (slug) window.navigateToProject(slug);
   });
 })();
 

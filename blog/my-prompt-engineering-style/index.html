@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>System Promt Like a Pro - My Prompt Engineering Process in LLM Apps | Your Name</title>
+  <meta name="description" content="How I build prompts in real products, and why structure, context, rules, and reminders improve output quality a lot." />
+  <link rel="canonical" href="https://yourdomain.com/blog/my-prompt-engineering-style/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="System Promt Like a Pro - My Prompt Engineering Process in LLM Apps" />
+  <meta property="og:description" content="How I build prompts in real products, and why structure, context, rules, and reminders improve output quality a lot." />
+  <meta property="og:url" content="https://yourdomain.com/blog/my-prompt-engineering-style/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="System Promt Like a Pro - My Prompt Engineering Process in LLM Apps" />
+  <meta name="twitter:description" content="How I build prompts in real products, and why structure, context, rules, and reminders improve output quality a lot." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;System Promt Like a Pro - My Prompt Engineering Process in LLM Apps&quot;,
+  &quot;description&quot;: &quot;How I build prompts in real products, and why structure, context, rules, and reminders improve output quality a lot.&quot;,
+  &quot;datePublished&quot;: &quot;2026-04-27&quot;,
+  &quot;dateModified&quot;: &quot;2026-04-27&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/my-prompt-engineering-style/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;ai&quot;,
+    &quot;llm&quot;,
+    &quot;prompt-engineering&quot;,
+    &quot;rag&quot;,
+    &quot;engineering&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">System Promt Like a Pro - My Prompt Engineering Process in LLM Apps</h1>
+        <p class="post-meta">
+          <time datetime="2026-04-27">April 26, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#ai</span>
+  <span class="tag">#llm</span>
+  <span class="tag">#prompt-engineering</span>
+  <span class="tag">#rag</span>
+  <span class="tag">#engineering</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="System Promt Like a Pro - My Prompt Engineering Process in LLM Apps cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p><strong>TL;DR:</strong> i do not think of prompts as one big block of text. i think of them as a system: role, context, task, input, output, constraints, style, reminders, and tools. when you build prompts this way, the product becomes more reliable, easier to steer, and much easier to improve.</p>
+<h2>how i think about prompting</h2>
+<p>my prompt formula is basically:</p>
+<p><strong>Prompt = System Prompt + Context Prompt</strong></p>
+<p>and inside that, i usually want:</p>
+<ul>
+<li>role and identity</li>
+<li>context</li>
+<li>task</li>
+<li>input</li>
+<li>output format</li>
+<li>constraints, refusals, and rules</li>
+<li>behavioral or style context</li>
+<li>tool descriptors and reminders</li>
+</ul>
+<p>that is the shape i like.</p>
+<p>not because it sounds nice, but because it works better in production.</p>
+<h2>why this matters</h2>
+<p>when prompts are messy, the model becomes messy too.</p>
+<p>you get:</p>
+<ul>
+<li>weaker answers,</li>
+<li>inconsistent tone,</li>
+<li>bad formatting,</li>
+<li>hallucinations,</li>
+<li>unnecessary refusals,</li>
+<li>and output that changes too much from one request to the next.</li>
+</ul>
+<p>but when the prompt is structured, the model has a better chance of staying on target.</p>
+<p>that matters a lot in real products.</p>
+<h2>what i use prompts for</h2>
+<p>i have used this style in products like <strong>Velin AI</strong> and at <strong>Pharmora</strong>.</p>
+<p>in both cases, the goal was not just to get “a response.”</p>
+<p>the goal was to get:</p>
+<ul>
+<li>the right response,</li>
+<li>in the right tone,</li>
+<li>with the right boundaries,</li>
+<li>using the right context,</li>
+<li>and in a format the product can actually use.</li>
+</ul>
+<p>that is a huge difference.</p>
+<h2>the pieces i care about</h2>
+<h3>1. role and identity</h3>
+<p>this tells the model what it is supposed to be doing.</p>
+<p>not just “answer the user,” but things like:</p>
+<ul>
+<li>what kind of assistant it is,</li>
+<li>what domain it belongs to,</li>
+<li>what it should never pretend to be,</li>
+<li>and what kind of judgment it should apply.</li>
+</ul>
+<h3>2. context</h3>
+<p>this is where the model gets the situation.</p>
+<p>context can include:</p>
+<ul>
+<li>user profile,</li>
+<li>product state,</li>
+<li>history,</li>
+<li>past actions,</li>
+<li>session details,</li>
+<li>retrieved documents,</li>
+<li>or domain-specific facts.</li>
+</ul>
+<p>this is where RAG becomes useful.</p>
+<h2>RAG, and why i like it</h2>
+<p>i like retrieval because it stops the model from guessing as much.</p>
+<p>instead of expecting the model to remember everything, i give it the relevant context at the right time.</p>
+<p>that helps with:</p>
+<ul>
+<li>accuracy,</li>
+<li>specificity,</li>
+<li>long documents,</li>
+<li>product knowledge,</li>
+<li>support workflows,</li>
+<li>and domain-heavy apps.</li>
+</ul>
+<p>for me, RAG is not just a fancy AI term. it is a way to keep the model grounded.</p>
+<h2>reminders and rules</h2>
+<p>i also like reminders.</p>
+<p>sometimes the model knows the rule, but still drifts.</p>
+<p>so i repeat important things like:</p>
+<ul>
+<li>stay concise,</li>
+<li>use the right language,</li>
+<li>prefer structured output,</li>
+<li>do not guess,</li>
+<li>do not invent facts,</li>
+<li>ask one question at a time,</li>
+<li>or escalate when needed.</li>
+</ul>
+<p>that kind of repetition is not wasteful to me. it is stabilizing.</p>
+<h2>output shape matters a lot</h2>
+<p>if the app needs JSON, tables, summaries, decisions, or special formatting, i make that explicit.</p>
+<p>because the model is not just writing for a human. it is often writing for the product too.</p>
+<p>that is why output constraints matter.</p>
+<p>the more precise the output format, the easier the app becomes to consume downstream.</p>
+<h2>why i split problems and solutions</h2>
+<p>in some products, i separate the prompt into stages.</p>
+<p>for example:</p>
+<ul>
+<li>first identify the problem,</li>
+<li>then produce the solution.</li>
+</ul>
+<p>that helps when the input is messy, broad, or incomplete.</p>
+<p>it also makes the system easier to debug because i can see where the failure happened:</p>
+<ul>
+<li>in understanding,</li>
+<li>in reasoning,</li>
+<li>or in final response generation.</li>
+</ul>
+<h2>the real benefit</h2>
+<p>the biggest benefit of structured prompting is not just better answers.</p>
+<p>it is <strong>controllability</strong>.</p>
+<p>you can guide the model without constantly fighting it.</p>
+<p>that means:</p>
+<ul>
+<li>fewer regressions,</li>
+<li>better consistency,</li>
+<li>easier testing,</li>
+<li>better support for edge cases,</li>
+<li>and a stronger product experience overall.</li>
+</ul>
+<h2>what i have learned</h2>
+<p>after building this way for a while, i do not see prompts as “just text.”</p>
+<p>i see them like product infrastructure.</p>
+<p>if the prompt is clean, the app becomes easier to trust.</p>
+<p>if the context is good, the model becomes more useful.</p>
+<p>if the rules are clear, the output becomes safer.</p>
+<p>if the reminders are strong, the system stays aligned longer.</p>
+<p>that is the part people miss.</p>
+<h2>final thought</h2>
+<p>a strong AI product is not only about the model.</p>
+<p>it is about the whole prompt system around it:</p>
+<ul>
+<li>context,</li>
+<li>retrieval,</li>
+<li>rules,</li>
+<li>reminders,</li>
+<li>output shape,</li>
+<li>and how all of that fits the user’s task.</li>
+</ul>
+<p>that is the style i use.</p>
+<p>and in my experience, it drastically improves product quality.</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>

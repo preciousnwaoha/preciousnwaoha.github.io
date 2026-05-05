@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source) | Your Name</title>
+  <meta name="description" content="A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them." />
+  <link rel="canonical" href="https://yourdomain.com/blog/i-built-a-no-code-ai-pipeline-builder/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)" />
+  <meta property="og:description" content="A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them." />
+  <meta property="og:url" content="https://yourdomain.com/blog/i-built-a-no-code-ai-pipeline-builder/" />
+  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)" />
+  <meta name="twitter:description" content="A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+
+  <script type="application/ld+json">
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BlogPosting&quot;,
+  &quot;headline&quot;: &quot;I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)&quot;,
+  &quot;description&quot;: &quot;A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them.&quot;,
+  &quot;datePublished&quot;: &quot;2026-05-04&quot;,
+  &quot;dateModified&quot;: &quot;2026-05-04&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/i-built-a-no-code-ai-pipeline-builder/&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Your Name&quot;
+  },
+  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;keywords&quot;: [
+    &quot;ai&quot;,
+    &quot;llm&quot;,
+    &quot;open-source&quot;,
+    &quot;pipeline&quot;,
+    &quot;engineering&quot;
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+
+  <main class="blog-page">
+    <article class="post">
+      <header class="post-header">
+        <p class="post-kicker">Blog</p>
+        <h1 class="post-title">I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)</h1>
+        <p class="post-meta">
+          <time datetime="2026-05-04">May 3, 2026</time>
+        </p>
+        <div class="post-tags">
+  <span class="tag">#ai</span>
+  <span class="tag">#llm</span>
+  <span class="tag">#open-source</span>
+  <span class="tag">#pipeline</span>
+  <span class="tag">#engineering</span>
+</div>
+      </header>
+
+      <div class="post-cover">
+  <img src="/assets/blog/cover-1.jpg" alt="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source) cover image" />
+</div>
+
+      
+
+      <section class="post-content">
+        <p><strong>TL;DR:</strong> i built a visual drag-and-drop tool for building AI automation workflows. connect nodes on a canvas, wire them together, run them. no boilerplate. the whole thing is open source.</p>
+<h2>what it is</h2>
+<p>it is a pipeline builder for AI workflows.</p>
+<p>you drag nodes onto a canvas, connect them, and run the pipeline with one click.</p>
+<p>nodes can be things like:</p>
+<ul>
+<li>an LLM call (OpenAI, Anthropic, Gemini, OpenRouter)</li>
+<li>a web search</li>
+<li>a document or PDF reader</li>
+<li>a RAG retrieval from a knowledge base</li>
+<li>a text splitter</li>
+<li>an API call</li>
+<li>a sub-workflow</li>
+<li>an input and an output</li>
+</ul>
+<p>wire them together, pass variables between nodes using <code>{{ nodeId.field }}</code> syntax, and you have a working AI system.</p>
+<h2>why i built it</h2>
+<p>i have been building AI products for a while.</p>
+<p>and every time i prototype something new, there is the same setup cost:</p>
+<ul>
+<li>set up the project,</li>
+<li>connect the providers,</li>
+<li>write the prompt plumbing,</li>
+<li>wire up retrieval,</li>
+<li>hook up the output.</li>
+</ul>
+<p>it is not hard, but it is slow. and it does not need to be.</p>
+<p>i wanted something that lets me test an idea in minutes, not hours.</p>
+<p>and i wanted something where non-engineers could inspect and adjust the logic without touching code.</p>
+<p>so i built it.</p>
+<h2>what it looks like in practice</h2>
+<p>you open the app, drag an Input node, a Web Search node, an LLM node, and an Output node onto the canvas.</p>
+<p>you connect them.</p>
+<p>you set the LLM prompt to something like:</p>
+<p><code>using this context: {{ webSearch.results }}, answer: {{ input.query }}</code></p>
+<p>you click run.</p>
+<p>the pipeline executes node by node, streaming the LLM response in real time, and shows you the output.</p>
+<p>that is it.</p>
+<h2>what it can actually do</h2>
+<ul>
+<li>multi-provider LLM calls with streaming</li>
+<li>web search with Exa, Tavily, or Brave</li>
+<li>RAG pipelines with knowledge base management</li>
+<li>file ingestion — PDF, CSV, plain text</li>
+<li>YouTube transcript extraction</li>
+<li>API calls to external services</li>
+<li>sub-workflow execution (pipelines inside pipelines)</li>
+<li>workflow save, load, and run history</li>
+</ul>
+<h2>where to find it</h2>
+<p>it is open source and on GitHub.</p>
+<p>the backend is FastAPI + Python. the frontend is React + React Flow.</p>
+<p>you can run it locally with one LLM provider key and no other setup.</p>
+<h2>final thought</h2>
+<p>i did not build this to replace LangChain or n8n.</p>
+<p>i built it because i wanted something simple, visual, and mine.</p>
+<p>something i can extend, break, and rebuild.</p>
+<p>if you are building AI systems and want a faster way to prototype and inspect them, this might be useful for you too.</p>
+<p>check it out. contributions welcome.</p>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>
