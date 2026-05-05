@@ -2,6 +2,7 @@
   "projects": [
     {
       "name": "Velin AI (SaaS - $455 MRR)",
+      "featured": true,
       "thumbnail": "/img/portfolio/thumb/velin1.png",
       "imgs": "/img/portfolio/large/velinai/1.png",
       "categories": ["web-application", "saas", "desktop", "ai"],
@@ -29,6 +30,7 @@
     },
     {
       "name": "HumanJobHunter ($300 MRR)",
+      "featured": true,
       "thumbnail": "/img/portfolio/thumb/humanjobhunter1.png",
       "imgs": "/img/portfolio/large/humanjobhunter/1.png, /img/portfolio/large/humanjobhunter/2.png, /img/portfolio/large/humanjobhunter/3.png, /img/portfolio/large/humanjobhunter/4.png",
       "categories": ["web-application", "saas"],
@@ -50,6 +52,7 @@
     },
     {
       "name": "Pharmora (Healthcare Delivery)",
+      "featured": true,
       "thumbnail": "/img/portfolio/thumb/pharmora1.png",
       "imgs": "/img/portfolio/large/pharmora/1.png, /img/portfolio/large/pharmora/2.png, /img/portfolio/large/pharmora/3.png",
       "categories": ["web-application", "saas", "mobile", "ai"],

@@ -1,14 +1,13 @@
 ---
-title: AI Engineering Pro Facts
-description: How I built my personal site and added a blog.
+title: Control AI With Custom Mouse Gestures
+description: I built mouse gesture control into Velin AI — draw an S, Circle, or Triangle with your mouse to trigger AI actions invisibly and hands-free.
 date: 2026-02-06
 tags:
   - ai
-  - llm
-  - engineer
+  - product
+  - velin-ai
 cover: /assets/blog/cover-1.jpg
-slug: ai-engineering-pro-facts
-youtube: https://www.youtube.com/embed/dQw4w9WgXcQ
+slug: control-ai-with-mouse-gestures
 readtime: 4
 ---
 

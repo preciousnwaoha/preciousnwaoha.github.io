@@ -11,6 +11,7 @@ tags:
 cover: /assets/blog/cover-1.jpg
 slug: my-prompt-engineering-style
 readtime: 4
+featured: true
 ---
 
 **TL;DR:** i do not think of prompts as one big block of text. i think of them as a system: role, context, task, input, output, constraints, style, reminders, and tools. when you build prompts this way, the product becomes more reliable, easier to steer, and much easier to improve.

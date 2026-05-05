@@ -4,7 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Precious Nwaoha</title>
+    <title>Precious Nwaoha (Takara) — Fullstack &amp; AI Engineer</title>
+    <meta name="description" content="Senior Fullstack Product &amp; AI Engineer with 6+ years shipping web, mobile, desktop and AI products. Founder of Velin AI. 4× hackathon winner.">
+    <meta name="author" content="Precious Nwaoha">
+    <link rel="canonical" href="https://preciousnwaoha.github.io/">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:site_name"   content="Precious Nwaoha">
+    <meta property="og:title"       content="Precious Nwaoha (Takara) — Fullstack &amp; AI Engineer">
+    <meta property="og:description" content="Senior Fullstack Product &amp; AI Engineer with 6+ years shipping web, mobile, desktop and AI products. Founder of Velin AI. 4× hackathon winner.">
+    <meta property="og:url"         content="https://preciousnwaoha.github.io/">
+    <meta property="og:image"       content="https://preciousnwaoha.github.io/img/profile-pic-new.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:site"        content="@takaraqode">
+    <meta name="twitter:title"       content="Precious Nwaoha (Takara) — Fullstack &amp; AI Engineer">
+    <meta name="twitter:description" content="Senior Fullstack Product &amp; AI Engineer with 6+ years shipping web, mobile, desktop and AI products. Founder of Velin AI. 4× hackathon winner.">
+    <meta name="twitter:image"       content="https://preciousnwaoha.github.io/img/profile-pic-new.png">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Precious Nwaoha",
+      "alternateName": "Takara",
+      "url": "https://preciousnwaoha.github.io",
+      "image": "https://preciousnwaoha.github.io/img/profile-pic-new.png",
+      "jobTitle": "Senior Fullstack Product & AI Engineer",
+      "description": "Fullstack engineer building AI and SaaS products. Founder of Velin AI. 4× global hackathon winner.",
+      "sameAs": [
+        "https://github.com/preciousnwaoha",
+        "https://x.com/takaraqode",
+        "https://linkedin.com/in/preciousnwaoha04",
+        "https://youtube.com/@preciousnwaoha"
+      ]
+    }
+    </script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -369,91 +407,19 @@
         <div class="stat-item"><span class="stat-val">2×</span><span class="stat-lbl">AI SaaS Founder</span></div>
       </div>
 
-      <!-- Featured Projects -->
+      <!-- Featured Projects (rendered from projects.json) -->
       <div class="home-extra-section">
         <div class="container">
           <p class="home-extra-eyebrow">Featured Projects <span class="eyebrow-line"></span></p>
-          <div class="feat-grid">
-            <div class="feat-card" data-project-slug="velin-ai-saas---455-mrr">
-              <div class="feat-card-img-wrap">
-                <img src="/img/portfolio/thumb/velin1.png" alt="Velin AI" loading="lazy" decoding="async">
-              </div>
-              <div class="feat-card-body">
-                <div class="feat-card-top">
-                  <span class="feat-card-name">Velin AI</span>
-                  <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$455 MRR</span>
-                </div>
-                <span class="feat-card-tag">SaaS · Desktop · AI</span>
-                <p class="feat-card-desc">Undetectable real-time AI for live meetings &amp; tests. Cross-platform desktop + web.</p>
-                <span class="feat-card-link">View project <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
-              </div>
-            </div>
-            <div class="feat-card" data-project-slug="humanjobhunter-300-mrr">
-              <div class="feat-card-img-wrap">
-                <img src="/img/portfolio/thumb/humanjobhunter1.png" alt="HumanJobHunter" loading="lazy" decoding="async">
-              </div>
-              <div class="feat-card-body">
-                <div class="feat-card-top">
-                  <span class="feat-card-name">HumanJobHunter</span>
-                  <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$300 MRR</span>
-                </div>
-                <span class="feat-card-tag">SaaS · Web</span>
-                <p class="feat-card-desc">Outsource your job hunt to real human experts who apply to 400+ jobs for you.</p>
-                <span class="feat-card-link">View project <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
-              </div>
-            </div>
-            <div class="feat-card" data-project-slug="pharmora-healthcare-delivery">
-              <div class="feat-card-img-wrap">
-                <img src="/img/portfolio/thumb/pharmora1.png" alt="Pharmora" loading="lazy" decoding="async">
-              </div>
-              <div class="feat-card-body">
-                <div class="feat-card-top">
-                  <span class="feat-card-name">Pharmora</span>
-                  <span class="feat-card-badge" style="color:#2eb1ed;background:rgba(46,177,237,0.12)">#1 W. Africa</span>
-                </div>
-                <span class="feat-card-tag">Mobile · AI · Healthcare</span>
-                <p class="feat-card-desc">AI-powered Healthcare delivery — #1 in West Africa on the App Store.</p>
-                <span class="feat-card-link">View project <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
-              </div>
-            </div>
-          </div>
+          <div class="feat-grid" id="home-feat-grid"></div>
         </div>
       </div>
 
-      <!-- Videos -->
+      <!-- Videos (rendered from videos.json) -->
       <div class="home-extra-section">
         <div class="container">
           <p class="home-extra-eyebrow">Media <span class="eyebrow-line"></span></p>
-          <div class="vid-grid">
-            <a href="https://youtu.be/Mq0i15fBfE8" target="_blank" rel="noreferrer" class="vid-card">
-              <div class="vid-thumb-wrap">
-                <img src="https://img.youtube.com/vi/Mq0i15fBfE8/mqdefault.jpg" alt="Introducing Velin AI" loading="lazy" decoding="async">
-                <div class="vid-play-btn">
-                  <div class="vid-play-circle">
-                    <i class="fas fa-play"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="vid-card-body">
-                <div class="vid-card-title">Introducing Velin AI</div>
-                <div class="vid-card-sub">Invisible real-time AI desktop app</div>
-              </div>
-            </a>
-            <a href="https://youtu.be/8KcjwhlvZso" target="_blank" rel="noreferrer" class="vid-card">
-              <div class="vid-thumb-wrap">
-                <img src="https://img.youtube.com/vi/8KcjwhlvZso/mqdefault.jpg" alt="Introducing Inkspiff" loading="lazy" decoding="async">
-                <div class="vid-play-btn">
-                  <div class="vid-play-circle">
-                    <i class="fas fa-play"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="vid-card-body">
-                <div class="vid-card-title">Introducing Inkspiff</div>
-                <div class="vid-card-sub">Index any large codebase in seconds with AI</div>
-              </div>
-            </a>
-          </div>
+          <div class="vid-grid" id="home-vid-grid"></div>
         </div>
       </div>
 
@@ -840,100 +806,19 @@
           </div>
         </div>
 
-        <!-- Videos -->
+        <!-- Videos (rendered from videos.json) -->
         <div class="row" style="margin-bottom:40px">
           <div style="flex:0 0 100%;max-width:100%;padding:0 15px">
             <p class="home-extra-eyebrow">YouTube <span class="eyebrow-line"></span></p>
-            <div class="media-vid-grid">
-              <a href="https://youtu.be/Mq0i15fBfE8" target="_blank" rel="noreferrer" class="vid-card">
-                <div class="vid-thumb-wrap">
-                  <img src="https://img.youtube.com/vi/Mq0i15fBfE8/mqdefault.jpg" alt="Introducing Velin AI" loading="lazy" decoding="async">
-                  <div class="vid-play-btn">
-                    <div class="vid-play-circle">
-                      <i class="fas fa-play"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="vid-card-body">
-                  <div class="vid-card-title">Introducing Velin AI</div>
-                  <div class="vid-card-sub">Invisible real-time AI desktop app for live meetings &amp; interviews</div>
-                </div>
-              </a>
-              <a href="https://youtu.be/8KcjwhlvZso" target="_blank" rel="noreferrer" class="vid-card">
-                <div class="vid-thumb-wrap">
-                  <img src="https://img.youtube.com/vi/8KcjwhlvZso/mqdefault.jpg" alt="Introducing Inkspiff" loading="lazy" decoding="async">
-                  <div class="vid-play-btn">
-                    <div class="vid-play-circle">
-                      <i class="fas fa-play"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="vid-card-body">
-                  <div class="vid-card-title">Introducing Inkspiff</div>
-                  <div class="vid-card-sub">Index any large codebase in seconds with AI</div>
-                </div>
-              </a>
-              <a href="https://youtube.com/@preciousnwaoha" target="_blank" rel="noreferrer" class="vid-card vid-card-more">
-                <div class="vid-card-body" style="padding:32px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:140px">
-                  <div style="width:48px;height:48px;border-radius:50%;background:rgba(251,131,158,0.15);display:flex;align-items:center;justify-content:center">
-                    <i class="fab fa-youtube" style="color:var(--skin-color);font-size:20px"></i>
-                  </div>
-                  <div class="vid-card-title" style="text-align:center">More on YouTube</div>
-                  <div class="vid-card-sub" style="text-align:center">@preciousnwaoha</div>
-                </div>
-              </a>
-            </div>
+            <div class="media-vid-grid" id="media-vid-grid"></div>
           </div>
         </div>
 
-        <!-- Product demos / screenshots -->
+        <!-- Product demos (rendered from projects.json featured) -->
         <div class="row">
           <div style="flex:0 0 100%;max-width:100%;padding:0 15px">
             <p class="home-extra-eyebrow">Product Demos <span class="eyebrow-line"></span></p>
-            <div class="media-demo-grid">
-              <a href="https://velinai.live" target="_blank" rel="noreferrer" class="feat-card">
-                <div class="feat-card-img-wrap">
-                  <img src="/img/portfolio/thumb/velin1.png" alt="Velin AI" loading="lazy" decoding="async">
-                </div>
-                <div class="feat-card-body">
-                  <div class="feat-card-top">
-                    <span class="feat-card-name">Velin AI</span>
-                    <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$455 MRR</span>
-                  </div>
-                  <span class="feat-card-tag">SaaS · Desktop · AI</span>
-                  <p class="feat-card-desc">Undetectable real-time AI for live meetings &amp; tests. Cross-platform.</p>
-                  <span class="feat-card-link">Live demo <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
-                </div>
-              </a>
-              <a href="https://humanjobhunter.com" target="_blank" rel="noreferrer" class="feat-card">
-                <div class="feat-card-img-wrap">
-                  <img src="/img/portfolio/thumb/humanjobhunter1.png" alt="HumanJobHunter" loading="lazy" decoding="async">
-                </div>
-                <div class="feat-card-body">
-                  <div class="feat-card-top">
-                    <span class="feat-card-name">HumanJobHunter</span>
-                    <span class="feat-card-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">$300 MRR</span>
-                  </div>
-                  <span class="feat-card-tag">SaaS · Web</span>
-                  <p class="feat-card-desc">Outsource your job hunt to real human experts who apply to 400+ jobs for you.</p>
-                  <span class="feat-card-link">Try it <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
-                </div>
-              </a>
-              <a href="https://pharmora.ng" target="_blank" rel="noreferrer" class="feat-card">
-                <div class="feat-card-img-wrap">
-                  <img src="/img/portfolio/thumb/pharmora1.png" alt="Pharmora" loading="lazy" decoding="async">
-                </div>
-                <div class="feat-card-body">
-                  <div class="feat-card-top">
-                    <span class="feat-card-name">Pharmora</span>
-                    <span class="feat-card-badge" style="color:#2eb1ed;background:rgba(46,177,237,0.12)">#1 W. Africa</span>
-                  </div>
-                  <span class="feat-card-tag">Mobile · AI · Healthcare</span>
-                  <p class="feat-card-desc">AI-powered Healthcare delivery — #1 in West Africa on the App Store.</p>
-                  <span class="feat-card-link">View app <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
-                </div>
-              </a>
-            </div>
+            <div class="media-demo-grid" id="media-demo-grid"></div>
           </div>
         </div>
 
@@ -955,75 +840,94 @@
           </div>
         </div>
 
-        <!-- Tag filter -->
-        <div class="post-tag-filter">
-          <button class="post-tag-btn active" data-tag="all">All</button>
-          <button class="post-tag-btn" data-tag="AI Engineering" style="--tag-color:#fb839e">AI Engineering</button>
-          <button class="post-tag-btn" data-tag="SaaS" style="--tag-color:#ec9412">SaaS</button>
-          <button class="post-tag-btn" data-tag="Product" style="--tag-color:#1fc586">Product</button>
-          <button class="post-tag-btn" data-tag="Workflow" style="--tag-color:#2eb1ed">Workflow</button>
-        </div>
+        <!-- Tag filter (injected at build time) -->
+        <div class="post-tag-filter" id="post-tag-filter-container"><!-- BLOG_TAGS_START --><button class="post-tag-btn active" data-tag="all" style="background:var(--skin-color);color:#fff">All</button><button class="post-tag-btn" data-tag="ai" >ai</button><button class="post-tag-btn" data-tag="engineering" >engineering</button><button class="post-tag-btn" data-tag="backend" >backend</button><button class="post-tag-btn" data-tag="fastapi" >fastapi</button><button class="post-tag-btn" data-tag="open-source" >open source</button><button class="post-tag-btn" data-tag="contribute" >contribute</button><button class="post-tag-btn" data-tag="llm" >llm</button><button class="post-tag-btn" data-tag="pipeline" >pipeline</button><button class="post-tag-btn" data-tag="streaming" >streaming</button><button class="post-tag-btn" data-tag="saas" >saas</button><button class="post-tag-btn" data-tag="lifecycle-emails" >lifecycle emails</button><button class="post-tag-btn" data-tag="growth" >growth</button><button class="post-tag-btn" data-tag="retention" >retention</button><button class="post-tag-btn" data-tag="indie-hacker" >indie hacker</button><button class="post-tag-btn" data-tag="prompt-engineering" >prompt engineering</button><button class="post-tag-btn" data-tag="rag" >rag</button><button class="post-tag-btn" data-tag="startup" >startup</button><button class="post-tag-btn" data-tag="stack" >stack</button><button class="post-tag-btn" data-tag="engineer" >engineer</button><button class="post-tag-btn" data-tag="product" >product</button><button class="post-tag-btn" data-tag="velin-ai" >velin ai</button><button class="post-tag-btn" data-tag="devops" >devops</button><button class="post-tag-btn" data-tag="cloud" >cloud</button><button class="post-tag-btn" data-tag="evals" >evals</button><button class="post-tag-btn" data-tag="claude" >claude</button><button class="post-tag-btn" data-tag="web" >web</button><button class="post-tag-btn" data-tag="seo" >seo</button><button class="post-tag-btn" data-tag="marketing" >marketing</button><button class="post-tag-btn" data-tag="workflow" >workflow</button><!-- BLOG_TAGS_END --></div>
+        <!-- Posts (injected at build time) -->
+        <div id="posts-list-container"><!-- BLOG_POSTS_START --><a href="/blog/my-prompt-engineering-style/" class="feat-post-card" id="featured-post">
+  <div class="feat-post-label">Featured Post <span class="feat-post-label-line"></span></div>
+  <div class="feat-post-meta">
+    <span class="post-date">Sun Apr 26 2026 17:00:00 GMT-0700 (Pacific Daylight Time)</span><span class="post-meta-dot">·</span><span class="post-read">4 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e1a">ai</span>
+  </div>
+  <span class="feat-post-title">System Promt Like a Pro - My Prompt Engineering Process in LLM Apps</span>
+  <p class="feat-post-excerpt">How I build prompts in real products, and why structure, context, rules, and reminders improve output quality a lot.</p>
+  <span class="feat-post-read-more">Read post <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+</a><div class="post-item" data-tag="ai">
+  <div class="post-meta"><span class="post-date">Sun May 03 2026 17:00:00 GMT-0700 (Pacific Daylight Time)</span><span class="post-meta-dot">·</span><span class="post-read">6 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e12">ai</span></div>
+  <a href="/blog/building-a-no-code-ai-pipeline-builder/" class="post-title">Building a No-Code AI Pipeline Builder — Architecture and Decisions</a>
+  <p class="post-excerpt">How I designed the execution engine, node system, variable resolution, and streaming for a visual AI workflow tool.</p>
+</div>
+<div class="post-item" data-tag="open-source">
+  <div class="post-meta"><span class="post-date">Sun May 03 2026 17:00:00 GMT-0700 (Pacific Daylight Time)</span><span class="post-meta-dot">·</span><span class="post-read">5 min read</span><span class="post-tag-badge" style="color:#1fc586;background:#1fc58612">open source</span></div>
+  <a href="/blog/contribute-to-the-no-code-pipeline-builder/" class="post-title">Contribute to the No-Code AI Pipeline Builder — What You&#39;ll Build and Learn</a>
+  <p class="post-excerpt">An open invitation to developers who want real AI engineering experience — how to contribute, what skills you&#39;ll gain, and what the project still needs.</p>
+</div>
+<div class="post-item" data-tag="ai">
+  <div class="post-meta"><span class="post-date">Sun May 03 2026 17:00:00 GMT-0700 (Pacific Daylight Time)</span><span class="post-meta-dot">·</span><span class="post-read">3 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e12">ai</span></div>
+  <a href="/blog/i-built-a-no-code-ai-pipeline-builder/" class="post-title">I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)</a>
+  <p class="post-excerpt">A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them.</p>
+</div>
+<div class="post-item" data-tag="llm">
+  <div class="post-meta"><span class="post-date">Sun May 03 2026 17:00:00 GMT-0700 (Pacific Daylight Time)</span><span class="post-meta-dot">·</span><span class="post-read">5 min read</span><span class="post-tag-badge" style="color:#8a49ff;background:#8a49ff12">llm</span></div>
+  <a href="/blog/llm-engineering-inside-a-pipeline-builder/" class="post-title">LLM Engineering Inside a Pipeline Builder</a>
+  <p class="post-excerpt">How I built the multi-provider LLM layer — routing, streaming, token tracking, cost estimation, and why abstraction matters more than people think.</p>
+</div>
+<div class="post-item" data-tag="saas">
+  <div class="post-meta"><span class="post-date">Sun Apr 26 2026 17:00:00 GMT-0700 (Pacific Daylight Time)</span><span class="post-meta-dot">·</span><span class="post-read">5 min read</span><span class="post-tag-badge" style="color:#ec9412;background:#ec941212">saas</span></div>
+  <a href="/blog/how-lifecycle-emails-can-save-a-saas-product/" class="post-title">How Lifecycle Emails Can Save a SaaS Product</a>
+  <p class="post-excerpt">A simple email system helped me reduce churn, recover abandoned checkouts, and bring old users back.</p>
+</div>
+<div class="post-item" data-tag="saas">
+  <div class="post-meta"><span class="post-date">Sun Apr 26 2026 17:00:00 GMT-0700 (Pacific Daylight Time)</span><span class="post-meta-dot">·</span><span class="post-read">6 min read</span><span class="post-tag-badge" style="color:#ec9412;background:#ec941212">saas</span></div>
+  <a href="/blog/my-free-saas-stack/" class="post-title">My $0 Stack for Building SaaS and AI Products</a>
+  <p class="post-excerpt">The stack i keep coming back to when i want to ship fast, keep costs low, and still build something serious.</p>
+</div>
+<div class="post-item" data-tag="ai">
+  <div class="post-meta"><span class="post-date">Thu Feb 05 2026 16:00:00 GMT-0800 (Pacific Standard Time)</span><span class="post-meta-dot">·</span><span class="post-read">4 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e12">ai</span></div>
+  <a href="/blog/ai-engineering-pro-facts/" class="post-title">AI Engineering Pro Facts</a>
+  <p class="post-excerpt">A few things I keep coming back to when building real AI products.</p>
+</div>
+<div class="post-item" data-tag="ai">
+  <div class="post-meta"><span class="post-date">Thu Feb 05 2026 16:00:00 GMT-0800 (Pacific Standard Time)</span><span class="post-meta-dot">·</span><span class="post-read">4 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e12">ai</span></div>
+  <a href="/blog/control-ai-with-mouse-gestures/" class="post-title">Control AI With Custom Mouse Gestures</a>
+  <p class="post-excerpt">I built mouse gesture control into Velin AI — draw an S, Circle, or Triangle with your mouse to trigger AI actions invisibly and hands-free.</p>
+</div>
+<div class="post-item" data-tag="saas">
+  <div class="post-meta"><span class="post-date">Thu Feb 05 2026 16:00:00 GMT-0800 (Pacific Standard Time)</span><span class="post-meta-dot">·</span><span class="post-read">6 min read</span><span class="post-tag-badge" style="color:#ec9412;background:#ec941212">saas</span></div>
+  <a href="/blog/how-i-save-on-devops-cloud-and-tooling-costs/" class="post-title">How I Save on DevOps, Cloud, and Tooling Costs While Shipping SaaS for $0</a>
+  <p class="post-excerpt">The stack I use to keep infra and tooling costs near zero while still shipping real products.</p>
+</div>
+<div class="post-item" data-tag="ai">
+  <div class="post-meta"><span class="post-date">Thu Feb 05 2026 16:00:00 GMT-0800 (Pacific Standard Time)</span><span class="post-meta-dot">·</span><span class="post-read">5 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e12">ai</span></div>
+  <a href="/blog/my-ai-engineering-stack/" class="post-title">My AI Engineering Stack</a>
+  <p class="post-excerpt">The stack I use to build AI products that are fast, reliable, and actually shippable.</p>
+</div>
+<div class="post-item" data-tag="claude">
+  <div class="post-meta"><span class="post-date">Thu Feb 05 2026 16:00:00 GMT-0800 (Pacific Standard Time)</span><span class="post-meta-dot">·</span><span class="post-read">4 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e12">claude</span></div>
+  <a href="/blog/my-current-development-workflow-with-ai/" class="post-title">My Current Develoment Workflow With AI</a>
+  <p class="post-excerpt">How I built my personal site and added a blog.</p>
+</div>
+<div class="post-item" data-tag="seo">
+  <div class="post-meta"><span class="post-date">Thu Feb 05 2026 16:00:00 GMT-0800 (Pacific Standard Time)</span><span class="post-meta-dot">·</span><span class="post-read">5 min read</span><span class="post-tag-badge" style="color:#2eb1ed;background:#2eb1ed12">seo</span></div>
+  <a href="/blog/ok-the-app-is-ready-how-i-ranked-it-with-seo/" class="post-title">Ok, the app is ready. How I ranked it with SEO</a>
+  <p class="post-excerpt">What i did for Velin AI and other products to get indexed, get found, and start bringing in users.</p>
+</div>
+<div class="post-item" data-tag="ai">
+  <div class="post-meta"><span class="post-date">Thu Feb 05 2026 16:00:00 GMT-0800 (Pacific Standard Time)</span><span class="post-meta-dot">·</span><span class="post-read">2 min read</span><span class="post-tag-badge" style="color:#fb839e;background:#fb839e12">ai</span></div>
+  <a href="/blog/welcome-to-the-qode-blog/" class="post-title">Welcome to the Qode blog</a>
+  <p class="post-excerpt">AI engineering, SaaS building, dev workflow, prompt design, infra, and product notes from the build.</p>
+</div>
+<div class="post-item" data-tag="">
+  <div class="post-meta"><span class="post-date"></span></div>
+  <a href="/blog/making-an-unclickable-unfocusable-interactive-desktop-app/" class="post-title">making-an-unclickable-unfocusable-interactive-desktop-app</a>
+  <p class="post-excerpt"></p>
+</div>
+<div class="post-item" data-tag="">
+  <div class="post-meta"><span class="post-date"></span></div>
+  <a href="/blog/model-pooling-and-evaluation/" class="post-title">model-pooling-and-evaluation</a>
+  <p class="post-excerpt"></p>
+</div><!-- BLOG_POSTS_END --></div>
 
-        <!-- Featured post -->
-        <a href="https://preciousnwaoha.github.io/posts/2026/system-promt-like-a-pro" target="_blank" rel="noreferrer" class="feat-post-card" id="featured-post">
-          <div class="feat-post-label">Featured Post <span class="feat-post-label-line"></span></div>
-          <div class="feat-post-meta">
-            <span class="post-date">Mar 15, 2026</span>
-            <span class="post-meta-dot">·</span>
-            <span class="post-read">8 min read</span>
-            <span class="post-tag-badge" style="color:#fb839e;background:rgba(251,131,158,0.15)">AI Engineering</span>
-          </div>
-          <span class="feat-post-title">Make AI Apps 20x Better — System Prompt Like a Pro</span>
-          <p class="feat-post-excerpt">Everything wrong with how most devs write system prompts, and the exact framework I use to make AI behaviour predictable and powerful in production.</p>
-          <span class="feat-post-read-more">Read post <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
-        </a>
-
-        <!-- Post list -->
-        <div class="post-item" data-tag="AI Engineering">
-          <div class="post-meta">
-            <span class="post-date">Feb 22, 2026</span>
-            <span class="post-meta-dot">·</span>
-            <span class="post-read">5 min read</span>
-            <span class="post-tag-badge" style="color:#fb839e;background:rgba(251,131,158,0.12)">AI Engineering</span>
-          </div>
-          <a href="https://preciousnwaoha.github.io/posts/2026/control-ai-with-mouse-gestures" target="_blank" rel="noreferrer" class="post-title">Control AI with Custom Mouse Gestures</a>
-          <p class="post-excerpt">I built a gesture-detection layer on top of my AI tools so I can trigger prompts, switch models, and run automations — without touching the keyboard.</p>
-        </div>
-
-        <div class="post-item" data-tag="SaaS">
-          <div class="post-meta">
-            <span class="post-date">Feb 1, 2026</span>
-            <span class="post-meta-dot">·</span>
-            <span class="post-read">6 min read</span>
-            <span class="post-tag-badge" style="color:#ec9412;background:rgba(236,148,18,0.12)">SaaS</span>
-          </div>
-          <a href="https://preciousnwaoha.github.io/posts/2026/how-lifecycle-emails-can-save-your-product" target="_blank" rel="noreferrer" class="post-title">Lifecycle Emails Can Save Your SaaS</a>
-          <p class="post-excerpt">The email sequences that tripled trial-to-paid conversion for Velin AI. Real copy, real data, zero hype.</p>
-        </div>
-
-        <div class="post-item" data-tag="Product">
-          <div class="post-meta">
-            <span class="post-date">Jan 18, 2026</span>
-            <span class="post-meta-dot">·</span>
-            <span class="post-read">4 min read</span>
-            <span class="post-tag-badge" style="color:#1fc586;background:rgba(31,197,134,0.12)">Product</span>
-          </div>
-          <a href="https://velinai.live/posts" target="_blank" rel="noreferrer" class="post-title">Velin AI: Undetectable Real-time AI for Live Interviews &amp; Tests</a>
-          <p class="post-excerpt">How I built and shipped an invisible AI desktop app from scratch — the architecture, the hard parts, and why Electron + C++ was the right call.</p>
-        </div>
-
-        <div class="post-item" data-tag="Workflow">
-          <div class="post-meta">
-            <span class="post-date">Jan 5, 2026</span>
-            <span class="post-meta-dot">·</span>
-            <span class="post-read">7 min read</span>
-            <span class="post-tag-badge" style="color:#2eb1ed;background:rgba(46,177,237,0.12)">Workflow</span>
-          </div>
-          <a href="https://preciousnwaoha.github.io/posts/2026/my-current-development-workflow-with-ai" target="_blank" rel="noreferrer" class="post-title">My Current Coding Workflow for Rapid Iteration</a>
-          <p class="post-excerpt">Specs in Markdown → Claude Code → MCP → ship. The workflow I use to go from idea to deployed feature in under a day.</p>
-        </div>
-
-        <a href="https://preciousnwaoha.github.io" target="_blank" rel="noreferrer" class="posts-all-link">
+        <a href="/blog/" class="posts-all-link">
           All Posts <i class="fas fa-arrow-right" style="font-size:11px;color:var(--skin-color)"></i>
         </a>
 

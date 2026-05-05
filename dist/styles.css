@@ -1989,6 +1989,23 @@ body:not(.dark) .eyebrow-line {
   font-size: 16px;
   margin-left: 3px;
 }
+/* Short video — 9:16 ratio */
+.vid-thumb-short {
+  aspect-ratio: 9 / 16 !important;
+  max-height: 340px;
+}
+.vid-short-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--skin-color);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
 .vid-card-body {
   padding: 12px 14px 14px;
 }

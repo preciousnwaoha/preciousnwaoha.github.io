@@ -205,6 +205,30 @@ function bodyScrollingToggle() {
         const { projects } = data;
         window._projects = projects;
 
+        // ---- Render featured project cards (home + media) ----
+        const CAT_LABEL = { 'web-application':'Web','saas':'SaaS','desktop':'Desktop','ai':'AI','mobile':'Mobile','blockchain':'Blockchain','game':'Game','design':'Design' };
+        function makeFeatCard(p, linkLabel) {
+          const slug = p.name.toLowerCase().split(' ').join('-').replace(/[^a-z0-9-]/g, '');
+          const cleanName = p.name.replace(/\s*\([^)]*\)/g, '').trim();
+          const cats = (p.categories || []).filter(c => c !== 'all' && c !== 'web-application').map(c => CAT_LABEL[c] || c).join(' · ');
+          const badge = p.badge ? `<span class="feat-card-badge" style="color:${p.badgeColor};background:${p.badgeColor}18">${p.badge}</span>` : '';
+          return `<div class="feat-card" data-project-slug="${slug}">
+            <div class="feat-card-img-wrap"><img src="${p.thumbnail}" alt="${cleanName}" loading="lazy" decoding="async"></div>
+            <div class="feat-card-body">
+              <div class="feat-card-top"><span class="feat-card-name">${cleanName}</span>${badge}</div>
+              <span class="feat-card-tag">${cats}</span>
+              <p class="feat-card-desc">${p.description}</p>
+              <span class="feat-card-link">${linkLabel || 'View project'} <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+            </div>
+          </div>`;
+        }
+
+        const featProjects = projects.filter(p => p.featured);
+        const homeFeatGrid = document.getElementById('home-feat-grid');
+        if (homeFeatGrid) homeFeatGrid.innerHTML = featProjects.map(p => makeFeatCard(p)).join('');
+        const mediaDemoGrid = document.getElementById('media-demo-grid');
+        if (mediaDemoGrid) mediaDemoGrid.innerHTML = featProjects.map(p => makeFeatCard(p, 'Live demo')).join('');
+
         for (let i = 0; i < projects.length; i++) {
           // Create a URL-friendly slug from the project name
           // e.g., "Velin AI" becomes "velin-ai"
@@ -669,49 +693,6 @@ window.addEventListener("load", () => {
     .catch(() => {});
 })();
 
-/*------------------ posts tag filter -------------------*/
-(() => {
-  const tagBtns = document.querySelectorAll('.post-tag-btn');
-  const postItems = document.querySelectorAll('.post-item[data-tag]');
-  const featPost = document.getElementById('featured-post');
-  if (!tagBtns.length) return;
-
-  const TAG_COLORS = {
-    'AI Engineering': '#fb839e',
-    'SaaS': '#ec9412',
-    'Product': '#1fc586',
-    'Workflow': '#2eb1ed',
-  };
-
-  tagBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tagBtns.forEach(b => {
-        b.classList.remove('active');
-        b.style.background = 'transparent';
-        b.style.color = '';
-      });
-      btn.classList.add('active');
-      const tag = btn.getAttribute('data-tag');
-      const color = TAG_COLORS[tag];
-      if (color) {
-        btn.style.background = color;
-        btn.style.color = '#fff';
-      } else {
-        btn.style.background = 'var(--skin-color)';
-        btn.style.color = '#fff';
-      }
-
-      if (featPost) {
-        featPost.style.display = tag === 'all' ? '' : 'none';
-      }
-
-      postItems.forEach(item => {
-        const show = tag === 'all' || item.getAttribute('data-tag') === tag;
-        item.style.display = show ? '' : 'none';
-      });
-    });
-  });
-})();
 
 /*------------------ navigate to portfolio project -------------------*/
 window.navigateToProject = function (slug) {
@@ -750,6 +731,93 @@ window.navigateToProject = function (slug) {
     const slug = card.getAttribute("data-project-slug");
     if (slug) window.navigateToProject(slug);
   });
+})();
+
+/*------------------ posts tag filter (DOM-based, injected at build time) -------------------*/
+(() => {
+  const tagFilterEl = document.getElementById('post-tag-filter-container');
+  const postsListEl = document.getElementById('posts-list-container');
+  if (!tagFilterEl || !postsListEl) return;
+
+  const TAG_COLORS = {
+    ai: '#fb839e', llm: '#8a49ff', 'prompt-engineering': '#fb839e', rag: '#8a49ff',
+    engineering: '#fb839e', saas: '#ec9412', 'indie-hacker': '#ec9412',
+    product: '#1fc586', 'open-source': '#1fc586', workflow: '#2eb1ed',
+    web: '#2eb1ed', seo: '#2eb1ed', claude: '#fb839e', backend: '#cc3a3b',
+  };
+  function tc(tag) { return TAG_COLORS[tag] || '#8a49ff'; }
+
+  tagFilterEl.addEventListener('click', e => {
+    const btn = e.target.closest('.post-tag-btn');
+    if (!btn) return;
+    const tag = btn.getAttribute('data-tag');
+
+    tagFilterEl.querySelectorAll('.post-tag-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.background = '';
+      b.style.color = '';
+    });
+    btn.classList.add('active');
+    const col = tag === 'all' ? 'var(--skin-color)' : tc(tag);
+    btn.style.background = col;
+    btn.style.color = '#fff';
+
+    const featPost = postsListEl.querySelector('#featured-post');
+    if (featPost) featPost.style.display = tag === 'all' ? '' : 'none';
+
+    postsListEl.querySelectorAll('.post-item[data-tag]').forEach(item => {
+      item.style.display = tag === 'all' || item.getAttribute('data-tag') === tag ? '' : 'none';
+    });
+  });
+})();
+
+/*------------------ videos loader -------------------*/
+(() => {
+  const homeVidGrid  = document.getElementById('home-vid-grid');
+  const mediaVidGrid = document.getElementById('media-vid-grid');
+  if (!homeVidGrid && !mediaVidGrid) return;
+
+  function makeVidCard(v) {
+    const isShort = v.short;
+    const yt = isShort
+      ? `https://www.youtube.com/shorts/${v.id}`
+      : `https://youtu.be/${v.id}`;
+    const thumb = `https://img.youtube.com/vi/${v.id}/mqdefault.jpg`;
+    return `<a href="${yt}" target="_blank" rel="noreferrer" class="vid-card${isShort ? ' vid-card-short' : ''}">
+      <div class="vid-thumb-wrap${isShort ? ' vid-thumb-short' : ''}">
+        <img src="${thumb}" alt="${v.title}" loading="lazy" decoding="async">
+        <div class="vid-play-btn"><div class="vid-play-circle"><i class="fas fa-play"></i></div></div>
+        ${isShort ? '<span class="vid-short-badge">Short</span>' : ''}
+      </div>
+      <div class="vid-card-body">
+        <div class="vid-card-title">${v.title}</div>
+        <div class="vid-card-sub">${v.subtitle || ''}</div>
+      </div>
+    </a>`;
+  }
+
+  function makeMoreCard() {
+    return `<a href="https://youtube.com/@preciousnwaoha" target="_blank" rel="noreferrer" class="vid-card vid-card-more">
+      <div class="vid-card-body" style="padding:32px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:140px">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(251,131,158,0.15);display:flex;align-items:center;justify-content:center">
+          <i class="fab fa-youtube" style="color:var(--skin-color);font-size:20px"></i>
+        </div>
+        <div class="vid-card-title" style="text-align:center">More on YouTube</div>
+        <div class="vid-card-sub" style="text-align:center">@preciousnwaoha</div>
+      </div>
+    </a>`;
+  }
+
+  fetch('../../utils/videos.json')
+    .then(r => r.json())
+    .then(({ videos }) => {
+      window._videosData = videos;
+      const featVids = videos.filter(v => v.featured);
+      const html = featVids.map(makeVidCard).join('') + makeMoreCard();
+      if (homeVidGrid)  homeVidGrid.innerHTML  = html;
+      if (mediaVidGrid) mediaVidGrid.innerHTML = html;
+    })
+    .catch(() => {});
 })();
 
 /*------------------ socials loader -------------------*/

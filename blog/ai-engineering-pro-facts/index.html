@@ -4,39 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>AI Engineering Pro Facts | Your Name</title>
-  <meta name="description" content="How I built my personal site and added a blog." />
-  <link rel="canonical" href="https://yourdomain.com/blog/ai-engineering-pro-facts/" />
+  <title>AI Engineering Pro Facts | Precious Nwaoha</title>
+  <meta name="description" content="A few things I keep coming back to when building real AI products." />
+  <link rel="canonical" href="https://preciousnwaoha.github.io/blog/ai-engineering-pro-facts/" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="AI Engineering Pro Facts" />
-  <meta property="og:description" content="How I built my personal site and added a blog." />
-  <meta property="og:url" content="https://yourdomain.com/blog/ai-engineering-pro-facts/" />
-  <meta property="og:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+  <meta property="og:description" content="A few things I keep coming back to when building real AI products." />
+  <meta property="og:url" content="https://preciousnwaoha.github.io/blog/ai-engineering-pro-facts/" />
+  <meta property="og:image" content="https://preciousnwaoha.github.io/assets/blog/cover-1.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AI Engineering Pro Facts" />
-  <meta name="twitter:description" content="How I built my personal site and added a blog." />
-  <meta name="twitter:image" content="https://yourdomain.com/assets/blog/cover-1.jpg" />
+  <meta name="twitter:description" content="A few things I keep coming back to when building real AI products." />
+  <meta name="twitter:image" content="https://preciousnwaoha.github.io/assets/blog/cover-1.jpg" />
 
   <script type="application/ld+json">
 {
   &quot;@context&quot;: &quot;https://schema.org&quot;,
   &quot;@type&quot;: &quot;BlogPosting&quot;,
   &quot;headline&quot;: &quot;AI Engineering Pro Facts&quot;,
-  &quot;description&quot;: &quot;How I built my personal site and added a blog.&quot;,
+  &quot;description&quot;: &quot;A few things I keep coming back to when building real AI products.&quot;,
   &quot;datePublished&quot;: &quot;2026-02-06&quot;,
   &quot;dateModified&quot;: &quot;2026-02-06&quot;,
-  &quot;mainEntityOfPage&quot;: &quot;https://yourdomain.com/blog/ai-engineering-pro-facts/&quot;,
+  &quot;mainEntityOfPage&quot;: &quot;https://preciousnwaoha.github.io/blog/ai-engineering-pro-facts/&quot;,
   &quot;author&quot;: {
     &quot;@type&quot;: &quot;Person&quot;,
-    &quot;name&quot;: &quot;Your Name&quot;
+    &quot;name&quot;: &quot;Precious Nwaoha&quot;
   },
   &quot;publisher&quot;: {
     &quot;@type&quot;: &quot;Person&quot;,
-    &quot;name&quot;: &quot;Your Name&quot;
+    &quot;name&quot;: &quot;Precious Nwaoha&quot;
   },
-  &quot;image&quot;: &quot;https://yourdomain.com/assets/blog/cover-1.jpg&quot;,
+  &quot;image&quot;: &quot;https://preciousnwaoha.github.io/assets/blog/cover-1.jpg&quot;,
   &quot;keywords&quot;: [
     &quot;ai&quot;,
     &quot;llm&quot;,
@@ -77,29 +77,109 @@
       
 
       <section class="post-content">
-        <p>** TL;DR: there's an undetectable real-time AI desktop app you can full control using customizable mouse gestures. I built it, they say it's insane.</p>
-<p>Yes, it's exacltly what i said it is.</p>
-<p>I mean you can draw and &quot;S&quot;, a &quot;Trangle&quot;, or maybe &quot;Infinity&quot; sign, with your mouse and those trigger actions in an invisible AI app, like giving you responses, switching context, reading your screen and more. You choose what gestures you want, and you assign actions to each gesture.</p>
-<h2>A little Context</h2>
-<p>I shipped Velin AI a month ago, an undetectable AI desktop app, that can see your screen, and listen to conversation (only live mode is active), and give you real-time answers during meetings, live interviews or online tests. I had one goal building Velin AI; make the app undeniably better than anything in the category out there. So it had to be smarter and faster than anything out there, and it got to be completely undetectable in every way, on every platform. The app could be controlled with untracable customizable keyboard shortcuts, which was enough, but that also meant you have to constantly press keys for answers. If i could remove that blocker such that just moving your mouse in special paths controls the ai app, then that would be a feature unseen before.</p>
-<h2>Mouse Gestures in Velin AI</h2>
-<p>When you start the Velin AI app, mouse gestures are enabled by default, go to settings &gt; mouse gestures to see all. it's a pro feature though. You can pick a gesture like Circle, and you'll see actions to select, select capture and from that instant, once you draw an Oon the screen with the Velin app open, it captures the Screen, ready to analyse and solve. You can draw an &quot;S&quot; to solve and customize from up to 16 unique mouse gestures: S-shape, Circle, C-Shape, Triangle, Diamond, Figure-8, Infinity, Spiral-inward, n-Shape, Tick, Horizontal Zigzag, Virtical ZigZag, Stair Step, Flipped C, L-Shape, U-shape.</p>
-<p>Free users can only use one mouse gesture (S to solve), and cannot change/customize.</p>
-<p>Since Velin AI app is clickthrough, hideable,transparent, onfocusable, and never becomes active window, a mouse gesture feature is more useful as the app is mostly hidden on the screen, even to the user, and that's how it should be, so you can just make a drawing to show it and see an answer, and another drawing to hide it.</p>
-<h2>Engineering Mouse Gestures,</h2>
-<p>Fundamentally, I mouse gestures for AI control in three different components;</p>
-<ol>
-<li>Gesture &amp; Action Definitions/Configuration</li>
-<li>Gesture Recognition</li>
-<li>Gesture Action Handlers</li>
-<li>Gesture to Action Mapping (Customization)</li>
-<li>State Storage, Limits Checks &amp; Fallbacks</li>
-<li>Gesture Gaurds</li>
-</ol>
-<h2>What Mouse Gestures mean for Velin AI and other AI apps.</h2>
-<p>Mouse gestures as proven to be one of the defining unique features of Velin AI, the idea you are getting correct answers from an invisible AI assistant, and the interviewer or test platform can't see that you typed anything, is insane. Its no longer about hidden that your are typing or cliking, you really arent, you're just drawing things like &quot;L-shape&quot; with your mouse, no clicks, and the ai responds accordingly. That is peak undetectability.</p>
-<p>Aside the very direct use case with Velin AI, I personally have not seen another app that allows full control using mouse gestures, and honestly i think it's a really cool gimic that users would love. some time there's things that make your user experience feel wonderful, this is one of them.</p>
-<p>Okay so that's it, checkout my app Velin AI, Available on MacOS and Windows</p>
+        <p><strong>TL;DR:</strong> AI engineering is not just about getting a model to answer. It is about prompts, tools, latency, refusal quality, evals, routing, and keeping the product useful when things go wrong.</p>
+<h2>prompt structure matters more than people think</h2>
+<p>the way i think about prompts is:</p>
+<p><strong>Prompt = System Prompt + Context Prompt</strong></p>
+<p>and inside that, i want the important parts to be clear:</p>
+<ul>
+<li>role and identity</li>
+<li>context</li>
+<li>task</li>
+<li>input</li>
+<li>output</li>
+<li>constraints, refusals, and rules</li>
+<li>behavioural, style, and cultural context</li>
+<li>tool descriptors and reminders like time, date, and language</li>
+</ul>
+<p>when a prompt is structured well, the model becomes much easier to guide.</p>
+<p>when it is not, the app starts drifting.</p>
+<h2>refusing well is a real skill</h2>
+<p>a lot of people think good AI engineering is only about answering well.</p>
+<p>it is not.</p>
+<p>refusing well is harder than answering well.</p>
+<p>sometimes the best response is:</p>
+<ul>
+<li>a short refusal,</li>
+<li>a brief reason,</li>
+<li>and a useful alternative.</li>
+</ul>
+<p>that keeps the product helpful without becoming unsafe or annoying.</p>
+<p>for me, a good refusal is part of the product quality.</p>
+<h2>latency matters a lot</h2>
+<p>a mediocre answer in 2 seconds usually beats a perfect answer in 20.</p>
+<p>that sounds simple, but it changes how i build.</p>
+<p>it means i care about:</p>
+<ul>
+<li>streaming responses,</li>
+<li>parallel tool calls,</li>
+<li>caching aggressively,</li>
+<li>and reducing unnecessary thinking before the user sees something useful.</li>
+</ul>
+<p>people do not only judge correctness. they judge momentum.</p>
+<p>if the app feels alive, it feels better.</p>
+<h2>evals save money and pain</h2>
+<p>i like to evaluate risk both before and after output.</p>
+<p>that helps catch:</p>
+<ul>
+<li>bad responses,</li>
+<li>unsafe outputs,</li>
+<li>expensive mistakes,</li>
+<li>and useless tool calls.</li>
+</ul>
+<p>this is also where a lot of cost savings happen.</p>
+<p>if you catch the wrong thing early, you do not pay to generate, retry, or clean up after it later.</p>
+<h2>if the app never really uses tools, it is just chat</h2>
+<p>this is something i watch closely.</p>
+<p>if an AI responds three times in a row without a custom tool call, then for me it is probably just another ChatGPT wrapper.</p>
+<p>that is not enough for a real product.</p>
+<p>real products should know when to:</p>
+<ul>
+<li>fetch data,</li>
+<li>query state,</li>
+<li>call tools,</li>
+<li>look up context,</li>
+<li>or use the right function instead of guessing.</li>
+</ul>
+<p>tools are where the product becomes useful.</p>
+<h2>provider abstraction is worth it</h2>
+<p>i do not like depending on one model provider for everything.</p>
+<p>for real apps, i want abstraction.</p>
+<p>that means:</p>
+<ul>
+<li>model pooling,</li>
+<li>provider-specific config,</li>
+<li>fallbacks,</li>
+<li>dynamic system prompts,</li>
+<li>task-based routing,</li>
+<li>prompt budget enforcement,</li>
+<li>chunking and compacting,</li>
+<li>and loading tools only when needed.</li>
+</ul>
+<p>that gives me more control over:</p>
+<ul>
+<li>quality,</li>
+<li>cost,</li>
+<li>reliability,</li>
+<li>and speed.</li>
+</ul>
+<p>some tasks should go to one model. some should go to another. some should not call a model at all.</p>
+<p>that is the real game.</p>
+<h2>my simple rule</h2>
+<p>i try to make AI systems that are:</p>
+<ul>
+<li>fast enough to feel useful</li>
+<li>structured enough to stay reliable</li>
+<li>cheap enough to scale</li>
+<li>flexible enough to route around failure</li>
+<li>and clear enough to debug</li>
+</ul>
+<p>that is what i care about most.</p>
+<h2>final thought</h2>
+<p>the best AI products are not just smart.</p>
+<p>they are controlled.</p>
+<p>they know how to prompt well, refuse well, respond fast, use tools properly, and switch providers when needed.</p>
+<p>that is the kind of AI engineering i keep building around.</p>
 
       </section>
     </article>

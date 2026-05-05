@@ -6,9 +6,9 @@ import MarkdownIt from "markdown-it";
 
 const ROOT = process.cwd();
 
-const SITE_URL = "https://yourdomain.com";
-const SITE_NAME = "Your Name";
-const BLOG_DESCRIPTION = "Thoughts on building web, mobile, desktop, and AI products.";
+const SITE_URL = "https://preciousnwaoha.github.io";
+const SITE_NAME = "Precious Nwaoha";
+const BLOG_DESCRIPTION = "Writing about AI engineering, SaaS, fullstack development and indie hacking — from real production experience.";
 
 const BLOG_DIR = path.join(ROOT, "blog");
 const POSTS_DIR = path.join(BLOG_DIR, "posts");
@@ -17,8 +17,22 @@ const TEMPLATE_DIR = path.join(BLOG_DIR, "templates");
 const POST_TEMPLATE_PATH = path.join(TEMPLATE_DIR, "post.html");
 const INDEX_TEMPLATE_PATH = path.join(TEMPLATE_DIR, "index.html");
 
-const OUT_BLOG_INDEX = path.join(BLOG_DIR, "index.html");
-const OUT_SITEMAP = path.join(ROOT, "sitemap.xml");
+const OUT_BLOG_INDEX  = path.join(BLOG_DIR, "index.html");
+const OUT_SITEMAP     = path.join(ROOT, "sitemap.xml");
+const PORT_INDEX_PATH = path.join(ROOT, "index.html");
+
+// Tag → display color for the portfolio posts section
+const TAG_COLORS = {
+  ai: "#fb839e", llm: "#8a49ff", "prompt-engineering": "#fb839e",
+  rag: "#8a49ff", engineering: "#fb839e", saas: "#ec9412",
+  "indie-hacker": "#ec9412", "lifecycle-emails": "#ec9412", growth: "#ec9412",
+  retention: "#ec9412", product: "#1fc586", "open-source": "#1fc586",
+  workflow: "#2eb1ed", web: "#2eb1ed", seo: "#2eb1ed", claude: "#fb839e",
+  backend: "#cc3a3b", fastapi: "#1fc586", pipeline: "#8a49ff",
+  streaming: "#2eb1ed", contribute: "#1fc586",
+};
+function tagColor(tag) { return TAG_COLORS[tag] || "#8a49ff"; }
+function tagLabel(tag) { return tag.replace(/-/g, " "); }
 
 const md = new MarkdownIt({
   html: true,      // allows raw HTML like iframes
@@ -269,14 +283,16 @@ async function main() {
     const raw = await fs.readFile(fullPath, "utf8");
     const parsed = matter(raw);
 
-    const title = parsed.data.title || file.replace(/\.md$/i, "");
-    const slug = parsed.data.slug || slugify(title);
+    const title       = parsed.data.title       || file.replace(/\.md$/i, "");
+    const slug        = parsed.data.slug        || slugify(title);
     const description = parsed.data.description || "";
-    const date = parsed.data.date || "";
-    const updated = parsed.data.updated || "";
-    const tags = Array.isArray(parsed.data.tags) ? parsed.data.tags : [];
-    const cover = parsed.data.cover || "";
-    const video = parsed.data.video || "";
+    const date        = parsed.data.date        || "";
+    const updated     = parsed.data.updated     || "";
+    const tags        = Array.isArray(parsed.data.tags) ? parsed.data.tags : [];
+    const cover       = parsed.data.cover       || "";
+    const video       = parsed.data.video       || "";
+    const readtime    = parsed.data.readtime     || "";
+    const featured    = parsed.data.featured    === true;
 
     const contentHtml = md.render(parsed.content);
 
@@ -299,15 +315,7 @@ async function main() {
     await fs.mkdir(outDir, { recursive: true });
     await fs.writeFile(path.join(outDir, "index.html"), html, "utf8");
 
-    posts.push({
-      title,
-      slug,
-      description,
-      date,
-      updated,
-      tags,
-      cover,
-    });
+    posts.push({ title, slug, description, date, updated, tags, cover, readtime, featured });
   }
 
   posts.sort((a, b) => {
@@ -330,21 +338,82 @@ async function main() {
 
   await fs.writeFile(OUT_BLOG_INDEX, indexHtml, "utf8");
 
-  const sitemapUrls = [
-    `${SITE_URL}/`,
-    `${SITE_URL}/blog/`,
-    ...posts.map((post) => `${SITE_URL}/blog/${post.slug}/`),
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+  function sitemapUrl(loc, lastmod) {
+    return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod></url>`;
+  }
+
+  const sitemapEntries = [
+    sitemapUrl(`${SITE_URL}/`,        today),
+    sitemapUrl(`${SITE_URL}/blog/`,   today),
+    ...posts.map(post => {
+      const lastmod = normalizeDateIso(post.updated || post.date || today).slice(0, 10) || today;
+      return sitemapUrl(`${SITE_URL}/blog/${post.slug}/`, lastmod);
+    }),
   ];
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapUrls
-  .map((loc) => `  <url><loc>${loc}</loc></url>`)
-  .join("\n")}
+${sitemapEntries.join("\n")}
 </urlset>
 `;
 
   await fs.writeFile(OUT_SITEMAP, sitemapXml, "utf8");
+
+  // ---- Inject posts into portfolio index.html ----
+  const featuredPost = posts.find(p => p.featured) || posts[0];
+  const restPosts    = posts.filter(p => p !== featuredPost);
+
+  // Collect unique tags for the filter bar
+  const allTags = [...new Set(posts.flatMap(p => p.tags))];
+
+  function portTagBtn(tag, active) {
+    const col = tagColor(tag);
+    const style = active ? `style="background:${col};color:#fff"` : "";
+    return `<button class="post-tag-btn${active ? " active" : ""}" data-tag="${tag}" ${style}>${tagLabel(tag)}</button>`;
+  }
+
+  const tagsHtml = `<button class="post-tag-btn active" data-tag="all" style="background:var(--skin-color);color:#fff">All</button>`
+    + allTags.map(t => portTagBtn(t, false)).join("");
+
+  function portFeaturedCard(post) {
+    const tag  = post.tags[0] || "";
+    const col  = tagColor(tag);
+    const read = post.readtime ? `<span class="post-meta-dot">·</span><span class="post-read">${post.readtime} min read</span>` : "";
+    const badge = tag ? `<span class="post-tag-badge" style="color:${col};background:${col}1a">${tagLabel(tag)}</span>` : "";
+    return `<a href="/blog/${escapeAttr(post.slug)}/" class="feat-post-card" id="featured-post">
+  <div class="feat-post-label">Featured Post <span class="feat-post-label-line"></span></div>
+  <div class="feat-post-meta">
+    <span class="post-date">${escapeHtml(String(post.date))}</span>${read}${badge}
+  </div>
+  <span class="feat-post-title">${escapeHtml(post.title)}</span>
+  <p class="feat-post-excerpt">${escapeHtml(post.description)}</p>
+  <span class="feat-post-read-more">Read post <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+</a>`;
+  }
+
+  function portPostItem(post) {
+    const tag  = post.tags[0] || "";
+    const col  = tagColor(tag);
+    const read = post.readtime ? `<span class="post-meta-dot">·</span><span class="post-read">${post.readtime} min read</span>` : "";
+    const badge = tag ? `<span class="post-tag-badge" style="color:${col};background:${col}12">${tagLabel(tag)}</span>` : "";
+    return `<div class="post-item" data-tag="${tag}">
+  <div class="post-meta"><span class="post-date">${escapeHtml(String(post.date))}</span>${read}${badge}</div>
+  <a href="/blog/${escapeAttr(post.slug)}/" class="post-title">${escapeHtml(post.title)}</a>
+  <p class="post-excerpt">${escapeHtml(post.description)}</p>
+</div>`;
+  }
+
+  const portPostsHtml = portFeaturedCard(featuredPost) + restPosts.map(portPostItem).join("\n");
+
+  let portHtml = await fs.readFile(PORT_INDEX_PATH, "utf8");
+  portHtml = portHtml
+    .replace(/<!-- BLOG_TAGS_START -->[\s\S]*?<!-- BLOG_TAGS_END -->/,
+      `<!-- BLOG_TAGS_START -->${tagsHtml}<!-- BLOG_TAGS_END -->`)
+    .replace(/<!-- BLOG_POSTS_START -->[\s\S]*?<!-- BLOG_POSTS_END -->/,
+      `<!-- BLOG_POSTS_START -->${portPostsHtml}<!-- BLOG_POSTS_END -->`);
+  await fs.writeFile(PORT_INDEX_PATH, portHtml, "utf8");
 
   console.log(`Built ${posts.length} posts.`);
 }

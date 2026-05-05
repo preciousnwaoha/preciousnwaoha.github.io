@@ -1,0 +1,18 @@
+{
+  "videos": [
+    {
+      "id":       "Mq0i15fBfE8",
+      "title":    "Introducing Velin AI",
+      "subtitle": "Invisible real-time AI desktop app for live meetings & interviews",
+      "short":    false,
+      "featured": true
+    },
+    {
+      "id":       "8KcjwhlvZso",
+      "title":    "Introducing Inkspiff",
+      "subtitle": "Index any large codebase in seconds with AI",
+      "short":    false,
+      "featured": true
+    }
+  ]
+}
