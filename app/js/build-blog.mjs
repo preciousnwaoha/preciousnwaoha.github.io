@@ -169,6 +169,7 @@ function renderPostPage({
   cover,
   contentHtml,
   video,
+  readtime,
 }, template) {
   const canonical = `${SITE_URL}/blog/${slug}/`;
   const dateIso = normalizeDateIso(date);
@@ -235,6 +236,10 @@ function renderPostPage({
     COVER_HTML: postCoverHtml,
     VIDEO_HTML: videoHtml,
     CONTENT: contentHtml,
+    READTIME_DISPLAY: readtime
+      ? `<span class="post-meta-sep">·</span><i class="fas fa-clock"></i><span>${readtime} min read</span>`
+      : "",
+    SLUG: escapeAttr(slug),
     BLOG_URL: `${SITE_URL}/blog/`,
     HOME_URL: SITE_URL,
   });
@@ -297,17 +302,7 @@ async function main() {
     const contentHtml = md.render(parsed.content);
 
     const html = renderPostPage(
-      {
-        title,
-        description,
-        date,
-        updated,
-        slug,
-        tags,
-        cover,
-        contentHtml,
-        video,
-      },
+      { title, description, date, updated, slug, tags, cover, contentHtml, video, readtime },
       postTemplate
     );
 

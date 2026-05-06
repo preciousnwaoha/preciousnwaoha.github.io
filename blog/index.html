@@ -8,18 +8,36 @@
   <meta name="description" content="Writing about AI engineering, SaaS, fullstack development and indie hacking — from real production experience." />
   <link rel="canonical" href="https://preciousnwaoha.github.io/blog/" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Blog | Precious Nwaoha" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Blog | Precious Nwaoha" />
   <meta property="og:description" content="Writing about AI engineering, SaaS, fullstack development and indie hacking — from real production experience." />
-  <meta property="og:url" content="https://preciousnwaoha.github.io/blog/" />
+  <meta property="og:url"         content="https://preciousnwaoha.github.io/blog/" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <script>
+    (function(){
+      try { if(localStorage.getItem('theme')==='light') document.body.classList.add('light'); } catch(e){}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
     <nav class="site-nav">
-      <a href="https://preciousnwaoha.github.io">Home</a>
-      <a href="https://preciousnwaoha.github.io/blog/">Blog</a>
+      <a href="/" class="site-nav-logo">Precious N.</a>
+      <div class="site-nav-links">
+        <a href="/blog/" class="active"><span>Posts</span></a>
+        <a href="/#about"><span>About</span></a>
+        <a href="/#portfolio"><span>Work</span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -177,7 +195,17 @@
 </article>
     </section>
   </main>
+
+  <script>
+    const btn  = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    function applyTheme(light) {
+      document.body.classList.toggle('light', light);
+      icon.className = light ? 'fas fa-sun' : 'fas fa-moon';
+      try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch(e){}
+    }
+    applyTheme(document.body.classList.contains('light'));
+    btn.addEventListener('click', () => applyTheme(!document.body.classList.contains('light')));
+  </script>
 </body>
 </html>
-
-

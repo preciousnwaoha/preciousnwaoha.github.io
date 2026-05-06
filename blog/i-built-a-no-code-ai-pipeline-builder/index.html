@@ -8,14 +8,16 @@
   <meta name="description" content="A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them." />
   <link rel="canonical" href="https://preciousnwaoha.github.io/blog/i-built-a-no-code-ai-pipeline-builder/" />
 
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)" />
+  <meta property="og:type"        content="article" />
+  <meta property="og:title"       content="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)" />
   <meta property="og:description" content="A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them." />
-  <meta property="og:url" content="https://preciousnwaoha.github.io/blog/i-built-a-no-code-ai-pipeline-builder/" />
+  <meta property="og:url"         content="https://preciousnwaoha.github.io/blog/i-built-a-no-code-ai-pipeline-builder/" />
+  <meta property="og:site_name"   content="Precious Nwaoha" />
   <meta property="og:image" content="https://preciousnwaoha.github.io/assets/blog/cover-1.jpg" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@takaraqode" />
+  <meta name="twitter:title"       content="I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)" />
   <meta name="twitter:description" content="A visual tool for chaining LLMs, web search, RAG, and more into real AI workflows — no code required to run them." />
   <meta name="twitter:image" content="https://preciousnwaoha.github.io/assets/blog/cover-1.jpg" />
 
@@ -47,13 +49,32 @@
 }
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <script>
+    // Apply saved theme before paint to avoid flash
+    (function(){
+      try { if(localStorage.getItem('theme')==='light') document.body.classList.add('light'); } catch(e){}
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
     <nav class="site-nav">
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
+      <a href="/" class="site-nav-logo">Precious N.</a>
+      <div class="site-nav-links">
+        <a href="/blog/"><span>Posts</span></a>
+        <a href="/#about"><span>About</span></a>
+        <a href="/#portfolio"><span>Work</span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -62,9 +83,12 @@
       <header class="post-header">
         <p class="post-kicker">Blog</p>
         <h1 class="post-title">I Built a No-Code AI Pipeline Builder (And It&#39;s Open Source)</h1>
-        <p class="post-meta">
+        <div class="post-meta">
+          <i class="fas fa-calendar-alt"></i>
           <time datetime="2026-05-04">May 3, 2026</time>
-        </p>
+          
+          <span class="post-meta-sep">·</span><i class="fas fa-clock"></i><span>3 min read</span>
+        </div>
         <div class="post-tags">
   <span class="tag">#ai</span>
   <span class="tag">#llm</span>
@@ -142,7 +166,30 @@
 <p>check it out. contributions welcome.</p>
 
       </section>
+
+      <footer class="post-footer">
+        <a href="/blog/"><i class="fas fa-arrow-left"></i> All Posts</a>
+        <div class="post-footer-socials">
+          <a href="https://github.com/preciousnwaoha" target="_blank" rel="noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://x.com/takaraqode" target="_blank" rel="noreferrer" title="X / Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://youtube.com/@preciousnwaoha" target="_blank" rel="noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </footer>
     </article>
   </main>
+
+  <script>
+    // Theme toggle
+    const btn  = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    function applyTheme(light) {
+      document.body.classList.toggle('light', light);
+      icon.className = light ? 'fas fa-sun' : 'fas fa-moon';
+      try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch(e){}
+    }
+    // Sync icon with current state
+    applyTheme(document.body.classList.contains('light'));
+    btn.addEventListener('click', () => applyTheme(!document.body.classList.contains('light')));
+  </script>
 </body>
 </html>
