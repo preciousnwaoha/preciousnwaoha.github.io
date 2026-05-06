@@ -45,17 +45,17 @@
 ## Recent Projects
 
 - ❤️‍🩹 **[Pharmora](https://pharmora.ng)** - Personalized AI-powered Healthcare app with delivery & logistics. Mobile - React Native + NestJS + LLM Pipelines (Currently No. 1 in West Africa)
-- 👾 **[Velin AI Desktop App](https://pharmora.ng)** - Cross-platform invisible on-screen AI app for Mac & Wundows - Electron, React, C++, c#, CI, LLM Pipelines (400+ Active users)
-- 🎨 **[ImageColorEditor](https://github.com/preciousnwaoha/imagecoloreditor)** - Change any color, in any part, of any image for free (yep, I needed this tool).
-- 🧸 **[HumanJobHunter](https://github.com/preciousnwaoha/humanjobhunter)** - Find your next role fast. Outsource job hunting. - Next.js + Supabase (Currently at $120 MRR)
-- 🔬 **[Includda](https://includda.com)** - Healthcare supplychain & insurrance platform for service providers. (Next.js + Tailwind CSS + AWS)
+- 👾 **[Velin AI Desktop App](https://github.com/preciousnwaoha/velinapp-releases)** - Cross-platform invisible on-screen AI app for Mac & Wundows - Electron, React, C++, c#, CI, LLM Pipelines (400+ Active users)
+- 🪄 **[nocode-pipeline-builder](https://github.com/preciousnwaoha/nocode-pipeline-builder)** - Open-source no-code AI pipeline builder like VectorShift or n8n (Python, FastAPI, LLM Pipelines, React)
+- 🎨 **[ImageColorEditor](https://github.com/preciousnwaoha/imagecoloreditor)** - Change any color, in any part, of any image for free (I'm sorry, I really needed this tool).
+- 🧸 **[HumanJobHunter](https://github.com/preciousnwaoha/humanjobhunter)** - Find your next role fast. Outsource job hunting. - Next.js + Supabase (Currently at $240+ MRR)
 - 💦 **[Inkspiff](https://github.com/inkspiff/inkspiff-server)** - Index, document, and query any large codebase in seconds with AI. (Node.js + LLM(APIs, RAG, MCP) + Self-hosting)
 - 📜 **[Inkspiff Web](https://github.com/inkspiff/inkspiff)** - Understand any codebas. One click. One Prompt. Generate multi-page docs of any codebase with collaborative markdown editor/preview, and real-time automatic version syncing. (Next.js + Web Sockets + CRDT with Y.js)
-- 🪄 **[nocode-pipeline-builder](https://github.com/preciousnwaoha/nocode-pipeline-builder)** - Open-source no-code AI pipeline builder like VectorShift or n8n (Python, FastAPI, LLM Pipelines, React)
+
 
 ### Legacy Stuff
-
 - 🎧 **[Popla](https://getpopla.com)** - Join live DJ sessions by location (Mobile - React Native + Next.js) (1k downloads)
+- 🔬 **[Includda](https://includda.com)** - Healthcare supplychain & insurrance platform for service providers. (Next.js + Tailwind CSS + AWS)
 - 🛍️ **[Kaffy Store](https://github.com/preciousnwaoha/iamkaffy-brand-website)** - Brand Site + E-commerce Store with React and Firebase (2m+ fanbase)
 - 🔄 **[Alphatunes](https://www.youtube.com/watch?v=BJPbvJyOvMg)** - Basicaly built Spotify but for ... (React Native)
 - 🗞️ **[Innews](https://github.com/preciousnwaoha/innoscripta-news)** - Personalized News Aggregator (React, Tailwind CSS)
@@ -67,6 +67,7 @@
 - 🛡️ **[Patentic](https://github.com/preciousnwaoha/patentic-bunzzl)** - A Blockchain-Based Platform for Patent Registration and Management (Hackathon Winner)
 - 🧩 **[Chaincity](https://github.com/preciousnwaoha/chaincity)** - If NFTs + Polymarket + New Ideas where used in Monopoly.
 - 🪙 **[Hupay](https://github.com/preciousnwaoha/hupay)** - Unanonymous crypto transactions via Etherium (for Businesses) (hupay.netlify.app) (Hackathon Winner)
+- 🪙 **[Alien Invasion](https://github.com/preciousnwaoha/alien-invasion)** - I really enjoyed building this Python Game(Physics, Effects, Graphics, Sound, etc)
 
 ## GitHub Activity
 
@@ -83,13 +84,13 @@
 
 <!-- BLOG-POST-LIST:START -->
 
-- [Make AI apps 20x Better - System Prompt like A Pro](https://preciousnwaoha.github.io/posts/2026/system-promt-like-a-pro)
-- [Control AI with Custom Mouse Gestures](https://preciousnwaoha.github.io/posts/2026/control-ai-with-mouse-gestures)
-- [Lifecyle emails can save your SaaS](https://preciousnwaoha.github.io/posts/2026/how-lifecycle-emails-can-save-your-product)
+- [Make AI apps 20x Better - System Prompt like A Pro](https://preciousnwaoha.github.io/blog/system-prompt-like-a-pro)
+- [Control AI with Custom Mouse Gestures](https://preciousnwaoha.github.io/blog/control-ai-with-mouse-gestures)
+- [Lifecyle emails can save your SaaS](https://preciousnwaoha.github.io/blog/how-lifecycle-emails-can-save-your-product)
 - [Velin AI: Undetectable Real-time AI for Live Interviews & Tests](https://velinai.live/posts)
-- [My Current Coding Workflow For Rapid Iteration ](https://preciousnwaoha.github.io/posts/2026/my-current-development-workflow-with-ai)
-<!-- - [Inskpiff 2.0 – OpenSource AI Tool to Understand Any Codebase](https://preciousnwaoha.github.io/posts/2026/peekaboo-2-freeing-the-cli-from-its-mcp-shackles) -->
-<!-- - [My AI Workflow for Understanding Any Codebase](https://preciousnwaoha.github.io/posts/2026/understanding-codebases-with-ai-gemini-workflow) -->
+- [My Current Coding Workflow For Rapid Iteration ](https://preciousnwaoha.github.io/blog/my-current-development-workflow-with-ai)
+<!-- - [Inskpiff 2.0 – OpenSource AI Tool to Understand Any Codebase](https://preciousnwaoha.github.io/blog/peekaboo-2-freeing-the-cli-from-its-mcp-shackles) -->
+<!-- - [My AI Workflow for Understanding Any Codebase](https://preciousnwaoha.github.io/blog/understanding-codebases-with-ai-gemini-workflow) -->
 
 
 <!-- BLOG-POST-LIST:END -->
