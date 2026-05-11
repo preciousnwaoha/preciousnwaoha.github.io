@@ -867,3 +867,17 @@ window.navigateToProject = function (slug) {
     })
     .catch(() => {});
 })();
+
+/*------------------- CV dropdown ---------------------*/
+(() => {
+  const cvDropdown = document.querySelector('.cv-dropdown');
+  const cvToggle = document.querySelector('.cv-btn-toggle');
+  if (!cvToggle) return;
+  cvToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    cvDropdown.classList.toggle('open');
+  });
+  document.addEventListener('click', () => {
+    cvDropdown.classList.remove('open');
+  });
+})();
