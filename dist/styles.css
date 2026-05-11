@@ -2953,14 +2953,17 @@ body:not(.dark) .portfolio-popup .pp-close { background: rgba(255,255,255,0.7); 
   top: calc(100% + 8px);
   left: 0;
   min-width: 230px;
-  background: var(--bg-black-50);
+  background: #eff0f4;
   border-radius: 12px;
   padding: 6px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
-  transition: all 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+body.dark .cv-dropdown-panel {
+  background: #2a2a2a;
 }
 .cv-dropdown.open .cv-dropdown-panel {
   opacity: 1;
