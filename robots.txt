@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://preciousnwaoha.github.io/sitemap.xml
+Sitemap: https://preciousn.me/sitemap.xml

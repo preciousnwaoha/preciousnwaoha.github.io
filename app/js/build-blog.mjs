@@ -6,7 +6,7 @@ import MarkdownIt from "markdown-it";
 
 const ROOT = process.cwd();
 
-const SITE_URL = "https://preciousnwaoha.github.io";
+const SITE_URL = "https://preciousn.me";
 const SITE_NAME = "Precious Nwaoha";
 const BLOG_DESCRIPTION = "Writing about AI engineering, SaaS, fullstack development and indie hacking — from real production experience.";
 
@@ -20,6 +20,8 @@ const INDEX_TEMPLATE_PATH = path.join(TEMPLATE_DIR, "index.html");
 const OUT_BLOG_INDEX  = path.join(BLOG_DIR, "index.html");
 const OUT_SITEMAP     = path.join(ROOT, "sitemap.xml");
 const PORT_INDEX_PATH = path.join(ROOT, "index.html");
+const VIDEOS_DIR      = path.join(ROOT, "videos");
+const OUT_VIDEOS_INDEX = path.join(VIDEOS_DIR, "index.html");
 
 // Tag → display color for the portfolio posts section
 const TAG_COLORS = {

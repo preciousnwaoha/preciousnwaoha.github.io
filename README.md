@@ -4,8 +4,8 @@
 
 **Senior Fullstack Product & AI Engineer · Indie Hacker · [@takaraqode](https://x.com/takaraqode)**
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-preciousnwaoha.github.io-fb839e?style=for-the-badge&logo=github)](https://preciousnwaoha.github.io)
-[![Blog](https://img.shields.io/badge/Blog-/blog-2eb1ed?style=for-the-badge)](https://preciousnwaoha.github.io/blog)
+[![Live Site](https://img.shields.io/badge/Live%20Site-preciousn.me-fb839e?style=for-the-badge&logo=github)](https://preciousn.me)
+[![Blog](https://img.shields.io/badge/Blog-/blog-2eb1ed?style=for-the-badge)](https://preciousn.me/blog)
 [![X](https://img.shields.io/badge/@takaraqode-000000?style=for-the-badge&logo=x)](https://x.com/takaraqode)
 
 > Built with **zero frontend frameworks** — pure HTML, CSS & vanilla JS.  
@@ -216,7 +216,7 @@ featured: true   # optional — promotes to featured card on homepage
 
 <div align="center">
 
-**[preciousnwaoha.github.io](https://preciousnwaoha.github.io)** · [Blog](https://preciousnwaoha.github.io/blog) · [Velin AI](https://velinai.live) · [X](https://x.com/takaraqode) · [LinkedIn](https://linkedin.com/in/preciousnwaoha04)
+**[preciousn.me](https://preciousn.me)** · [Blog](https://preciousn.me/blog) · [Velin AI](https://velinai.live) · [X](https://x.com/takaraqode) · [LinkedIn](https://linkedin.com/in/preciousnwaoha04)
 
 *Built with HTML, CSS & JS — because constraints breed creativity.*
 

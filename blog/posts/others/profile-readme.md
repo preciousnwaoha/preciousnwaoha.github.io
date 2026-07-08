@@ -77,7 +77,7 @@
 ## What I'm Doing
 
 - **Living in the future** - Learning and building AI products to make daily processes easier for everyone.
-- **Writing about AI engineering, product(SaaS) &my workflows** - Sharing my learnings on [preciousnwaoha.github.io](https://preciousnwaoha.github.io)
+- **Writing about AI engineering, product(SaaS) &my workflows** - Sharing my learnings on [preciousn.me](https://preciousn.me)
 - **Indie hacking** - Sharing solo-built products like Velin AI and scaling to 10k mrr [@takaraqode](https://x.com/takaraqode)
 <!-- - **[Speaking at conferences](https://github.com/steipete/speaking)** - On vibe coding vs agentic engineering and the future of development -->
 
@@ -85,23 +85,23 @@
 
 <!-- BLOG-POST-LIST:START -->
 
-- [Make AI apps 20x Better - System Prompt like A Pro](https://preciousnwaoha.github.io/blog/system-prompt-like-a-pro)
-- [Control AI with Custom Mouse Gestures](https://preciousnwaoha.github.io/blog/control-ai-with-mouse-gestures)
-- [Lifecyle emails can save your SaaS](https://preciousnwaoha.github.io/blog/how-lifecycle-emails-can-save-your-product)
+- [Make AI apps 20x Better - System Prompt like A Pro](https://preciousn.me/blog/system-prompt-like-a-pro)
+- [Control AI with Custom Mouse Gestures](https://preciousn.me/blog/control-ai-with-mouse-gestures)
+- [Lifecyle emails can save your SaaS](https://preciousn.me/blog/how-lifecycle-emails-can-save-your-product)
 - [Velin AI: Undetectable Real-time AI for Live Interviews & Tests](https://velinai.live/posts)
-- [My Current Coding Workflow For Rapid Iteration ](https://preciousnwaoha.github.io/blog/my-current-development-workflow-with-ai)
-<!-- - [Inskpiff 2.0 – OpenSource AI Tool to Understand Any Codebase](https://preciousnwaoha.github.io/blog/peekaboo-2-freeing-the-cli-from-its-mcp-shackles) -->
-<!-- - [My AI Workflow for Understanding Any Codebase](https://preciousnwaoha.github.io/blog/understanding-codebases-with-ai-gemini-workflow) -->
+- [My Current Coding Workflow For Rapid Iteration ](https://preciousn.me/blog/my-current-development-workflow-with-ai)
+<!-- - [Inskpiff 2.0 – OpenSource AI Tool to Understand Any Codebase](https://preciousn.me/blog/peekaboo-2-freeing-the-cli-from-its-mcp-shackles) -->
+<!-- - [My AI Workflow for Understanding Any Codebase](https://preciousn.me/blog/understanding-codebases-with-ai-gemini-workflow) -->
 
 
 <!-- BLOG-POST-LIST:END -->
 
-[![My Blog](https://img.shields.io/badge/-My%20Blog-FF5722?style=flat-square&logo=hugo&logoColor=white)](https://preciousnwaoha.github.io/posts)
+[![My Blog](https://img.shields.io/badge/-My%20Blog-FF5722?style=flat-square&logo=hugo&logoColor=white)](https://preciousn.me/posts)
 [![Velin AI Blog](https://img.shields.io/badge/-Velin%20AI%20Blog-111111?style=flat-square&logoColor=white)](https://velinai.live/blog)
 [![HumanJobHunter Blog](https://img.shields.io/badge/-HumanJobHunter%20Blog-111111?style=flat-square&logoColor=white)](https://humanjobhunter.com/blog)
 
 ## Connect
-[![My Blog Posts](https://img.shields.io/badge/-My%20Blog%20Posts-000000?style=flat-square&logoColor=white)](https://preciousnwaoha.github.io/posts)
+[![My Blog Posts](https://img.shields.io/badge/-My%20Blog%20Posts-000000?style=flat-square&logoColor=white)](https://preciousn.me/posts)
 [![X](https://img.shields.io/badge/-@takaraqode-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/takaraqode)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/preciousnwaoha04)
 [![StackOverflow](https://img.shields.io/badge/Stack%20Overflow-F58025?style=flat-square&logo=stackoverflow&logoColor=white)](https://stackoverflow.com/users/16596681/takara-qode)

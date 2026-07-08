@@ -229,7 +229,7 @@
       "description": "Learn Electrical Engineering Circuit Diagrams in a fun way, one component at a time! Sparkplay is an educational web game that teaches users about electrical circuit diagrams through interactive gameplay. Players progress by correctly identifying and placing components in various circuit configurations, enhancing their understanding of electrical engineering concepts while having fun.",
       "date": "2022",
       "github": "https://github.com/preciousnwaoha/sparkplay",
-      "link": "https://preciousnwaoha.netlify.app/",
+      "link": "https://preciousn.me/",
       "tools": ["Next.js", "React.js", "CSS", "Redux", "Javascript"],
       "client": "Self (Open Source)"
     },
@@ -243,7 +243,7 @@
       "description": "Patentic allows users to easily create, store, and view patents on the platform. Users can upload their patent documents and store them securely on the blockchain, ensuring that they are tamper-proof and immutable. They can also view and manage their patents from their dashboard, making it easier to keep track of their intellectual property.",
       "date": "2022",
       "github": "https://github.com/preciousnwaoha/patentic-client",
-      "link": "https://preciousnwaoha.netlify.app/",
+      "link": "https://preciousn.me/",
       "tools": [
         "Next.js",
         "Ethers.js",
@@ -262,7 +262,7 @@
       "description": "",
       "date": "2022",
       "github": "https://github.com/preciousnwaoha/simple-portfolio-site_zuri",
-      "link": "https://preciousnwaoha.netlify.app/",
+      "link": "https://preciousn.me/",
       "tools": ["HTML", "CSS", "Javascript"],
       "client": "Self (Open Source)"
     },
